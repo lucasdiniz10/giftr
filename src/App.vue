@@ -34,5 +34,7 @@ export default {
 </script>
 
 <style>
-
+:root {
+  font-size: 60%;
+  }
 </style>

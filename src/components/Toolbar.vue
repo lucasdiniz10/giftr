@@ -16,23 +16,19 @@ export default {
 };
 </script>
 
-<style>
-:root {
-  font-size: 60%;
-}
+<style lang="stylus" scoped>
+
 #container {
   margin: 0;
   margin-bottom: 2.4rem;
   padding: 0;
   display: flex;
   height: 10vh;
-  justify-content: center;
 }
 
 #toolbar {
   margin: 0;
   padding: 0.2rem;
-  display: flex;
 }
 
 #menu-button {
