@@ -49,7 +49,7 @@ export default {
 
 
 
-<style>
+<style scoped>
 :root {
   font-size: 60%;
 }
