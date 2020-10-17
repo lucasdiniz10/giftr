@@ -1,14 +1,13 @@
 <template>
   <q-page class="flex flex-center">
     <link rel="stylesheet" href="../styles/colors.css" />
-
-    <header>
-      <div class="content">
+    <div id="home">
+      <header>
         <div id="header-text">
-          <h1 class="title">
+          <h1 class="title" id="home-welcome">
             Bem-vindo ao <span>giftr</span>, sua plataforma de doações.
           </h1>
-          <p>
+          <p id="home-description">
             Acreditamos nas pessoas e no poder do amor ao próximo. Contribua em
             alguma das instituições parceiras.
           </p>
@@ -30,20 +29,27 @@
             id="button-more"
           />
         </div>
-      </div>
-    </header>
+      </header>
 
-    <body>
-      <div class="content">
-        <h1 class="title">Escolha uma Causa:</h1>
-      </div>
-    </body>
+      <body>
+        <div class="body-content">
+          <h1 class="title" id="cause-title">Escolha uma Causa:</h1>
+          <CardCause />
+        </div>
+      </body>
+    </div>
   </q-page>
 </template>
 
 <script>
+import CardCause from "./CardCause";
+
 export default {
   name: "Home",
+
+  components: {
+    CardCause,
+  },
 };
 </script>
 
@@ -58,11 +64,16 @@ body {
   background: #e5e5e5;
 }
 
-.content {
+.body-content {
+  margin-top: 6.4rem;
+}
+
+#home {
   padding: 0 3.2rem;
   margin: 0 3.2rem;
   margin-bottom: 6.4rem;
   justify-content: center;
+  max-width: 720px;
 }
 
 header img {
@@ -70,8 +81,9 @@ header img {
   margin-top: 6.4rem;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 3.2rem;
+  margin-bottom: 6.4rem;
   width: 90%;
+  max-width: 400px;
 }
 
 #header-text {

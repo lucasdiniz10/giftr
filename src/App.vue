@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import Home from "./components/Home.vue";
+import Home from "./components/Home.vue"
 import Toolbar from "./components/Toolbar"
 
 export default {
