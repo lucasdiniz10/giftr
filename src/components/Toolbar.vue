@@ -1,9 +1,40 @@
 <template>
   <div class="q-pa-md q-gutter-y-sm" id="container">
     <q-toolbar class="text-primary" id="toolbar">
-      <q-btn flat round dense icon="menu" id="menu-button" />
+      <div class="menu">
+        <q-btn-dropdown flat round dense icon="menu" id="menu-button">
+          <q-list class="menu-items">
+            <q-item clickable v-close-popup @click="onItemClick">
+              <q-item-section>
+                <q-item-label>Doar</q-item-label>
+              </q-item-section>
+            </q-item>
+
+            <q-item clickable v-close-popup @click="onItemClick">
+              <q-item-section>
+                <q-item-label>Quem Somos?</q-item-label>
+              </q-item-section>
+            </q-item>
+
+            <q-item clickable v-close-popup @click="onItemClick">
+              <q-item-section>
+                <q-item-label>Entar</q-item-label>
+              </q-item-section>
+            </q-item>
+
+            <q-item clickable v-close-popup @click="onItemClick">
+              <q-item-section>
+                <q-item-label>Cadastrar-se</q-item-label>
+              </q-item-section>
+            </q-item>
+          </q-list>
+        </q-btn-dropdown>
+      </div>
+      <!-- <q-btn flat round dense icon="menu" id="menu-button" /> -->
       <div class="logo-container">
-        <img alt="Logo do Giftr" src="../assets/logo-giftr.svg" id="logo" />
+        <a href="">
+          <img alt="Logo do Giftr" src="../assets/logo-giftr.svg" id="logo" />
+        </a>
       </div>
       <!-- <q-btn flat round dense icon="more_vert" /> -->
     </q-toolbar>
@@ -17,7 +48,6 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-
 #container {
   margin: 0;
   margin-bottom: 2.4rem;
@@ -33,6 +63,11 @@ export default {
 
 #menu-button {
   margin-left: 1rem;
+  color: #3457dc;
+}
+
+.menu-items {
+  font: 800 1.6rem Montserrat;
   color: #3457dc;
 }
 
