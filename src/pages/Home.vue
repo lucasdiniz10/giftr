@@ -34,10 +34,9 @@
       <body>
         <div class="body-content">
           <h1 class="title" id="cause-title">Escolha uma Causa:</h1>
-          
+
           <div v-for="cardCause in cardCauses" :key="cardCause.id">
             <CardCause :cardCause="cardCause"/>
-          
           </div>
         </div>
       </body>
@@ -46,7 +45,7 @@
 </template>
 
 <script>
-import CardCause from "./CardCause";
+import CardCause from "../components/CardCause";
 
 export default {
   name: "Home",
@@ -61,17 +60,17 @@ export default {
         {
           id: 1,
           name: "Saúde",
-          image: require('../assets/vectors/home/avatar-saude.svg'),
+          image: require("../assets/vectors/home/avatar-saude.svg"),
         },
         {
           id: 2,
           name: "Meio Ambiente",
-          image: require('../assets/vectors/home/avatar-meio-ambiente.svg'),
+          image: require("../assets/vectors/home/avatar-meio-ambiente.svg"),
         },
         {
           id: 3,
           name: "Proteção Animal",
-          image: require('../assets/vectors/home/avatar-protecao-animal.svg'),
+          image: require("../assets/vectors/home/avatar-protecao-animal.svg"),
         },
       ],
     };
