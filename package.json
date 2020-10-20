@@ -14,7 +14,8 @@
     "express": "^4.17.1",
     "mongoose": "^5.10.9",
     "quasar": "^1.0.0",
-    "vue": "^2.6.11"
+    "vue": "^2.6.11",
+    "vue-router": "^3.4.7"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
