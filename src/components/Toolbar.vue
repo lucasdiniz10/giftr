@@ -24,7 +24,7 @@
 
             <q-item clickable v-close-popup @click="onItemClick">
               <q-item-section>
-                <q-item-label>Cadastrar-se</q-item-label>
+                <q-item-label>Cadastre-se</q-item-label> 
               </q-item-section>
             </q-item>
           </q-list>
