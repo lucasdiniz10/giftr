@@ -62,13 +62,13 @@ export default {
 }
 
 #menu-button {
-  margin-left: 1rem;
-  color: #3457dc;
+  margin-left 1rem;
+  color var(--color-primary);
 }
 
 .menu-items {
-  font: 800 1.6rem Montserrat;
-  color: #3457dc;
+  font 800 1.2rem Montserrat;
+  color var(--color-primary);
 }
 
 .logo-container {
@@ -78,4 +78,5 @@ export default {
 #logo {
   height: 3rem;
 }
+
 </style>

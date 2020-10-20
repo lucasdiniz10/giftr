@@ -82,14 +82,7 @@ export default {
 
 
 
-<style>
-:root {
-  font-size: 60%;
-}
-
-body {
-  background: #e5e5e5;
-}
+<style lang="stylus">
 
 .body-content {
   margin-top: 6.4rem;
@@ -98,9 +91,8 @@ body {
 #home {
   padding: 0 3.2rem;
   margin: 0 3.2rem;
-  margin-bottom: 6.4rem;
+  margin-bottom: 6.4rem;  max-width: 720px;
   justify-content: center;
-  max-width: 720px;
 }
 
 header img {
@@ -114,7 +106,7 @@ header img {
 }
 
 #header-text {
-  color: #00160a;
+  color: var(-color-dark);
   text-align: center;
 }
 
@@ -122,7 +114,7 @@ header img {
   font: 800 3.2rem Montserrat;
 }
 header h1 span {
-  color: #3457dc;
+  color: var(--color-primary);
 }
 
 header p {
@@ -151,4 +143,6 @@ header p {
   margin-right: auto;
   width: 100%;
 }
+
+
 </style>

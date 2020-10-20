@@ -5,7 +5,6 @@
       rel="stylesheet"
     />
 
-
     <q-page-container>
       <Toolbar />
       <Home />
@@ -14,8 +13,8 @@
 </template>
 
 <script>
-import Home from "./pages/Home"
-import Toolbar from "./components/Toolbar"
+import Home from "./pages/Home";
+import Toolbar from "./components/Toolbar";
 
 export default {
   name: "LayoutDefault",
@@ -36,5 +35,24 @@ export default {
 <style>
 :root {
   font-size: 60%;
+
+  --color-background: #e5e5e5;
+  --color-primary: #3457dc;
+  --color-secondary: #e93a57;
+  --color-secondary-text-color: #637de1;
+  --color-dark: #00160a;
+
+  background: var(--color-background);
+}
+
+html,
+body {
+  height: 100vh;
+}
+
+@media (min-width: 700px) {
+  :root {
+    font-size: 62.5%;
   }
+}
 </style>
