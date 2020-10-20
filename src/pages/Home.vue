@@ -48,7 +48,6 @@
 import CardCause from "../components/CardCause";
 
 
-
 export default {
   name: "Home",
 
