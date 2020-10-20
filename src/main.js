@@ -8,14 +8,18 @@ import {
   Quasar,
   QImg,
   QToolbar,
-  QToolbarTitle
+  QToolbarTitle,
+  QInput,
+  QForm
 } from 'quasar'
 
 Vue.use(Quasar, {
   components: {
     QImg,
     QToolbar,
-    QToolbarTitle
+    QToolbarTitle,
+    QInput,
+    QForm
   }
 })
 
