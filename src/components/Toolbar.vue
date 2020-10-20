@@ -24,7 +24,7 @@
 
             <q-item clickable v-close-popup @click="onItemClick">
               <q-item-section>
-                <q-item-label>Cadastre-se</q-item-label> 
+                <q-item-label>Cadastre-se</q-item-label>
               </q-item-section>
             </q-item>
           </q-list>
@@ -32,9 +32,12 @@
       </div>
       <!-- <q-btn flat round dense icon="menu" id="menu-button" /> -->
       <div class="logo-container">
-        <a href="">
-          <img alt="Logo do Giftr" src="../assets/logo-giftr.svg" id="logo" />
-        </a>
+        <img
+          alt="Logo do Giftr"
+          src="../assets/logo-giftr.svg"
+          id="logo"
+          @click="$router.push('/')"
+        />
       </div>
       <!-- <q-btn flat round dense icon="more_vert" /> -->
     </q-toolbar>
@@ -49,16 +52,16 @@ export default {
 
 <style lang="stylus" scoped>
 #container {
-  margin: 0;
-  margin-bottom: 2.4rem;
-  padding: 0;
-  display: flex;
-  height: 10vh;
+  margin 0;
+  margin-bottom 2.4rem;
+  padding 0;
+  display flex;
+  height 10vh;
 }
 
 #toolbar {
-  margin: 0;
-  padding: 0.2rem;
+  margin 0;
+  padding 0.2rem;
 }
 
 #menu-button {
@@ -72,11 +75,11 @@ export default {
 }
 
 .logo-container {
-  margin: 0 auto;
+  margin 0 auto;
 }
 
 #logo {
-  height: 3rem;
+  height 3rem;
+  cursor pointer
 }
-
 </style>
