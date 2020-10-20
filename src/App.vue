@@ -4,23 +4,20 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Quicksand:wght@400;700&display=swap"
       rel="stylesheet"
     />
+    <Toolbar />
 
-    <q-page-container>
-      <Toolbar />
-      <Home />
-    </q-page-container>
+    <router-view />
+
   </q-layout>
 </template>
 
 <script>
-import Home from "./pages/Home";
 import Toolbar from "./components/Toolbar";
 
 export default {
   name: "LayoutDefault",
 
   components: {
-    Home,
     Toolbar,
   },
 
