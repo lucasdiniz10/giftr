@@ -6,7 +6,7 @@
           <q-list class="menu-items">
             <q-item clickable v-close-popup >
               <q-item-section>
-                <q-item-label>Doar</q-item-label>
+                <q-item-label class="label">Doar</q-item-label>
               </q-item-section>
             </q-item>
 
@@ -71,6 +71,9 @@ export default {
 
 .menu-items {
   font 800 1.2rem Montserrat;
+}
+
+.label {
   color var(--color-primary);
 }
 

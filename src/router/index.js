@@ -5,6 +5,7 @@ import Home from '@/pages/Home'
 import Login from '@/pages/Login'
 import AboutUs from '@/pages/AboutUs'
 import Register from '@/pages/Register'
+import User from '@/pages/User'
 
 Vue.use(Router)
 
@@ -18,6 +19,11 @@ const routes = [
     name: 'login',
     path: '/login',
     component: Login
+  },
+  {
+    name: 'user',
+    path: '/User',
+    component: User
   },
   {
     name: 'about us',

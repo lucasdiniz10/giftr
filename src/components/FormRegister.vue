@@ -1,7 +1,7 @@
 <template>
   <div id="form">
     <q-form
-      action="http://localhost:3333/users/post"
+      action="http://localhost:8080/#/user"
       method="post"
       @submit="onSubmit"
       class="q-gutter-md"
@@ -28,7 +28,7 @@
 
       <q-input
         filled
-        type="text"
+        type="password"
         v-model="user.password"
         hint="Senha"
         :rules="[(val) => (val && val.length > 0) || 'Please type something']"
@@ -36,8 +36,8 @@
 
       <q-input
         filled
+        type="password"
         v-model="user.passwordRepeat"
-        type="text"
         hint="Repita sua Senha"
         :rules="[(val) => (val && val.length > 0) || 'Please type something']"
       />
@@ -78,9 +78,9 @@ export default {
 
   methods: {
     onSubmit(evt) {
-      console.log("@submit - do something here", evt);
+      console.log(this.user, evt);
 
-      evt.target.submit();
+      evt.target.submit(this.user);
     },
   },
 };
