@@ -12,19 +12,19 @@
 
             <q-item clickable v-close-popup @click="onItemClick">
               <q-item-section>
-                <q-item-label>Quem Somos?</q-item-label>
+                <router-link to="AboutUs"><q-item-label class="label">Quem Somos?</q-item-label></router-link>
               </q-item-section>
             </q-item>
 
             <q-item clickable v-close-popup @click="onItemClick">
               <q-item-section>
-                <q-item-label>Entar</q-item-label>
+                <router-link to="Login"><q-item-label class="label">Entrar</q-item-label></router-link>
               </q-item-section>
             </q-item>
 
             <q-item clickable v-close-popup @click="onItemClick">
               <q-item-section>
-                <q-item-label>Cadastre-se</q-item-label>
+                <router-link to="Register"><q-item-label class="label">Cadastre-se</q-item-label></router-link>
               </q-item-section>
             </q-item>
           </q-list>
@@ -81,5 +81,9 @@ export default {
 #logo {
   height 3rem;
   cursor pointer
+}
+
+ #label, a {
+  text-decoration: none
 }
 </style>

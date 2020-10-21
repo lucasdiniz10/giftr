@@ -1,13 +1,16 @@
 <template>
   <q-layout view="lHh Lpr lFf">
+    <q-page-container>
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Quicksand:wght@400;700&display=swap"
       rel="stylesheet"
     />
     <Toolbar />
+    </q-page-container>
 
-    <router-view />
-
+    <q-page-container>
+      <router-view />
+    </q-page-container>
   </q-layout>
 </template>
 
