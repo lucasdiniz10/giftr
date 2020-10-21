@@ -1,8 +1,8 @@
 <template>
-  <div class="container" id="login">
+  <div class="container" id="register">
     <header class="header-container">
       <h1 id="title">Obrigado por dar esse passo!</h1>
-      <p>Bem vindo ao seu cadastro.</p>
+      <p>Digite seu nome completo, email e senha.</p>
     </header>
     <main class="main-container">
       <Form />

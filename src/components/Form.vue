@@ -7,9 +7,8 @@
         label="Nome"
         hint="Nome Completo"
         lazy-rules
-        :rules="[(val) => (val && val.length > 0) || 'Please type something']"
       />
-
+<!-- :rules="[(val) => (val && val.length > 0) || 'Please type something']" -->
       <q-input
         filled
         type="email"
@@ -17,7 +16,6 @@
         label="Email"
         hint="Seu Melhor Email"
         lazy-rules
-        :rules="[(val) => (val && val.length > 0) || 'Please type something']"
       />
 
       <q-input filled v-model="password" type="password" hint="Senha" />
