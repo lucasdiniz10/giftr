@@ -4,25 +4,25 @@
       <div class="menu">
         <q-btn-dropdown flat round dense icon="menu" id="menu-button">
           <q-list class="menu-items">
-            <q-item clickable v-close-popup @click="onItemClick">
+            <q-item clickable v-close-popup >
               <q-item-section>
                 <q-item-label>Doar</q-item-label>
               </q-item-section>
             </q-item>
 
-            <q-item clickable v-close-popup @click="onItemClick">
+            <q-item clickable v-close-popup >
               <q-item-section>
                 <router-link to="AboutUs"><q-item-label class="label">Quem Somos?</q-item-label></router-link>
               </q-item-section>
             </q-item>
 
-            <q-item clickable v-close-popup @click="onItemClick">
+            <q-item clickable v-close-popup >
               <q-item-section>
                 <router-link to="Login"><q-item-label class="label">Entrar</q-item-label></router-link>
               </q-item-section>
             </q-item>
 
-            <q-item clickable v-close-popup @click="onItemClick">
+            <q-item clickable v-close-popup >
               <q-item-section>
                 <router-link to="Register"><q-item-label class="label">Cadastre-se</q-item-label></router-link>
               </q-item-section>

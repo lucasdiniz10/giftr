@@ -1,23 +1,23 @@
 <template>
   <div class="container" id="login">
     <header class="header-container">
-      <h1 id="title">Olá</h1>
+      <h1 id="title">Olá, seja bem-vindo de volta!</h1>
       <p>Digite seu nome completo, email e senha.</p>
     </header>
     <main class="main-container">
-      <Form />
+      <FormRegister />
     </main>
   </div>
 </template>
 
 <script>
-import Form from '../components/Form'
+import FormRegister from '../components/FormRegister'
 
 export default {
   name: 'Login',
 
   components: {
-    Form,
+    FormRegister,
   },
 }
 </script>
