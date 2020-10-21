@@ -1,13 +1,16 @@
 <template>
   <q-layout view="lHh Lpr lFf">
+    <q-page-container>
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Quicksand:wght@400;700&display=swap"
       rel="stylesheet"
     />
     <Toolbar />
+    </q-page-container>
 
-    <router-view />
-
+    <q-page-container>
+      <router-view />
+    </q-page-container>
   </q-layout>
 </template>
 
@@ -38,6 +41,7 @@ export default {
   --color-secondary: #e93a57;
   --color-secondary-text-color: #637de1;
   --color-dark: #00160a;
+  --color-light: #ffffff;
 
   background: var(--color-background);
 }
@@ -45,6 +49,14 @@ export default {
 html,
 body {
   height: 100vh;
+}
+
+.container {
+  padding: 0 3.2rem;
+  margin: 0 auto;
+  margin-bottom: 6.4rem;  max-width: 720px;
+  justify-content: center;
+  font: 400 1.6rem Montserrat;
 }
 
 @media (min-width: 700px) {

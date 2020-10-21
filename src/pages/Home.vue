@@ -1,7 +1,7 @@
 <template>
   <q-page class="flex flex-center">
     <link rel="stylesheet" href="../styles/colors.css" />
-    <div id="home">
+    <div class="container" id="home">
       <header>
         <div id="header-text">
           <h1 class="title" id="home-welcome">
@@ -19,12 +19,10 @@
         />
         <div class="button-container">
           <q-btn
-            style="background: #e93a57; color: #ffffff"
-            label="Doar Agora"
-            id="button-donate"
+            label="Doar Agora" 
+            id="button-donate" 
           />
           <q-btn
-            style="background: #3457dc; color: #ffffff"
             label="Saiba Mais"
             id="button-more"
           />
@@ -87,13 +85,6 @@ export default {
   margin-top: 6.4rem;
 }
 
-#home {
-  padding: 0 3.2rem;
-  margin: 0 3.2rem;
-  margin-bottom: 6.4rem;  max-width: 720px;
-  justify-content: center;
-}
-
 header img {
   display: block;
   margin-top: 6.4rem;
@@ -134,6 +125,8 @@ header p {
   margin-left: auto;
   margin-right: auto;
   width: 100%;
+  background: var(--color-secondary);
+  color: var(--color-light)
 }
 
 .button-container #button-more {
@@ -141,6 +134,8 @@ header p {
   margin-left: auto;
   margin-right: auto;
   width: 100%;
+  background: var(--color-primary);
+  color: var(--color-light)
 }
 
 
