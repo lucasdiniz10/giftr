@@ -32,4 +32,8 @@ export default {
   header #title {
     font: 800 3.2rem Montserrat;
   }
+
+  header p {
+    margin-bottom 3.2rem
+  }
 </style>
