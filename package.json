@@ -1,5 +1,5 @@
 {
-  "name": "front-end",
+  "name": "giftr",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -18,7 +18,8 @@
     "mongoose": "^5.10.9",
     "quasar": "^1.0.0",
     "vue": "^2.6.11",
-    "vue-router": "^3.4.7"
+    "vue-router": "^3.4.7",
+    "vuelidate": "^0.7.5"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
