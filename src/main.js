@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
+import Vuelidate from 'vuelidate'
 import './quasar'
 
 import router from '@/router'
@@ -14,7 +15,7 @@ import {
   QBtnDropdown
 } from 'quasar'
 
-Vue.use(Quasar, {
+Vue.use(Quasar, Vuelidate, {
   components: {
     QImg,
     QToolbar,

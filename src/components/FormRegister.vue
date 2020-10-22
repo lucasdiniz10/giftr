@@ -17,7 +17,7 @@
 
       <q-input
         filled
-        type="text"
+        type="email"
         v-model="user.email"
         label="Email"
         hint="Seu Melhor Email"
@@ -30,14 +30,6 @@
         type="password"
         v-model="user.password"
         hint="Senha"
-        :rules="[(val) => (val && val.length > 0) || 'Please type something']"
-      />
-
-      <q-input
-        filled
-        type="password"
-        v-model="user.passwordRepeat"
-        hint="Repita sua Senha"
         :rules="[(val) => (val && val.length > 0) || 'Please type something']"
       />
 
@@ -83,7 +75,6 @@ export default {
         name: "",
         email: "",
         password: "",
-        passwordRepeat: "",
       },
     };
   },
