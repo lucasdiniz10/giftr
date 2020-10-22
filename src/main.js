@@ -15,7 +15,7 @@ import {
   QBtnDropdown
 } from 'quasar'
 
-Vue.use(Quasar, Vuelidate, {
+Vue.use(Quasar, {
   components: {
     QImg,
     QToolbar,
@@ -25,6 +25,8 @@ Vue.use(Quasar, Vuelidate, {
     QBtnDropdown
   }
 })
+
+Vue.use(Vuelidate)
 
 Vue.config.productionTip = false
 
