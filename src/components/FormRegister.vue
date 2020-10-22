@@ -1,8 +1,7 @@
 <template>
   <div id="form">
     <q-form
-      action="http://localhost:8080/#/user"
-      method="post"
+      action= 'http://localhost:8080/?#/User'
       @submit="onSubmit"
       class="q-gutter-md"
     >
@@ -62,6 +61,19 @@
 </template>
 
 <script>
+import axios from 'axios';
+
+async function  post(user) {
+    await axios.post('http://localhost:3333/users/post', user, {
+    headers: {
+    }
+    }).then(res => {
+    console.log(res); 
+    }).catch(err => {
+    console.log(err.response);
+    });
+} 
+
 export default {
   name: "FormRegister",
 
@@ -81,8 +93,13 @@ export default {
       console.log(this.user, evt);
 
       evt.target.submit(this.user);
+
+      post(this.user);
+      
     },
+
   },
+
 };
 </script>
 
