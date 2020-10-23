@@ -141,8 +141,6 @@ header p {
 .button-container #button-donate {
   display: block;
   margin-bottom: 1.2rem;
-  margin-left: auto;
-  margin-right: auto;
   width: 100%;
   background: var(--color-secondary);
   color: var(--color-light);
@@ -150,8 +148,6 @@ header p {
 
 .button-container #button-more {
   margin-bottom: 1.2rem;
-  margin-left: auto;
-  margin-right: auto;
   width: 100%;
   background: var(--color-primary);
   color: var(--color-light);
@@ -179,13 +175,10 @@ header p {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    padding: 0;
-    margin: 0;
   }
 
   .buttons {
-    max-width: 200px;
-    width: 50px;
+    max-width: 240px;
   }
 
   #button-donate {
