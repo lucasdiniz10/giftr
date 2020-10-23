@@ -13,28 +13,23 @@
           </p>
         </div>
         <img
-          alt="Hero Image"
+          alt="Giftr Love"
           src="../assets/vectors/home/home-hero-image.svg"
           id="hero-img"
         />
         <div class="button-container">
-          <q-btn
-            label="Doar Agora" 
-            id="button-donate" 
-          />
-          <q-btn
-            label="Saiba Mais"
-            id="button-more"
-          />
+          <q-btn label="Doar Agora" class="buttons" id="button-donate" />
+          <q-btn label="Saiba Mais" class="buttons" id="button-more" />
         </div>
       </header>
 
       <body>
         <div class="body-content">
           <h1 class="title" id="cause-title">Escolha uma Causa:</h1>
-
-          <div v-for="cardCause in cardCauses" :key="cardCause.id">
-            <CardCause :cardCause="cardCause"/>
+          <div class="cards">
+            <div id="cards" v-for="cardCause in cardCauses" :key="cardCause.id">
+              <CardCause :cardCause="cardCause" />
+            </div>
           </div>
         </div>
       </body>
@@ -44,7 +39,6 @@
 
 <script>
 import CardCause from "../components/CardCause";
-
 
 export default {
   name: "Home",
@@ -71,6 +65,31 @@ export default {
           name: "Proteção Animal",
           image: require("../assets/vectors/home/avatar-protecao-animal.svg"),
         },
+        {
+          id: 4,
+          name: "Educação",
+          image: require("../assets/vectors/home/avatar-educacao.svg"),
+        },
+        {
+          id: 5,
+          name: "Esporte",
+          image: require("../assets/vectors/home/avatar-esporte.svg"),
+        },
+        {
+          id: 6,
+          name: "Acolhimento",
+          image: require("../assets/vectors/home/avatar-acolhimento.svg"),
+        },
+        {
+          id: 7,
+          name: "Arte e Cultura",
+          image: require("../assets/vectors/home/avatar-arte-cultura.svg"),
+        },
+        {
+          id: 8,
+          name: "Direitos Humanos",
+          image: require("../assets/vectors/home/avatar-direitos-humanos.svg"),
+        },
       ],
     };
   },
@@ -80,7 +99,6 @@ export default {
 
 
 <style lang="stylus">
-
 .body-content {
   margin-top: 6.4rem;
 }
@@ -103,6 +121,7 @@ header img {
 .title {
   font: 800 3.2rem Montserrat;
 }
+
 header h1 span {
   color: var(--color-primary);
 }
@@ -126,7 +145,7 @@ header p {
   margin-right: auto;
   width: 100%;
   background: var(--color-secondary);
-  color: var(--color-light)
+  color: var(--color-light);
 }
 
 .button-container #button-more {
@@ -135,8 +154,59 @@ header p {
   margin-right: auto;
   width: 100%;
   background: var(--color-primary);
-  color: var(--color-light)
+  color: var(--color-light);
 }
 
+@media (min-width: 840px) {
+  header {
+    margin-top: 120px;
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    grid-template-rows: 250px 1fr;
+    grid-template-areas: titulo image;
+    button: button;
+  }
 
+  #home-welcome {
+    margin-top: 0;
+  }
+
+  #header-text {
+    text-align: left;
+  }
+
+  .button-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+    margin: 0;
+  }
+
+  .buttons {
+    max-width: 200px;
+    width: 50px;
+  }
+
+  #button-donate {
+    margin-right: 2.4rem;
+  }
+
+  header img {
+    margin: 0 auto;
+    height: 300px;
+  }
+
+  .body-content {
+    margin-top: 200px;
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 250px 1fr;
+    column-gap 3%
+    row-gap 10%
+  }
+}
 </style>

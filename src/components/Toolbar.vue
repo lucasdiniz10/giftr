@@ -63,6 +63,9 @@ export default {
   margin 0;
   padding 0.2rem;
 }
+.menu {
+  position absolute;
+}
 
 #menu-button {
   margin-left 1rem;
@@ -82,7 +85,7 @@ export default {
 }
 
 #logo {
-  height 3rem;
+  height 3.5rem;
   cursor pointer
 }
 

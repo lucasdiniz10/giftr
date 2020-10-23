@@ -5,19 +5,19 @@
       <p>Digite seu nome completo, email e senha.</p>
     </header>
     <main class="main-container">
-      <FormRegister />
+      <FormLogin />
     </main>
   </div>
 </template>
 
 <script>
-import FormRegister from '../components/FormRegister'
+import FormLogin from '../components/FormLogin'
 
 export default {
   name: 'Login',
 
   components: {
-    FormRegister,
+    FormLogin,
   },
 }
 </script>
