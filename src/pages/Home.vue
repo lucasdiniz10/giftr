@@ -157,7 +157,7 @@ header p {
   color: var(--color-light);
 }
 
-@media (min-width: 840px) {
+@media (min-width: 1024px) {
   header {
     margin-top: 120px;
     display: grid;
@@ -203,10 +203,8 @@ header p {
 
   .cards {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 250px 1fr;
-    column-gap 3%
-    row-gap 10%
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 2.5rem;
   }
 }
 </style>
