@@ -1,4 +1,3 @@
-const { from } = require("core-js/fn/array")
 const { Schema } = require("mongoose")
 
 import mongoose, {Schema} from 'mongoose';
