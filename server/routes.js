@@ -14,6 +14,6 @@ routes.post('/users/post', UserController.post);
 
 routes.get('/causes', causecontroller.get);
 routes.get('/causes/:id', causecontroller.getId);
-routes.post('/causes', causecontroller.post);
+routes.post('/causes/post', causecontroller.post);
 
 export default routes;
