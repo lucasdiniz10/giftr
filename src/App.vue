@@ -59,9 +59,14 @@ body {
   font: 400 1.6rem Montserrat;
 }
 
-@media (min-width: 700px) {
+@media (min-width: 840px) {
   :root {
     font-size: 62.5%;
+  }
+
+  .container {
+     padding: 0 8.6rem;
+    max-width: 1100px;
   }
 }
 </style>

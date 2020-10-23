@@ -72,7 +72,7 @@
         Senha é obrigatória.
       </div>
       <div class="error" v-if="!$v.user.password.minLength">
-        Email deve ter no mínimo
+        Senha deve ter no mínimo
         {{ $v.user.password.$params.minLength.min }} letras.
       </div>
       <div class="error" v-if="!$v.user.password.maxLength">
@@ -96,6 +96,14 @@
       <!-- validação repete senha -->
       <div class="error" v-if="!$v.user.passwordRepeat.sameAsPassword">
         Senha deve ser Igual.
+      </div>
+      <div class="error" v-if="!$v.user.passwordRepeat.minLength">
+        Senha deve ter no mínimo
+        {{ $v.user.passwordRepeat.$params.minLength.min }} letras.
+      </div>
+      <div class="error" v-if="!$v.user.passwordRepeat.maxLength">
+        Senha deve ter no máximo
+        {{ $v.user.passwordRepeat.$params.maxLength.max }} letras.
       </div>
       <tree-view
         :data="$v"
@@ -178,6 +186,8 @@ export default {
       },
       passwordRepeat: {
         required,
+        minLength: minLength(6),
+        maxLength: maxLength(15),
         sameAsPassword: sameAs('user.password'),
       },
     },

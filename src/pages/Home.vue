@@ -13,17 +13,19 @@
           </p>
         </div>
         <img
-          alt="Hero Image"
+          alt="Giftr Love"
           src="../assets/vectors/home/home-hero-image.svg"
           id="hero-img"
         />
         <div class="button-container">
           <q-btn
-            label="Doar Agora" 
+            label="Doar Agora"
+            class="buttons"
             id="button-donate" 
           />
           <q-btn
             label="Saiba Mais"
+            class="buttons"
             id="button-more"
           />
         </div>
@@ -138,5 +140,50 @@ header p {
   color: var(--color-light)
 }
 
+@media (min-width 840px) {
+  header {
+    margin-top 120px
+    display grid;
+    grid-template-columns 2fr 2fr;
+    grid-template-rows: 250px 1fr;
+    grid-template-areas: 
+    titulo image 
+    button button; 
+  }
+  #home-welcome {
+    margin-top 0
+  }
+
+  #header-text {
+  text-align left;
+}
+
+  .button-container {
+    width 100%
+    display flex
+    justify-content space-between
+    padding 0
+    margin 0
+  }
+
+  .buttons {
+    max-width 200px
+    width 50px
+  }
+
+  #button-donate {
+    margin-right 2.4rem
+  }
+
+  header img {
+    margin 0 auto
+    height 300px
+  }
+
+  .body-content {
+    margin-top 200px
+  }
+
+}
 
 </style>
