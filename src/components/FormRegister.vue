@@ -201,7 +201,7 @@ export default {
         console.log("errou");
       } else {
         // do your submit logic here
-        this.$router.push("/Users");
+        this.$router.push("/User");
         console.log("agr foi");
         post(this.user);
         this.user.submitStatus = "PENDING";
