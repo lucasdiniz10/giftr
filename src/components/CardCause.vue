@@ -61,4 +61,23 @@ export default {
   width: 100%;
   padding: 0.4rem;
 }
+
+@media (min-width: 840px) {
+  .my-card {
+    max-height 250px
+    min-height  250px
+  }
+
+  .avatar-container {
+  padding: 2.4rem;
+  width: 100%;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  }
+
+  #cause-button {
+    margin auto
+  }
+}
 </style>

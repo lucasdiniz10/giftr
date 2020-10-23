@@ -188,7 +188,7 @@ export default {
         required,
         minLength: minLength(6),
         maxLength: maxLength(15),
-        sameAsPassword: sameAs('user.password'),
+        sameAsPassword: sameAs('password'),
       },
     },
   },
