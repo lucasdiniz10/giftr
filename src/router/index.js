@@ -6,6 +6,7 @@ import Login from '@/pages/Login'
 import AboutUs from '@/pages/AboutUs'
 import Register from '@/pages/Register'
 import User from '@/pages/User'
+import Ongs from '@/pages/Ongs'
 
 Vue.use(Router)
 
@@ -36,6 +37,11 @@ export default new Router({
       name: 'register',
       path: '/Register',
       component: Register
+    },
+    {
+      name: 'ongs',
+      path: '/ongs',
+      component: Ongs
     }
   ]  
 })
