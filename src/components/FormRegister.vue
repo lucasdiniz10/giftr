@@ -105,10 +105,6 @@
         Senha deve ter no máximo
         {{ $v.user.passwordRepeat.$params.maxLength.max }} letras.
       </div>
-      <tree-view
-        :data="$v"
-        :options="{ rootObjectKey: '$v', maxDepth: 2 }"
-      ></tree-view>
 
       <!-- botão -->
       <div class="button">
