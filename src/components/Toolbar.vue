@@ -53,30 +53,20 @@
       </div>
 
       <div class="menu-desktop">
-        <q-btn
-          class="button-desktop"
-          label="Doar"
-        />
+        <router-link to="/">
+          <q-btn class="button-desktop" label="Doar"
+        /></router-link>
 
         <router-link to="AboutUs">
-          <q-btn
-            class="button-desktop"
-            label="Quem Somos?"
-          />
+          <q-btn class="button-desktop" label="Quem Somos?" />
         </router-link>
 
         <router-link to="Login">
-          <q-btn
-            class="button-desktop"
-            label="Entrar"
-          />
+          <q-btn class="button-desktop" label="Entrar" />
         </router-link>
 
         <router-link to="Register">
-          <q-btn
-            class="button-desktop"
-            label="Cadastre-se"
-          />
+          <q-btn class="button-desktop" label="Cadastre-se" />
         </router-link>
       </div>
     </q-toolbar>
@@ -144,20 +134,23 @@ export default {
 
   .menu-desktop {
     display: flex;
-    justify-content space-between
+    justify-content: space-between;
   }
 
   .button-desktop {
-    font: 800 1.2rem Montserrat;
-    color: var(--color-primary);
-    
+    font: 700 1.2rem Montserrat;
+    margin-left: 0.2rem;
+    width: 130px;
+    height: 0%;
   }
 
   #toolbar {
     display: flex;
     justify-content: space-between;
     padding: 0.2rem 6.4rem;
+    margin 0 auto
     margin-top: 3.2rem;
+    max-width 1440px
   }
 
   .logo-container {

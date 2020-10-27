@@ -1,20 +1,16 @@
 <template>
-  <div id="card">
-    <q-card class="my-card">
-      <div class="avatar-container">
-        <a>{{ user }}</a>
-      </div>
-
-      <q-separator />
-
-      <q-card-actions>
-        <div class="card-button-container">
-          <q-btn @click="onSubmit" color="primary" id="cause-button"
-            >asdadadss</q-btn
-          >
+  <div id="about-us">
+    <div id="card" v-for="(user, index) in users" :key="index">
+      <q-card class="my-card">
+        <div class="avatar-container">
+          <a>{{ user.name }}</a>
+          <q-separator />
+          <a>{{ user.email }}</a>
+          <q-separator />
+          <a>{{ user.password }}</a>
         </div>
-      </q-card-actions>
-    </q-card>
+      </q-card>
+    </div>
   </div>
 </template>
 
