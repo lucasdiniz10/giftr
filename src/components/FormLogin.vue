@@ -133,7 +133,7 @@ export default {
         console.log("errou");
       } else {
         // do your submit logic here
-        this.$router.push("/Users");
+        this.$router.push("/user");
         console.log("agr foi");
         get(this.user);
         this.user.submitStatus = "PENDING";
