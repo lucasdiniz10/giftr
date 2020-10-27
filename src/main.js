@@ -12,7 +12,8 @@ import {
   QToolbarTitle,
   QInput,
   QForm,
-  QBtnDropdown
+  QBtnDropdown,
+  QBtn
 } from 'quasar'
 
 Vue.use(Quasar, {
@@ -22,7 +23,8 @@ Vue.use(Quasar, {
     QToolbarTitle,
     QInput,
     QForm,
-    QBtnDropdown
+    QBtnDropdown,
+    QBtn
   }
 })
 

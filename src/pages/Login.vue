@@ -26,7 +26,9 @@ export default {
   
   header {
     text-align center
-    margin-bottom 3.2rem
+    margin-bottom 5rem
+    display block
+    justify-content center
   }
   
   header #title {

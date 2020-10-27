@@ -2,7 +2,7 @@
   <div class="container" id="register">
     <header class="header-container">
       <h1 id="title">Obrigado por dar esse passo!</h1>
-      <p>Bem-vindo ao cadastro!<br>Digite seu nome completo, email e senha.</p>
+      <p>Bem-vindo ao cadastro! Digite seu nome completo, email e senha.</p>
     </header>
     <main class="main-container">
       <FormRegister />
@@ -26,7 +26,9 @@ export default {
   
   header {
     text-align center
-    margin-bottom 3.2rem
+    margin-bottom 5rem
+    display block
+    justify-content center
   }
   
   header #title {
