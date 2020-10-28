@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import causecontroller from './app/controller/causecontroller';
+import ongsconroller from './app/controller/ongsconroller';
 
 import UserController from './app/controller/usercontroller';
 
@@ -15,5 +16,12 @@ routes.post('/users/post', UserController.post);
 routes.get('/causes', causecontroller.get);
 routes.get('/causes/:id', causecontroller.getId);
 routes.post('/causes/post', causecontroller.post);
+
+///////////////////////////////////////////////////////
+// Ongs routes
+
+routes.get('/ongs', ongsconroller.get);
+routes.get('/ongs/:id', ongsconroller.getId);
+routes.post('/ongs/post', ongsconroller.post);
 
 export default routes;

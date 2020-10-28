@@ -4,15 +4,15 @@
       <h1>Instituições:</h1>
       <div class="filter"></div>
     </div>
-    <div class="cause-container">
+    <div class="cause-container" >
       <header>
         <h1>{{ cause.name }}</h1>
         <p>{{ cause.description }}</p>
       </header>
 
       <div class="cards">
-        <div id="cards" v-for="card in cardOngs" :key="card.id">
-          <CardOng :cardOng="card" />
+        <div id="cards" v-for="(ong, index) in ongs" :key="index">
+          <CardOng :cardOng="ong" />
         </div>
       </div>
     </div>
@@ -21,6 +21,7 @@
 
 <script>
 import CardOng from "../components/CardOng";
+import axios from 'axios';
 
 export default {
   name: "Ongs",
@@ -31,6 +32,8 @@ export default {
 
   data() {
     return {
+      ongs: [],
+
       cardOngs: [
         {
           id: 1,
@@ -55,6 +58,19 @@ export default {
       },
     };
   },
+
+  beforeMount(){
+    axios
+      .get("http://localhost:3333/Ongs")
+      .then((res) => {
+        console.log(res.data.Ongs);
+        this.$data.ongs = res.data.Ongs
+        console.log(this.ongs);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
 };
 </script>
 

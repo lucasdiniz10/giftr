@@ -1,5 +1,5 @@
 <template>
-  <div id="card">
+  <div id="card" >
     <q-card class="my-card">
       <div class="avatar-container">
         <img :alt="cardCause.name" :src="cardCause.image" />
@@ -7,8 +7,8 @@
 
       <div class="card-button-container">
         <q-separator />
-        <q-card-actions>
-          <q-btn color="primary" id="cause-button">{{ cardCause.name }}</q-btn>
+        <q-card-actions >
+          <q-btn @click="onClick" color="primary" id="cause-button">{{ cardCause.name }}</q-btn>
         </q-card-actions>
       </div>
     </q-card>
@@ -16,12 +16,19 @@
 </template>
 
 <script>
+
 export default {
   name: "CardCause",
 
   props: {
     cardCause: Object,
   },
+  
+  methods: {
+    onClick(){
+      this.$router.push("/Ongs", );
+    }
+  }
 };
 </script>
 
