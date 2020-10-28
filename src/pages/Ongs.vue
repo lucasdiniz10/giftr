@@ -1,11 +1,13 @@
 <template>
   <div class="container" id="ongs">
-    <div class="ong-title">
+    <div class="title">
       <h1>Instituições:</h1>
-      <div class="filter"></div>
+      <div class="filter">
+        
+      </div>
     </div>
     <div class="cause-container">
-      <header>
+      <header class="header-container">
         <h1>{{ cause.name }}</h1>
         <p>{{ cause.description }}</p>
       </header>
@@ -58,5 +60,32 @@ export default {
 };
 </script>
 
-<style>
+<style lang="stylus" scoped>
+
+.title {
+
+}
+
+.title h1 {
+  font: 800 3.2rem Montserrat;
+  color: var(-color-dark);
+  text-align: center;
+  margin-bottom 6.4rem
+}
+
+.header-container {
+  color: var(-color-dark);
+  text-align: center;
+  margin-bottom 3.2rem
+}
+
+.header-container h1 {
+  font: 800 3.2rem Montserrat;
+}
+
+.header-container p {
+  font: 400 1.6rem Quicksand;
+  line-height 2.4rem
+}
+
 </style>

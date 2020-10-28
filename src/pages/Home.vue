@@ -128,6 +128,7 @@ header h1 span {
 
 header p {
   font: 400 1.6rem Quicksand;
+  line-height 2.4rem
 }
 
 .button-container {
