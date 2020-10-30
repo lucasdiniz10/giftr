@@ -7,6 +7,7 @@ import AboutUs from '@/pages/AboutUs'
 import Register from '@/pages/Register'
 import User from '@/pages/User'
 import Ongs from '@/pages/Ongs'
+import Error404 from '@/pages/Error404'
 
 Vue.use(Router)
 
@@ -42,6 +43,15 @@ export default new Router({
       name: 'ongs',
       path: '/ongs',
       component: Ongs
+    },
+
+
+    // Always leave this as last one,
+    // but you can also remove it
+    {
+      name:'error404',
+      path:'*',
+      component: Error404
     }
   ]  
 })
