@@ -54,41 +54,50 @@ export default {
           id: 1,
           name: "Saúde",
           image: require("../assets/vectors/home/avatar-saude.svg"),
+          description:
+          "Milhões de pessoas no Brasil e no mundo vivem sem condições mínimas de saneamento básico e nutrição, vítimas da miséria ou de tragédias como a de Mariana. Ajude agora as instituições que trabalham pela dignidade e saúde dessas pessoas.",
         },
         {
           id: 2,
           name: "Meio Ambiente",
           image: require("../assets/vectors/home/avatar-meio-ambiente.svg"),
+          description: "Página Meio-Ambiente",
         },
         {
           id: 3,
           name: "Proteção Animal",
           image: require("../assets/vectors/home/avatar-protecao-animal.svg"),
+          description: "Página Proteção Animal",
         },
         {
           id: 4,
           name: "Educação",
           image: require("../assets/vectors/home/avatar-educacao.svg"),
+          description: "Página Educação",
         },
         {
           id: 5,
           name: "Esporte",
           image: require("../assets/vectors/home/avatar-esporte.svg"),
+          description: "Página Esporte",
         },
         {
           id: 6,
           name: "Acolhimento",
           image: require("../assets/vectors/home/avatar-acolhimento.svg"),
+          description: "Página Acolhimento",
         },
         {
           id: 7,
           name: "Arte e Cultura",
           image: require("../assets/vectors/home/avatar-arte-cultura.svg"),
+          description: "Página Arte e Cultura",
         },
         {
           id: 8,
           name: "Direitos Humanos",
           image: require("../assets/vectors/home/avatar-direitos-humanos.svg"),
+          description: "Página Direitos Humanos",
         },
       ],
     };

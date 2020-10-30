@@ -36,3 +36,5 @@ new Vue({
   render: h => h(App),
   router
 }).$mount('#app')
+
+Vue.prototype.$eventBus = new Vue()

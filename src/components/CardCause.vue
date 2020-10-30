@@ -27,7 +27,9 @@ export default {
   methods: {
     onClick(){
       this.$router.push("/Ongs", );
-    }
+      this.$eventBus.$emit('event', this.cardCause)
+      console.log(this.cardCause)
+    },
   }
 };
 </script>

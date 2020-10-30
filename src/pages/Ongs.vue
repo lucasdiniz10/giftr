@@ -53,9 +53,9 @@ export default {
       ],
 
       cause: {
-        name: "Saúde",
-        description:
-          "Milhões de pessoas no Brasil e no mundo vivem sem condições mínimas de saneamento básico e nutrição, vítimas da miséria ou de tragédias como a de Mariana. Ajude agora as instituições que trabalham pela dignidade e saúde dessas pessoas.",
+        id: Number,
+        name: "",
+        description: "",
       },
     };
   },
@@ -71,6 +71,12 @@ export default {
       .catch((error) => {
         console.log(error);
       });
+  },
+
+  created() {
+    this.$eventBus.$on('event', (cardCause) => {
+      this.cause = cardCause
+    })
   }
 };
 </script>
