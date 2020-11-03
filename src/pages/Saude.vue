@@ -8,8 +8,8 @@
     </div>
     <div class="cause-container">
       <header class="header-container">
-        <h1>{{ cause.name }}</h1>
-        <p>{{ cause.description }}</p>
+        <h1>Saúde</h1>
+        <p>"Milhões de pessoas no Brasil e no mundo vivem sem condições mínimas de saneamento básico e nutrição, vítimas da miséria ou de tragédias como a de Mariana. Ajude agora as instituições que trabalham pela dignidade e saúde dessas pessoas."</p>
       </header>
       <div class="cards">
         <div id="cards" v-for="(ong, index) in ongs" :key="index">
@@ -35,7 +35,7 @@ export default {
     return {
       ongs: [],
 
-      cardOngs: [
+      /* cardOngs: [
         {
           id: 1,
           name: "AACD",
@@ -50,7 +50,7 @@ export default {
           image:
             "https://www.paypal-brasil.com.br/doe/assets/20180612_142305975_logo_acredite_sem_fundo_branco.png",
         },
-      ],
+      ], */
 
       cause: {
         id: Number,
