@@ -8,6 +8,8 @@ import Register from '@/pages/Register'
 import User from '@/pages/User'
 import Ongs from '@/pages/Ongs'
 import Error404 from '@/pages/Error404'
+import Saude from '@/pages/Saude'
+import MeioAmbiente from '@/pages/MeioAmbiente'
 
 Vue.use(Router)
 
@@ -43,6 +45,16 @@ export default new Router({
       name: 'ongs',
       path: '/ongs',
       component: Ongs
+    },
+    {
+      name: 'saude',
+      path: '/saude',
+      component: Saude
+    },
+    {
+      name: 'meio ambiente',
+      path: '/meioAmbiente',
+      component: MeioAmbiente
     },
 
 
