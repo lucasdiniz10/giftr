@@ -1,6 +1,6 @@
 <template>
   <div id="card">
-    <q-card class="my-card">
+    <q-card class="my-card" v-if="cardOng.cause === 'Meio Ambiente'" >
       <div class="avatar-container">
         <img :alt="cardOng.name" :src="cardOng.image" />
       </div>
