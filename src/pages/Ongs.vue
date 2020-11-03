@@ -75,7 +75,7 @@ export default {
 
   created() {
     this.$eventBus.$on('event', (cardCause) => {
-      this.cause = cardCause
+      this = cardCause
     })
   }
 };
