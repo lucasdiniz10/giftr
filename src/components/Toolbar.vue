@@ -9,7 +9,7 @@
                 <q-item-label class="label">Doar</q-item-label>
               </q-item-section>
             </q-item>
-            <hr />
+
             <q-item clickable v-close-popup>
               <q-item-section>
                 <router-link to="AboutUs"
@@ -19,7 +19,7 @@
                 >
               </q-item-section>
             </q-item>
-            <hr />
+
             <q-item clickable v-close-popup>
               <q-item-section>
                 <router-link to="Login"
@@ -29,7 +29,7 @@
                 >
               </q-item-section>
             </q-item>
-            <hr />
+
             <q-item clickable v-close-popup>
               <q-item-section>
                 <router-link to="Register"

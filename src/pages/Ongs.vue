@@ -60,6 +60,12 @@ export default {
     };
   },
 
+  created() {
+    this.$eventBus.$on('event', (cardCause) => {
+      console.log("chegou", cardCause);
+    })
+  },
+
   beforeMount(){
     axios
       .get("http://localhost:3333/Ongs")
@@ -72,12 +78,6 @@ export default {
         console.log(error);
       });
   },
-
-  created() {
-    this.$eventBus.$on('event', (cardCause) => {
-      this.cause = cardCause
-    })
-  }
 };
 </script>
 

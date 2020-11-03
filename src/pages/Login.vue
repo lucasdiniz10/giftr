@@ -50,9 +50,10 @@ header #title {
 
   header {
     text-align: left;
+    margin 0;
   }
 
-  header h1{
+  header h1 {
     text-align: left;
   }
 

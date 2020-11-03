@@ -3,23 +3,25 @@
     <link rel="stylesheet" href="../styles/colors.css" />
     <div class="container" id="home">
       <header>
-        <div id="header-text">
-          <h1 class="title" id="home-welcome">
-            Bem-vindo ao <span>giftr</span>, sua plataforma de doações.
-          </h1>
-          <p id="home-description">
-            Acreditamos nas pessoas e no poder do amor ao próximo. Contribua em
-            alguma das instituições parceiras.
-          </p>
-        </div>
-        <img
-          alt="Giftr Love"
-          src="../assets/vectors/home/home-hero-image.svg"
-          id="hero-img"
-        />
-        <div class="button-container">
-          <q-btn label="Doar Agora" class="buttons" id="button-donate" />
-          <q-btn label="Saiba Mais" class="buttons" id="button-more" />
+        <div class="home-header">
+          <div id="header-text">
+            <h1 class="title" id="home-welcome">
+              Bem-vindo ao <span>giftr</span>, sua plataforma de doações.
+            </h1>
+            <p id="home-description">
+              Acreditamos nas pessoas e no poder do amor ao próximo. Contribua
+              em alguma das instituições parceiras.
+            </p>
+          </div>
+          <img
+            alt="Giftr Love"
+            src="../assets/vectors/home/home-hero-image.svg"
+            id="hero-img"
+          />
+          <div class="button-container">
+            <q-btn label="Doar Agora" class="buttons" id="button-donate" />
+            <q-btn label="Saiba Mais" class="buttons" id="button-more" />
+          </div>
         </div>
       </header>
 
@@ -55,7 +57,7 @@ export default {
           name: "Saúde",
           image: require("../assets/vectors/home/avatar-saude.svg"),
           description:
-          "Milhões de pessoas no Brasil e no mundo vivem sem condições mínimas de saneamento básico e nutrição, vítimas da miséria ou de tragédias como a de Mariana. Ajude agora as instituições que trabalham pela dignidade e saúde dessas pessoas.",
+            "Milhões de pessoas no Brasil e no mundo vivem sem condições mínimas de saneamento básico e nutrição, vítimas da miséria ou de tragédias como a de Mariana. Ajude agora as instituições que trabalham pela dignidade e saúde dessas pessoas.",
         },
         {
           id: 2,
@@ -112,7 +114,7 @@ export default {
   margin-top: 6.4rem;
 }
 
-header img {
+.home-header img {
   display: block;
   margin-top: 6.4rem;
   margin-left: auto;
@@ -131,13 +133,13 @@ header img {
   font: 800 3.2rem Montserrat;
 }
 
-header h1 span {
+.home-header h1 span {
   color: var(--color-primary);
 }
 
-header p {
+.home-header p {
   font: 400 1.6rem Quicksand;
-  line-height 2.4rem
+  line-height: 2.4rem;
 }
 
 .button-container {
@@ -164,7 +166,7 @@ header p {
 }
 
 @media (min-width: 1024px) {
-  header {
+  .home-header {
     margin-top: 120px;
     display: grid;
     grid-template-columns: 2fr 2fr;
@@ -195,7 +197,7 @@ header p {
     margin-right: 2.4rem;
   }
 
-  header img {
+  .home-header img {
     margin: 0 auto;
     height: 300px;
   }
