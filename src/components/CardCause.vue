@@ -32,13 +32,8 @@ export default {
   
   methods: {
     onClick(){
-      const aaa = this.cardCause.name;
-      if (aaa == "Meio Ambiente"){
-        this.$router.push("/meioAmbiente", );
-      }else if (aaa == "Saúde"){
-        this.$router.push("/saude", );
-      }
-   
+
+      this.$router.push("/Ongs");
       this.$eventBus.$emit('event', this.cardCause)
       console.log(this.cardCause)
     },
