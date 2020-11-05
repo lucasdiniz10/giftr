@@ -8,12 +8,12 @@
     </div>
     <div class="cause-container">
       <header class="header-container">
-        <h1>{{ cardCause.name }}</h1>
-        <p>{{ cardCause.description }}</p>
+        <h1>{{ cause.name }}</h1>
+        <p>{{ cause.description }}</p>
       </header>
       <div class="cards">
         <div id="cards" v-for="(ong, index) in ongs" :key="index">
-          <CardOng :cardOng="ong" />
+            <div v-if="ong.cause === 'Saúde'"><CardOng :cardOng="ong" /></div>
         </div>
       </div>
     </div>

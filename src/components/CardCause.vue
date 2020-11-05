@@ -8,7 +8,7 @@
       <div class="card-button-container">
         <q-separator />
         <q-card-actions >
-          <q-btn @click="onClick(cardCause)" color="primary" id="cause-button">{{ cardCause.name }}</q-btn>
+          <q-btn @click="onClick()" color="primary" id="cause-button">{{ cause.name }} </q-btn>
         </q-card-actions>
       </div>
     </q-card>
@@ -18,6 +18,7 @@
 <script>
 
 export default {
+
   name: "CardCause",
 
   props: {
@@ -32,9 +33,20 @@ export default {
   methods: {
     onClick(cardCause){
 
-      this.$router.push("/Ongs");
-      this.$eventBus.$emit('event', cardCause)
-      console.log('passou',cardCause)
+      var causeNames = [1, 2, 3, 4, 5, 6, 7, 8];
+      var causeUrl = ['/saude', '/meioAmbiente']
+
+      const doidera = this.cause.id;
+
+      const self = this;
+
+      causeNames.map(function(name){
+        if (doidera == name){
+          console.log(name - 1)
+          self.$router.push(causeUrl[name - 1]);
+        }
+        return console.log('gordo')
+      })
     },
   }
 };
