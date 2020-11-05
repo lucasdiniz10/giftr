@@ -2,13 +2,13 @@
   <div id="card" >
     <q-card class="my-card">
       <div class="avatar-container">
-        <img :alt="cause.name" :src="cause.image" />
+        <img :alt="cardCause.name" :src="cardCause.image" />
       </div>
 
       <div class="card-button-container">
         <q-separator />
         <q-card-actions >
-          <q-btn @click="onClick" color="primary" id="cause-button">{{ cause.name }}</q-btn>
+          <q-btn @click="onClick(cardCause)" color="primary" id="cause-button">{{ cardCause.name }}</q-btn>
         </q-card-actions>
       </div>
     </q-card>
@@ -26,16 +26,15 @@ export default {
 
   data() {
     return {
-      cause: this.cardCause,
     }
   },
   
   methods: {
-    onClick(){
+    onClick(cardCause){
 
       this.$router.push("/Ongs");
-      this.$eventBus.$emit('event', this.cardCause)
-      console.log(this.cardCause)
+      this.$eventBus.$emit('event', cardCause)
+      console.log('passou',cardCause)
     },
   }
 };
