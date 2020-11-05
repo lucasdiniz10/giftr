@@ -13,7 +13,7 @@
       </header>
       <div class="cards">
         <div id="cards" v-for="(ong, index) in ongs" :key="index">
-          <CardOng :cardOng="ong" />
+            <div v-if="ong.cause === 'Saúde'"><CardOng :cardOng="ong" /></div>
         </div>
       </div>
     </div>
