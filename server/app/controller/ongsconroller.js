@@ -23,6 +23,18 @@ class Ongscontroller {
         });
     }
 
+    async getCause(req, res){
+        const {causeName} = req.params;
+        
+        Ongs.find({cause: causeName})
+        .then((doc)=>{
+            return res.json({Ongs: doc});
+        })
+        .catch((err)=>{
+            console.log(err);
+        });
+    }
+
     async post(req, res){
 
         const { name } = req.body;

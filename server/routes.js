@@ -23,5 +23,6 @@ routes.post('/causes/post', causecontroller.post);
 routes.get('/ongs', ongsconroller.get);
 routes.get('/ongs/:id', ongsconroller.getId);
 routes.post('/ongs/post', ongsconroller.post);
+routes.get('/ongs/causeName/:causeName', ongsconroller.getCause);
 
 export default routes;

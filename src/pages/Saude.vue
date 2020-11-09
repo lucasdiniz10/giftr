@@ -9,8 +9,8 @@
         <h1>{{ causea.name }}</h1>
         <p>{{ causea.description }}</p>
       </header>
-      <div class="cards" >
-        <div  id="cards" v-for="(ong, index) in ongsSaude" :key="index">
+      <div class="cards">
+        <div id="cards" v-for="(ong, index) in ongs" :key="index">
           <div><CardOng :cardOng="ong" /></div>
         </div>
       </div>
@@ -58,24 +58,14 @@ export default {
 
   beforeMount() {
     axios
-      .get("http://localhost:3333/Ongs")
+      .get("http://localhost:3333/Ongs/causeName/Saúde")
       .then((res) => {
         console.log(res.data.Ongs);
         this.$data.ongs = res.data.Ongs;
-        var cont = 0;
-
-        for (let index = 0; index < this.ongs.length; index++) {
-          if (this.ongs[index].cause == "Saúde") {
-            this.ongsSaude[cont] = this.ongs[index];
-            cont++;
-          }
-        }
       })
       .catch((error) => {
         console.log(error);
       });
-  
-      console.log(this.ongsSaude);
   },
 };
 </script>
