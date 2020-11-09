@@ -16,25 +16,25 @@
       <body>
         <div class="body-content">
           <div id="user-topic-container">
-            <router-link to="user-historic">
+            <router-link to="user/historic">
               <q-btn color="primary" label="Histórico de Doações" id="button" />
             </router-link>
           </div>
 
           <div id="user-topic-container">
-            <router-link to="user-total">
+            <router-link to="user/total">
               <q-btn color="primary" label="Valor Total Doado" id="button" />
             </router-link>
           </div>
 
           <div id="user-topic-container">
-            <router-link to="user-recurrent">
+            <router-link to="user/recurrent">
               <q-btn color="primary" label="Doações Recorrentes" id="button" />
             </router-link>
           </div>
 
           <div id="user-topic-container">
-            <router-link to="user-topdonate">
+            <router-link to="user/topdonate">
               <q-btn color="primary" label="Maior Doação" id="button" />
             </router-link>
           </div>

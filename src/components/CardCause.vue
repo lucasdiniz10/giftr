@@ -2,7 +2,7 @@
   <div id="card" >
     <q-card class="my-card">
       <div class="avatar-container">
-        <img :alt="cause.name" :src="cause.image" />
+        <img :alt="cardCause.name" :src="cardCause.image" />
       </div>
 
       <div class="card-button-container">
@@ -27,12 +27,13 @@ export default {
 
   data() {
     return {
-      cause: this.cardCause,
+      cause: this.cardCause
     }
   },
   
   methods: {
     onClick(){
+
       var causeNames = [1, 2, 3, 4, 5, 6, 7, 8];
       var causeUrl = ['/saude', '/meioAmbiente']
 
@@ -41,12 +42,11 @@ export default {
       const self = this;
 
       causeNames.map(function(name){
-        console.log('gordo')
         if (doidera == name){
           console.log(name - 1)
           self.$router.push(causeUrl[name - 1]);
         }
-        
+        return console.log('ok')
       })
     },
   }

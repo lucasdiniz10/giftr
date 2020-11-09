@@ -8,8 +8,8 @@
     </div>
     <div class="cause-container">
       <header class="header-container">
-        <h1>{{ cause.name }}</h1>
-        <p>{{ cause.description }}</p>
+        <h1>{{ cardCause.name }}</h1>
+        <p>{{ cardCause.description }}</p>
       </header>
       <div class="cards">
         <div id="cards" v-for="(ong, index) in ongs" :key="index">

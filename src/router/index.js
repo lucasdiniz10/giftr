@@ -9,6 +9,7 @@ import User from '@/pages/User'
 import Ongs from '@/pages/Ongs'
 import Error404 from '@/pages/Error404'
 import Saude from '@/pages/Saude'
+import UserHistoric from '@/pages/UserHistoric'
 
 Vue.use(Router)
 
@@ -29,6 +30,11 @@ export default new Router({
       name: 'user',
       path: '/User',
       component: User
+    },
+    {
+      name: 'user-historic',
+      path: '/User/historic',
+      component: UserHistoric
     },
     {
       name: 'about us',

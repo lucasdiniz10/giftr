@@ -2,18 +2,16 @@
   <div class="container" id="ongs">
     <div class="title">
       <h1>Instituições:</h1>
-      <div class="filter">
-        
-      </div>
+      <div class="filter"></div>
     </div>
     <div class="cause-container">
       <header class="header-container">
-        <h1>{{ cause.name }}</h1>
-        <p>{{ cause.description }}</p>
+        <h1>{{ causea.name }}</h1>
+        <p>{{ causea.description }}</p>
       </header>
-      <div class="cards">
-        <div id="cards" v-for="(ong, index) in ongs" :key="index">
-            <div v-if="ong.cause === 'Saúde'"><CardOng :cardOng="ong" /></div>
+      <div class="cards" >
+        <div  id="cards" v-for="(ong, index) in ongsSaude" :key="index">
+          <div><CardOng :cardOng="ong" /></div>
         </div>
       </div>
     </div>
@@ -22,7 +20,7 @@
 
 <script>
 import CardOng from "../components/CardOng";
-import axios from 'axios';
+import axios from "axios";
 
 export default {
   name: "Ongs",
@@ -33,8 +31,9 @@ export default {
 
   data() {
     return {
-
       ongs: [],
+
+      ongsSaude: [],
 
       cardOngs: [
         {
@@ -53,41 +52,49 @@ export default {
         },
       ],
 
-      cause: []
+      causea: [],
     };
   },
 
-  beforeMount(){
+  beforeMount() {
     axios
       .get("http://localhost:3333/Ongs")
       .then((res) => {
         console.log(res.data.Ongs);
-        this.$data.ongs = res.data.Ongs
+        this.$data.ongs = res.data.Ongs;
+        var cont = 0;
+
+        for (let index = 0; index < this.ongs.length; index++) {
+          if (this.ongs[index].cause == "Saúde") {
+            this.ongsSaude[cont] = this.ongs[index];
+            cont++;
+          }
+        }
       })
       .catch((error) => {
         console.log(error);
       });
+  
+      console.log(this.ongsSaude);
   },
 };
 </script>
 
 <style lang="stylus" scoped>
-
 .title {
-
 }
 
 .title h1 {
   font: 800 3.2rem Montserrat;
   color: var(-color-dark);
   text-align: center;
-  margin-bottom 6.4rem
+  margin-bottom: 6.4rem;
 }
 
 .header-container {
   color: var(-color-dark);
   text-align: center;
-  margin-bottom 3.2rem
+  margin-bottom: 3.2rem;
 }
 
 .header-container h1 {
@@ -96,7 +103,14 @@ export default {
 
 .header-container p {
   font: 400 1.6rem Quicksand;
-  line-height 2.4rem
+  line-height: 2.4rem;
 }
 
+@media (min-width: 1024px) {
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 2.5rem;
+  }
+}
 </style>

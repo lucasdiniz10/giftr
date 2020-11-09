@@ -44,8 +44,8 @@ export default {
 
 .avatar-container img {
   width: 60%;
-  max-width: 150px;
-  min-width: 100px;
+  max-width: 380px;
+  min-width: 200px;
 }
 
 .card-button-container {
