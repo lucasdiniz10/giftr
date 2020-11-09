@@ -6,8 +6,8 @@
     </div>
     <div class="cause-container">
       <header class="header-container">
-        <h1>{{ causea.name }}</h1>
-        <p>{{ causea.description }}</p>
+        <h1>Saúde</h1>
+        <p>Milhões de pessoas no Brasil e no mundo vivem sem condições mínimas de saneamento básico e nutrição, vítimas da miséria ou de tragédias como a de Mariana. Ajude agora as instituições que trabalham pela dignidade e saúde dessas pessoas.</p>
       </header>
       <div class="cards">
         <div id="cards" v-for="(ong, index) in ongs" :key="index">
