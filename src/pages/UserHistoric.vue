@@ -28,20 +28,7 @@ export default {
 
   data() {
     return {
-      donate: [
-        {
-          id: 1,
-          value: 300,
-          date: "10/05/2020",
-          ong: "AACD"
-        },
-        {
-          id: 2,
-          value: 230,
-          date: "11/08/2020",
-          ong: "Funai"
-        },
-      ]
+      
     }
   },
 }
@@ -57,6 +44,10 @@ header {
 
 header #title {
   font: 800 3.2rem Montserrat;
+}
+
+p {
+  margin-bottom 6.4rem
 }
 
 @media (min-width: 1024px) {

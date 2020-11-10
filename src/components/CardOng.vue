@@ -2,7 +2,7 @@
   <div id="card">
     <q-card class="my-card">
       <div class="avatar-container">
-        <img :alt="cardOng.name" :src="cardOng.image" />
+        <img id="avatar" :alt="cardOng.name" :src="cardOng.image" />
       </div>
 
       <div class="card-button-container">
@@ -42,10 +42,10 @@ export default {
   justify-content: center;
 }
 
-.avatar-container img {
-  width: 60%;
-  max-width: 380px;
-  min-width: 200px;
+.avatar-container #avatar {
+  width: 100%;
+  max-width: 300px;
+  min-width: 150px;
 }
 
 .card-button-container {
@@ -63,8 +63,8 @@ export default {
 @media (min-width: 1024px) {
   .my-card {
     max-height: 250px;
-    min-width 200px
-    margin 0
+    min-width: 200px;
+    margin: 0;
   }
 
   .avatar-container {
@@ -73,6 +73,11 @@ export default {
     height: 150px;
     display: flex;
     justify-content: center;
+  }
+
+  .avatar-container #avatar {
+    width: 50px;
+
   }
 
   #cause-button {

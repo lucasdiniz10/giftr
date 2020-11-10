@@ -1,59 +1,40 @@
 <template>
-  <div class="container" id="card-expansive">
-    <q-list bordered class="rounded-borders">
-      <q-expansion-item
-        expand-separator
-        icon="perm_identity"
-        label="Account settings"
-        caption="John Doe"
-      >
-        <q-card>
-          <q-card-section>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, eius reprehenderit eos corrupti
-            commodi magni quaerat ex numquam, dolorum officiis modi facere maiores architecto suscipit iste
-            eveniet doloribus ullam aliquid.
-          </q-card-section>
-        </q-card>
-      </q-expansion-item>
-
-      <q-expansion-item
-        expand-separator
-        icon="signal_wifi_off"
-        label="Wifi settings"
-      >
-        <q-card>
-          <q-card-section>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, eius reprehenderit eos corrupti
-            commodi magni quaerat ex numquam, dolorum officiis modi facere maiores architecto suscipit iste
-            eveniet doloribus ullam aliquid.
-          </q-card-section>
-        </q-card>
-      </q-expansion-item>
-
-      <q-expansion-item
-        expand-separator
-        icon="drafts"
-        label="Drafts"
-        header-class="text-purple"
-      >
-        <q-card>
-          <q-card-section>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, eius reprehenderit eos corrupti
-            commodi magni quaerat ex numquam, dolorum officiis modi facere maiores architecto suscipit iste
-            eveniet doloribus ullam aliquid.
-          </q-card-section>
-        </q-card>
-      </q-expansion-item>
-    </q-list>
+  <div id="card-expansive">
+    <div class="q-pa-md" id="card">
+      <q-table :data="donate" row-key="ong" rows-per-page-label="Itens por página:"/>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "CardExpansive"
-}
+  name: "CardExpansive",
+
+  data() {
+    return {
+      donate: [
+        {
+          ong: "AACD",
+          valor: 1200,
+          data: "10/02/2020",
+        },
+        {
+          ong: "ECO D",
+          valor: 300,
+          data: "15/02/2020",
+        },
+      ],
+    };
+  },
+};
 </script>
 
-<style>
+<style lang="stylus" scoped>
+#card-expansive {
+  font: 400 3.2rem Montserrat;
+}
 
+#card {
+  padding: 0;
+}
 </style>
