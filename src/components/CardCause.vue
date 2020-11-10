@@ -35,7 +35,7 @@ export default {
     onClick(){
 
       var causeNames = [1, 2, 3, 4, 5, 6, 7, 8];
-      var causeUrl = ['/saude', '/meioAmbiente', 'Proteção Animal', 'Educação', 'Esporte', 'Acolhimento', 'Arte e Cultura', 'Direitos Humanos']
+      var causeUrl = ['/saude', '/meio-ambiente', '/protecao-animal', '/educacao', '/esporte', '/acolhimento', '/arte-e-cultura', '/direitos-humanos']
 
       const doidera = this.cause.id;
 
@@ -44,7 +44,7 @@ export default {
       causeNames.map(function(name){
         if (doidera == name){
           console.log(name - 1)
-          self.$router.push(causeUrl[name - 1]);
+          return self.$router.push(causeUrl[name - 1]);
         }
       })
     },

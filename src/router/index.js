@@ -65,7 +65,7 @@ export default new Router({
     },
     {
       name: 'MeioAmbiente',
-      path: '/MeioAmbiente',
+      path: '/meio-ambiente',
       component: MeioAmbiente
     },
 
