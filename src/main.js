@@ -16,6 +16,10 @@ import {
   QBtn
 } from 'quasar'
 
+var VueScrollTo = require('vue-scrollto');
+
+Vue.use(VueScrollTo);
+
 Vue.use(Quasar, {
   components: {
     QImg,

@@ -19,7 +19,7 @@
             id="hero-img"
           />
           <div class="button-container">
-            <q-btn label="Doar Agora" class="buttons" id="button-donate" />
+            <q-btn label="Doar Agora" class="buttons" id="button-donate" v-scroll-to="'#cause-title'"/>
             <q-btn label="Saiba Mais" class="buttons" id="button-more" />
           </div>
         </div>
