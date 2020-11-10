@@ -6,8 +6,8 @@
     </div>
     <div class="cause-container">
       <header class="header-container">
-        <h1>Saúde</h1>
-        <p>Milhões de pessoas no Brasil e no mundo vivem sem condições mínimas de saneamento básico e nutrição, vítimas da miséria ou de tragédias como a de Mariana. Ajude agora as instituições que trabalham pela dignidade e saúde dessas pessoas.</p>
+        <h1>Meio Ambiente</h1>
+        <p>Descrição</p>
       </header>
       <div class="cards">
         <div id="cards" v-for="(ong, index) in ongs" :key="index">
@@ -37,7 +37,7 @@ export default {
 
   beforeMount() {
     axios
-      .get("http://localhost:3333/Ongs/causeName/Saúde")
+      .get("http://localhost:3333/Ongs/causeName/MeioAmbiente")
       .then((res) => {
         console.log(res.data.Ongs);
         this.$data.ongs = res.data.Ongs;

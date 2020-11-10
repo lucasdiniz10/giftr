@@ -35,7 +35,7 @@ export default {
     onClick(){
 
       var causeNames = [1, 2, 3, 4, 5, 6, 7, 8];
-      var causeUrl = ['/saude', '/meioAmbiente']
+      var causeUrl = ['/saude', '/meioAmbiente', 'Proteção Animal', 'Educação', 'Esporte', 'Acolhimento', 'Arte e Cultura', 'Direitos Humanos']
 
       const doidera = this.cause.id;
 
@@ -46,7 +46,6 @@ export default {
           console.log(name - 1)
           self.$router.push(causeUrl[name - 1]);
         }
-        return console.log('ok')
       })
     },
   }
