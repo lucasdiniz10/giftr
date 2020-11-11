@@ -40,7 +40,7 @@ export default {
         {
           id: 1,
           name: "AACD",
-          description: "Reabilitação de pessoas com deficiência física.",
+          description: "Promover a prevenção, habilitação e reabilitação de pessoas com deficiência física, especialmente de crianças, adolescentes e jovens, favorecendo a integração social.",
           image:
             "https://www.paypal-brasil.com.br/doe/assets/20160120_083447467_accd.jpg",
         },

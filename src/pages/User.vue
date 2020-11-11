@@ -55,6 +55,14 @@ export default {
       },
     };
   },
+
+  mounted: function () {
+    var url = "http://localhost:3333/users";
+
+    this.$http.get(url).then((response) => {
+      this.user = response.body;
+    });
+  },
 };
 </script>
 
@@ -88,6 +96,7 @@ header p {
 #user-topic-container {
   font: 400 3.2rem Montserrat;
 }
+
 a {
   text-decoration: none;
 }
