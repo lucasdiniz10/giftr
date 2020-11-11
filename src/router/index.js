@@ -11,6 +11,7 @@ import Error404 from '@/pages/Error404'
 import Saude from '@/pages/Saude'
 import MeioAmbiente from '@/pages/MeioAmbiente'
 import UserHistoric from '@/pages/UserHistoric'
+import UserTotal from '@/pages/UserTotal'
 
 Vue.use(Router)
 
@@ -38,6 +39,11 @@ export default new Router({
       component: UserHistoric
     },
     {
+      name: 'user-total',
+      path: '/User/total',
+      component: UserTotal
+    },
+    {
       name: 'about us',
       path: '/AboutUs',
       component: AboutUs
@@ -59,7 +65,7 @@ export default new Router({
     },
     {
       name: 'MeioAmbiente',
-      path: '/MeioAmbiente',
+      path: '/meio-ambiente',
       component: MeioAmbiente
     },
 

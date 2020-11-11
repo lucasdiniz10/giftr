@@ -7,7 +7,24 @@
     <div class="cause-container">
       <header class="header-container">
         <h1>Saúde</h1>
-        <p>Milhões de pessoas no Brasil e no mundo vivem sem condições mínimas de saneamento básico e nutrição, vítimas da miséria ou de tragédias como a de Mariana. Ajude agora as instituições que trabalham pela dignidade e saúde dessas pessoas.</p>
+        <p>
+          Milhões de pessoas no Brasil e no mundo vivem sem condições mínimas de
+          saneamento básico e nutrição, vítimas da miséria ou de tragédias como
+          a de Mariana. Ajude agora as instituições que trabalham pela dignidade
+          e saúde dessas pessoas.
+        </p>
+
+        <q-input
+          class="filter"
+          v-model="busca"
+          filled
+          type="search"
+          hint="Buscar uma instituição por Nome"
+        >
+          <template v-slot:append>
+            <q-icon name="search" />
+          </template>
+        </q-input>
       </header>
       <div class="cards">
         <div id="cards" v-for="(ong, index) in ongs" :key="index">
@@ -32,6 +49,7 @@ export default {
   data() {
     return {
       ongs: [],
+      busca: "",
     };
   },
 
@@ -50,9 +68,6 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.title {
-}
-
 .title h1 {
   font: 800 3.2rem Montserrat;
   color: var(-color-dark);
@@ -63,7 +78,7 @@ export default {
 .header-container {
   color: var(-color-dark);
   text-align: center;
-  margin-bottom: 3.2rem;
+  margin-bottom: 4.6rem;
 }
 
 .header-container h1 {
@@ -73,6 +88,7 @@ export default {
 .header-container p {
   font: 400 1.6rem Quicksand;
   line-height: 2.4rem;
+  margin-bottom: 3.2rem;
 }
 
 @media (min-width: 1024px) {
@@ -80,6 +96,11 @@ export default {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     grid-gap: 2.5rem;
+  }
+
+  .filter {
+    max-width: 350px;
+    margin: 0 auto;
   }
 }
 </style>

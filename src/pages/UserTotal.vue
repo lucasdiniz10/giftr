@@ -1,15 +1,15 @@
 <template>
-  <div class="container" id="user-historic">
+  <div class="container" id="user-total">
     <div class="content-container">
       <div class="header-container">
         <header>
-          <h1 id="title">Suas Doações!</h1>
-          <p>Histórico:</p>
+          <h1 id="title">Valor total das suas doações!</h1>
+          <p>Juntando cada uma delas, você ajudou ao próximo com: </p>
         </header>
       </div>
       <div class="body-container">
         <body>
-          <CardExpansive />
+          <h1 id="valor">R$ {{ valor }}</h1>
         </body>
       </div>
     </div>
@@ -17,25 +17,19 @@
 </template>
 
 <script>
-import CardExpansive from "../components/CardExpansive"
-
 export default {
-  name: "UserHistoric",
-
-  components: {
-    CardExpansive,
-  },
-
+  name: "UserTotal",
+  
   data() {
     return {
-      
+      valor: "122,90"
     }
-  },
-}
+  }
+};
 </script>
-
+  
 <style lang="stylus" scoped>
-header {
+  header {
   text-align: center;
   margin-bottom: 5rem;
   display: block;
@@ -50,12 +44,14 @@ p {
   margin-bottom 6.4rem
 }
 
+#valor {
+  font: 800 6.4rem Montserrat;
+  text-align center
+}
+
 @media (min-width: 1024px) {
   .content-container {
     margin-top 120px
-/*     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap  3.2rem */
   }
 
   header {
@@ -69,6 +65,10 @@ p {
 
   .body-content {
     margin-top: 200px;
+  }
+
+  #valor {
+    text-align left 
   }
 }
 </style>
