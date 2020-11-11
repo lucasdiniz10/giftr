@@ -6,11 +6,12 @@ class SessionController {
         const {email, password} = req.body
         
         const user = await User.findOne({email: email})
-        const testPassword = await bcrypt.compare(password, user.password)
-        
+
         if(!user) {
             return res.status(401).json({error: 'User not foud!'});
         }
+        
+        const testPassword = await bcrypt.compare(password, user.password)
         
         if(!testPassword){
             return res.status(401).json({error: 'Password not match!'});

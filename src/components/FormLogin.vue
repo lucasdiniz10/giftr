@@ -1,7 +1,6 @@
 <template>
   <div id="form">
     <q-form @submit.prevent="onSubmit" class="q-gutter-md">
-
       <!-- campo email -->
       <div
         class="form-group"
@@ -78,15 +77,11 @@
 
 <script>
 import axios from "axios";
-import {
-  required,
-  minLength,
-  maxLength,
-} from "vuelidate/lib/validators";
+import { required, minLength, maxLength } from "vuelidate/lib/validators";
 
-async function get(user) {
+/* async function post(user) {
   await axios
-    .get("http://localhost:3333/users", user, {
+    .post("http://localhost:3333/users/session", user, {
       headers: {},
     })
     .then((res) => {
@@ -95,7 +90,7 @@ async function get(user) {
     .catch((err) => {
       console.log(err.response);
     });
-}
+} */
 
 export default {
   name: "FormLogin",
@@ -133,9 +128,25 @@ export default {
         console.log("errou");
       } else {
         // do your submit logic here
-        this.$router.push("/user");
-        console.log("agr foi");
-        get(this.user);
+        axios
+          .post("http://localhost:3333/users/session", this.user, {
+            headers: {},
+          })
+          .then((res) => {
+            console.log(res);
+            this.$router.push("/user");
+          })
+          .catch((err) => {
+            console.log(err.response.data);
+            const getError = err.response.data.error;
+
+            if (getError == "Password not match!") {
+              console.log(getError);
+            } else if (getError == "User not foud!") {
+              console.log(getError);
+            }
+          });
+
         this.user.submitStatus = "PENDING";
         setTimeout(() => {
           this.user.submitStatus = "OK";
