@@ -17,10 +17,11 @@ class SessionController {
             return res.status(401).json({error: 'Password not match!'});
         }
 
-        const { name } = user
+        const { name, _id } = user
 
         return res.json({
             user: {
+                _id,
                 name,
                 email
             }
