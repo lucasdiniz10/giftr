@@ -4,7 +4,7 @@
       <div class="header-container">
         <header>
           <h1 id="title">Olá, seja bem-vindo de volta!</h1>
-          <p>Digite seu nome completo, email e senha.</p>
+          <p>Digite seu email e senha.</p>
         </header>
       </div>
       <div class="main-container">

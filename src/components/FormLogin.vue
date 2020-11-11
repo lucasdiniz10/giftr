@@ -7,6 +7,7 @@
         :class="{ 'form-group--error': $v.user.email.$error }"
       >
         <q-input
+          ref="email"
           filled
           type="email"
           v-model.trim="$v.user.email.$model"
@@ -35,6 +36,7 @@
         :class="{ 'form-group--error': $v.user.password.$error }"
       >
         <q-input
+          ref="password"
           filled
           type="password"
           v-model.trim="$v.user.password.$model"
@@ -148,9 +150,12 @@ export default {
 
             if (getError == "Password not match!") {
               this.user.submitStatus = "ERRORPASSWORD";
+              this.$refs.password.$el.focus();
               console.log(getError);
             } else if (getError == "User not foud!") {
               this.user.submitStatus = "ERRORUSER";
+              this.$refs.email.$el.focus();
+              /* this.user.email = ""; */
               console.log(getError);
             } else {
               this.user.submitStatus = "PENDING";
