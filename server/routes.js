@@ -1,14 +1,15 @@
 import { Router } from 'express';
 import causecontroller from './app/controller/causecontroller';
 import ongsconroller from './app/controller/ongsconroller';
-
 import UserController from './app/controller/usercontroller';
+import SessionController from './app/controller/sessioncontroller';
 
 const routes = new Router();
 
 routes.get('/users', UserController.get);
 routes.get('/user/:id', UserController.getId);
 routes.post('/users/post', UserController.post);
+routes.post('/users/session', SessionController.Session)
 
 ////////////////////////////////////////////////////////
 // cause routes
