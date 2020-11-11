@@ -121,6 +121,9 @@
       <p class="typo__p" v-if="user.submitStatus === 'ERROR'">
         Por favor, preencha os campos corretamente.
       </p>
+      <p class="typo__p" v-if="user.submitStatus === 'ERRORUSER'">
+        Email já cadastrado ou inválido.
+      </p>
       <p class="typo__p" v-if="user.submitStatus === 'PENDING'">Enviando...</p>
     </q-form>
   </div>
@@ -134,19 +137,6 @@ import {
   maxLength,
   sameAs,
 } from "vuelidate/lib/validators";
-
-async function post(user) {
-  await axios
-    .post("http://localhost:3333/users/post", user, {
-      headers: {},
-    })
-    .then((res) => {
-      console.log(res);
-    })
-    .catch((err) => {
-      console.log(err.response);
-    });
-}
 
 export default {
   name: "FormRegister",
@@ -184,7 +174,7 @@ export default {
         required,
         minLength: minLength(6),
         maxLength: maxLength(15),
-        sameAsPassword: sameAs('password'),
+        sameAsPassword: sameAs("password"),
       },
     },
   },
@@ -197,13 +187,28 @@ export default {
         console.log("errou");
       } else {
         // do your submit logic here
-        this.$router.push("/login");
-        console.log("agr foi");
-        post(this.user);
-        this.user.submitStatus = "PENDING";
-        setTimeout(() => {
-          this.user.submitStatus = "OK";
-        }, 500);
+        axios
+          .post("http://localhost:3333/users/post", this.user, {
+            headers: {},
+          })
+          .then((res) => {
+            console.log(res);
+            this.$router.push("/login");
+          })
+          .catch((err) => {
+            console.log(err.response);
+            const getError = err.response.data.error;
+
+            if (getError == "User already exists") {
+              this.user.submitStatus = "ERRORUSER";
+              console.log(getError);
+            } else {
+              this.user.submitStatus = "PENDING";
+              setTimeout(() => {
+                this.user.submitStatus = "OK";
+              }, 500);
+            }
+          });
       }
     },
   },

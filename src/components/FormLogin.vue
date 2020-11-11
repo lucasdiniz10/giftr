@@ -70,6 +70,12 @@
       <p class="typo__p" v-if="user.submitStatus === 'ERROR'">
         Por favor, preencha os campos corretamente.
       </p>
+      <p class="typo__p" v-if="user.submitStatus === 'ERRORPASSWORD'">
+        Senha Incorreta.
+      </p>
+      <p class="typo__p" v-if="user.submitStatus === 'ERRORUSER'">
+        Usuário incorreto ou não existe.
+      </p>
       <p class="typo__p" v-if="user.submitStatus === 'PENDING'">Enviando...</p>
     </q-form>
   </div>
@@ -141,16 +147,18 @@ export default {
             const getError = err.response.data.error;
 
             if (getError == "Password not match!") {
+              this.user.submitStatus = "ERRORPASSWORD";
               console.log(getError);
             } else if (getError == "User not foud!") {
+              this.user.submitStatus = "ERRORUSER";
               console.log(getError);
+            } else {
+              this.user.submitStatus = "PENDING";
+              setTimeout(() => {
+                this.user.submitStatus = "OK";
+              }, 500);
             }
           });
-
-        this.user.submitStatus = "PENDING";
-        setTimeout(() => {
-          this.user.submitStatus = "OK";
-        }, 500);
       }
     },
   },
