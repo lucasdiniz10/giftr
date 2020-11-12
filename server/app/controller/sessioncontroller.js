@@ -1,4 +1,5 @@
 import User from '../models/usermodel'
+import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
 
 class SessionController {
@@ -24,7 +25,10 @@ class SessionController {
                 _id,
                 name,
                 email
-            }
+            },
+            token: jwt.sign({ _id }, '264a5dc8a62533ac6b49285e1dee24c4', {
+                expiresIn: '7d',
+            })
         })
     }
 }

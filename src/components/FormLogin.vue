@@ -87,19 +87,6 @@
 import axios from "axios";
 import { required, minLength, maxLength } from "vuelidate/lib/validators";
 
-/* async function post(user) {
-  await axios
-    .post("http://localhost:3333/users/session", user, {
-      headers: {},
-    })
-    .then((res) => {
-      console.log(res);
-    })
-    .catch((err) => {
-      console.log(err.response);
-    });
-} */
-
 export default {
   name: "FormLogin",
 
