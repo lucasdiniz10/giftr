@@ -86,6 +86,7 @@
 <script>
 import axios from "axios";
 import { required, minLength, maxLength } from "vuelidate/lib/validators";
+import { mapActions } from 'vuex'
 
 export default {
   name: "FormLogin",
@@ -116,6 +117,7 @@ export default {
   },
 
   methods: {
+    ...mapActions('auth', ['ActionSetUser']),
     onSubmit() {
       this.$v.$touch();
       if (this.$v.$invalid) {
@@ -129,6 +131,7 @@ export default {
           })
           .then((res) => {
             console.log(res);
+            this.ActionSetUser({name: res.data.user.name, email: res.data.user.email})
             this.$router.push("/user");
           })
           .catch((err) => {
