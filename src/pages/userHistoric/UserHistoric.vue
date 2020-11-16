@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import CardExpansive from "../components/CardExpansive"
+import CardExpansive from "../../components/CardExpansive"
 
 export default {
   name: "UserHistoric",

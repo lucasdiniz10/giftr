@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import CardOng from "../components/CardOng";
+import CardOng from "../../components/CardOng";
 import axios from "axios";
 
 export default {

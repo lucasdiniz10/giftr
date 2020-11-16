@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import FormRegister from "../components/FormRegister";
+import FormRegister from "../../components/FormRegister";
 
 export default {
   name: "Register",
