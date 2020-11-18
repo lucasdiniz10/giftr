@@ -118,6 +118,7 @@ export default {
 
   methods: {
     ...mapActions('auth', ['ActionSetUser']),
+    ...mapActions('auth', ['ActionSetToken']),
     onSubmit() {
       this.$v.$touch();
       if (this.$v.$invalid) {
@@ -131,7 +132,8 @@ export default {
           })
           .then((res) => {
             console.log(res);
-            this.ActionSetUser({name: res.data.user.name, email: res.data.user.email})
+            this.ActionSetUser(res.data.user);
+            this.ActionSetToken(res.data.token);
             this.$router.push("/user");
           })
           .catch((err) => {

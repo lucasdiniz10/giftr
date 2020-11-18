@@ -45,24 +45,23 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
   name: "User",
 
-  data() {
+  /* data() {
     return {
       user: {
         name: "Dannilo Pires",
       },
     };
-  },
+  }, */
 
-  mounted: function () {
-    var url = "http://localhost:3333/users";
+  computed: {
+    ...mapState('auth', ['user'])
+  }
 
-    this.$http.get(url).then((response) => {
-      this.user = response.body;
-    });
-  },
 };
 </script>
 
