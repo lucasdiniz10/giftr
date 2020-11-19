@@ -120,6 +120,10 @@ export default {
   font: 700 1.8rem Montserrat;
 }
 
+.text-subtitle1 {
+  line-height 2.4rem
+}
+
 @media (min-width: 1024px) {
   .my-card {
     max-height: 250px;
@@ -146,7 +150,7 @@ export default {
   }
 
   .text-subtitle1 {
-    font: 400 1.4rem Montserrat;
+    font-size 1.4rem;
   }
 }
 </style>
