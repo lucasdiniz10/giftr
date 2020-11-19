@@ -17,7 +17,7 @@
     <div id="modal-ong">
 <!--     <q-btn label="Card" color="primary" @click="card = true" /> -->
     <q-dialog v-model="card">
-      <q-card class="my-card">
+      <q-card class="my-card" id="modal">
         <q-img src="https://cdn.quasar.dev/img/chicken-salad.jpg" />
 
         <q-card-section>
@@ -110,6 +110,10 @@ export default {
   width: 100%;
   padding: 0.4rem;
   margin: 1.2rem;
+}
+
+#modal {
+  height auto
 }
 
 @media (min-width: 1024px) {
