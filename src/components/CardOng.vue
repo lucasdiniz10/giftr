@@ -113,7 +113,11 @@ export default {
 }
 
 #modal {
-  height auto
+  max-height none
+}
+
+#modal-title {
+  font: 700 1.8rem Montserrat;
 }
 
 @media (min-width: 1024px) {
@@ -139,6 +143,10 @@ export default {
   #cause-button {
     padding: 0.4rem;
     margin: 1.2rem;
+  }
+
+  .text-subtitle1 {
+    font: 400 1.4rem Montserrat;
   }
 }
 </style>
