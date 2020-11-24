@@ -6,8 +6,8 @@
           <div id="header-text">
             <h1 class="title" id="user-welcome">Olá, {{ user.name }}</h1>
             <p id="user-description">
-              Bem-vindo a sua área de usuário, aqui você pode consultar todos os
-              seus dados de doações.
+              Bem-vindo a sua área de usuário, aqui você pode consultar e gerenciar todos os
+              seus dados de doações e pessoais.
             </p>
           </div>
         </header>
@@ -38,6 +38,12 @@
               <q-btn color="primary" label="Maior Doação" id="button" />
             </router-link>
           </div>
+
+          <div id="user-topic-container">
+            <router-link to="/user/topdonate">
+              <q-btn color="primary" label="Alterar Dados Pessoais" id="button" />
+            </router-link>
+          </div>
         </div>
       </body>
     </div>
@@ -60,8 +66,7 @@ export default {
 
   computed: {
     ...mapState('auth', ['user'])
-  }
-
+  },
 };
 </script>
 

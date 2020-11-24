@@ -1,18 +1,23 @@
 <template>
   <div class="q-pa-md q-gutter-y-sm" id="container">
-    <q-toolbar class="text-primary" id="toolbar">
+    
+    <!-- tollbar para não logados -->
+    <q-toolbar v-if="teste === false" class="text-primary" id="toolbar">
+      <!-- menu mobile -->
       <div class="menu">
         <q-btn-dropdown flat round dense icon="menu" id="menu-button">
           <q-list class="menu-items">
             <q-item clickable v-close-popup>
               <q-item-section>
-                <q-item-label class="label">Doar</q-item-label>
+                <router-link to="/">
+                  <q-item-label class="label">Doar</q-item-label>
+                </router-link>
               </q-item-section>
             </q-item>
 
             <q-item clickable v-close-popup>
               <q-item-section>
-                <router-link to="AboutUs"
+                <router-link to="/AboutUs"
                   ><q-item-label class="label"
                     >Quem Somos?</q-item-label
                   ></router-link
@@ -22,7 +27,7 @@
 
             <q-item clickable v-close-popup>
               <q-item-section>
-                <router-link to="Login"
+                <router-link to="/login"
                   ><q-item-label class="label"
                     >Entrar</q-item-label
                   ></router-link
@@ -32,7 +37,7 @@
 
             <q-item clickable v-close-popup>
               <q-item-section>
-                <router-link to="Register"
+                <router-link to="/register"
                   ><q-item-label class="label"
                     >Cadastre-se</q-item-label
                   ></router-link
@@ -52,21 +57,96 @@
         />
       </div>
 
+      <!-- menu desktop -->
       <div class="menu-desktop">
         <router-link to="/">
           <q-btn class="button-desktop" label="Doar"
         /></router-link>
 
-        <router-link to="AboutUs">
+        <router-link to="/AboutUs">
           <q-btn class="button-desktop" label="Quem Somos?" />
         </router-link>
 
-        <router-link to="Login">
+        <router-link to="/login">
           <q-btn class="button-desktop" label="Entrar" />
         </router-link>
 
-        <router-link to="Register">
+        <router-link to="/register">
           <q-btn class="button-desktop" label="Cadastre-se" />
+        </router-link>
+      </div>
+    </q-toolbar>
+
+    <!-- tollbar para usuários logados -->
+    <q-toolbar v-else class="text-primary" id="toolbar">
+      <!-- menu mobile -->
+      <div class="menu">
+        <q-btn-dropdown flat round dense icon="menu" id="menu-button">
+          <q-list class="menu-items">
+            <q-item clickable v-close-popup>
+              <q-item-section>
+                <router-link to="/">
+                  <q-item-label class="label">Doar</q-item-label>
+                </router-link>
+              </q-item-section>
+            </q-item>
+
+            <q-item clickable v-close-popup>
+              <q-item-section>
+                <router-link to="/AboutUs"
+                  ><q-item-label class="label"
+                    >Quem Somos?</q-item-label
+                  ></router-link
+                >
+              </q-item-section>
+            </q-item>
+
+            <q-item clickable v-close-popup>
+              <q-item-section>
+                <router-link to="/user"
+                  ><q-item-label class="label"
+                    >Minha Conta</q-item-label
+                  ></router-link
+                >
+              </q-item-section>
+            </q-item>
+
+            <q-item clickable v-close-popup>
+              <q-item-section>
+                <router-link to="/"
+                  ><q-item-label class="label">Sair</q-item-label></router-link
+                >
+              </q-item-section>
+            </q-item>
+          </q-list>
+        </q-btn-dropdown>
+      </div>
+
+      <div class="logo-container">
+        <img
+          alt="Logo do Giftr"
+          src="../assets/logo-giftr.svg"
+          id="logo"
+          @click="$router.push('/')"
+        />
+      </div>
+
+      <!-- menu desktop -->
+      <div class="menu-desktop">
+        <router-link to="/">
+          <q-btn class="button-desktop" label="Doar"
+        /></router-link>
+
+        <router-link to="/AboutUs">
+          <q-btn class="button-desktop" label="Quem Somos?" />
+        </router-link>
+
+        <router-link to="/user">
+          <q-btn class="button-desktop" label="Minha Conta" />
+        </router-link>
+
+        <router-link to="/">
+          <q-btn class="button-desktop" label="Sair" />
         </router-link>
       </div>
     </q-toolbar>
@@ -74,34 +154,42 @@
 </template>
 
 <script>
-import store from '../store'
+import store from "../store";
 
 export default {
   name: "Toolbar",
 
   data() {
     return {
-      teste: Boolean
-    }
+      teste: Boolean,
+      /* keyRerender: 0, */
+    };
   },
 
+  /* methods: {
+   forceRerender() {
+        this.keyRerender += 1;
+      }
+  }, */
+
   created() {
-    if (!store.getters['auth/hasToken']) {
+    if (!store.getters["auth/hasToken"]) {
       try {
-            store.dispatch('auth/ActionCheckToken')
+        store.dispatch("auth/ActionCheckToken");
 
-            console.log(store.getters['auth/hasToken'])
+        console.log(store.getters["auth/hasToken"]);
 
-            this.teste = true
-        } catch (err) {
-            this.teste = false
+        if (store.getters["auth/hasToken"]) {
+          return this.teste = true
+        } else {
+          return this.teste = false
         }
+      } catch (err) {
+        console.log(err)
+      }
     }
-  }
-
-
+  },
 };
-
 </script>
 
 <style lang="stylus" scoped>
@@ -164,8 +252,8 @@ export default {
 
   .button-desktop {
     font: 700 1.2rem Montserrat;
-    margin-left: 0.2rem;
-    width: 130px;
+    margin-left: 2rem;
+    width: auto;
     height: 0%;
   }
 
@@ -173,9 +261,9 @@ export default {
     display: flex;
     justify-content: space-between;
     padding: 0.2rem 6.4rem;
-    margin 0 auto
+    margin: 0 auto;
     margin-top: 3.2rem;
-    max-width 1440px
+    max-width: 1440px;
   }
 
   .logo-container {
