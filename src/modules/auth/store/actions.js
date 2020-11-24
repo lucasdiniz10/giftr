@@ -5,7 +5,6 @@ import axios from 'axios'
 
 export const ActionCheckToken = ({ dispatch, state }) => {
     if (state.token) {
-        console.log('asssaas')
         return Promise.resolve(state.token)
     }
 
@@ -27,7 +26,7 @@ export const ActionLoadSession = ({ dispatch }, payload) => {
         try {
             const token = payload
             const bearer = 'Bearer' + ' ' + token
-            console.log(bearer);
+            
             axios
                 .get("http://localhost:3333/loadSession", {
                     headers: { authorization: bearer }

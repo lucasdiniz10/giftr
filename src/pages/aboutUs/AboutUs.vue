@@ -1,21 +1,11 @@
 <template>
-  <div id="about-us">
-    <div id="card" v-for="(user, index) in users" :key="index">
-      <q-card class="my-card">
-        <div class="avatar-container">
-          <a>{{ user.name }}</a>
-          <q-separator />
-          <a>{{ user.email }}</a>
-          <q-separator />
-          <a>{{ user.password }}</a>
-        </div>
-      </q-card>
-    </div>
+  <div id="myApplication">
+    <h1>Equipe goBase</h1>
   </div>
 </template>
 
+
 <script>
-import axios from "axios";
 
 export default {
   data() {
@@ -24,20 +14,6 @@ export default {
     };
   },
 
-  beforeMount() {
-    axios
-      .get("http://localhost:3333/users")
-      .then((res) => {
-        console.log(res.data.User[1].email);
-        this.$data.users = res.data.User
-        console.log(this.users);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-
-    
-  },
 };
 </script>
 

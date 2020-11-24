@@ -74,9 +74,34 @@
 </template>
 
 <script>
+import store from '../store'
+
 export default {
   name: "Toolbar",
+
+  data() {
+    return {
+      teste: Boolean
+    }
+  },
+
+  created() {
+    if (!store.getters['auth/hasToken']) {
+      try {
+            store.dispatch('auth/ActionCheckToken')
+
+            console.log(store.getters['auth/hasToken'])
+
+            this.teste = true
+        } catch (err) {
+            this.teste = false
+        }
+    }
+  }
+
+
 };
+
 </script>
 
 <style lang="stylus" scoped>
