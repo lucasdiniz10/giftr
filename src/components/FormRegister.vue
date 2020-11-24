@@ -196,7 +196,7 @@ export default {
           })
           .then((res) => {
             console.log(res);
-            this.$router.push("/user");
+            this.$router.push("/login");
           })
           .catch((err) => {
             console.log(err.response);
