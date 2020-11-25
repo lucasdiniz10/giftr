@@ -162,7 +162,7 @@
 
             <q-card-actions align="right">
               <q-btn flat label="Cancelar" color="primary" v-close-popup />
-              <q-btn flat label="Sair" color="primary" v-close-popup />
+              <q-btn @click="onClick()" flat label="Sair" color="primary" v-close-popup />
             </q-card-actions>
           </q-card>
         </q-dialog>
@@ -182,15 +182,14 @@ export default {
     return {
       teste: Boolean,
       logout: false,
-      /* keyRerender: 0, */
     };
   },
 
-  /* methods: {
-   forceRerender() {
-        this.keyRerender += 1;
-      }
-  }, */
+  methods: {
+    onClick() {
+      store.dispatch('auth/ActionSingOut')
+    }
+  },
 
   created() {
     if (!store.getters["auth/hasToken"]) {
