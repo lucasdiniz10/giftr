@@ -1,7 +1,7 @@
 <template>
-  <q-page class="flex flex-center">
-    <link rel="stylesheet" href="../styles/colors.css" />
-    <div class="container" id="home">
+  <div id="home">
+    <Toolbar :key="keyRerender" />
+    <div class="container">
       <header>
         <div class="home-header">
           <div id="header-text">
@@ -19,7 +19,12 @@
             id="hero-img"
           />
           <div class="button-container">
-            <q-btn label="Doar Agora" class="buttons" id="button-donate" v-scroll-to="'#cause-title'"/>
+            <q-btn
+              label="Doar Agora"
+              class="buttons"
+              id="button-donate"
+              v-scroll-to="'#cause-title'"
+            />
             <q-btn label="Saiba Mais" class="buttons" id="button-more" />
           </div>
         </div>
@@ -36,17 +41,19 @@
         </div>
       </body>
     </div>
-  </q-page>
+  </div>
 </template>
 
 <script>
 import CardCause from "../../components/CardCause";
+import Toolbar from "../../components/Toolbar.vue";
 
 export default {
   name: "Home",
 
   components: {
     CardCause,
+    Toolbar,
   },
 
   data() {
@@ -102,7 +109,18 @@ export default {
           description: "Página Direitos Humanos",
         },
       ],
+      keyRerender: 0,
     };
+  },
+
+  methods: {
+    forceRerender() {
+      this.keyRerender += 1;
+    },
+  },
+
+  created() {
+    this.forceRerender();
   },
 };
 </script>

@@ -1,14 +1,17 @@
 <template>
-  <div class="container" id="register">
-    <div class="content-container">
-      <header class="header-container">
-        <h1 id="title">Obrigado por dar esse passo!</h1>
-        <p>Bem-vindo ao cadastro! Digite seu nome completo, email e senha.</p>
-      </header>
-      <div class="main-container">
-        <main>
-          <FormRegister />
-        </main>
+  <div id="register">
+    <Toolbar />
+    <div class="container">
+      <div class="content-container">
+        <header class="header-container">
+          <h1 id="title">Obrigado por dar esse passo!</h1>
+          <p>Bem-vindo ao cadastro! Digite seu nome completo, email e senha.</p>
+        </header>
+        <div class="main-container">
+          <main>
+            <FormRegister />
+          </main>
+        </div>
       </div>
     </div>
   </div>
@@ -16,12 +19,14 @@
 
 <script>
 import FormRegister from "../../components/FormRegister";
+import Toolbar from '../../components/Toolbar.vue';
 
 export default {
   name: "Register",
 
   components: {
     FormRegister,
+    Toolbar,
   },
 };
 </script>
@@ -40,15 +45,15 @@ header #title {
 
 @media (min-width: 1024px) {
   .content-container {
-    margin-top 120px
+    margin-top: 120px;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-gap  3.2rem
+    grid-gap: 3.2rem;
   }
 
   header {
     text-align: left;
-    margin 0;
+    margin: 0;
   }
 
   header h1 {

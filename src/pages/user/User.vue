@@ -1,71 +1,99 @@
 <template>
-  <div class="container" id="user-page">
-    <div class="content-container">
-      <div class="header-container">
-        <header>
-          <div id="header-text">
-            <h1 class="title" id="user-welcome">Olá, {{ user.name }}</h1>
-            <p id="user-description">
-              Bem-vindo a sua área de usuário, aqui você pode consultar e gerenciar todos os
-              seus dados de doações e pessoais.
-            </p>
-          </div>
-        </header>
-      </div>
-
-      <body>
-        <div class="body-content">
-          <div id="user-topic-container">
-            <router-link to="/user/historic">
-              <q-btn color="primary" label="Histórico de Doações" id="button" />
-            </router-link>
-          </div>
-
-          <div id="user-topic-container">
-            <router-link to="/user/total">
-              <q-btn color="primary" label="Valor Total Doado" id="button" />
-            </router-link>
-          </div>
-
-          <div id="user-topic-container">
-            <router-link to="/user/recurrent">
-              <q-btn color="primary" label="Doações Recorrentes" id="button" />
-            </router-link>
-          </div>
-
-          <div id="user-topic-container">
-            <router-link to="/user/topdonate">
-              <q-btn color="primary" label="Maior Doação" id="button" />
-            </router-link>
-          </div>
-
-          <div id="user-topic-container">
-            <router-link to="/user/topdonate">
-              <q-btn color="primary" label="Alterar Dados Pessoais" id="button" />
-            </router-link>
-          </div>
+  <div id="user-page">
+    <Toolbar :key="keyRerender"/>
+    <div class="container">
+      <div class="content-container">
+        <div class="header-container">
+          <header>
+            <div id="header-text">
+              <h1 class="title" id="user-welcome">Olá, {{ user.name }}</h1>
+              <p id="user-description">
+                Bem-vindo a sua área de usuário, aqui você pode consultar e
+                gerenciar todos os seus dados de doações e pessoais.
+              </p>
+            </div>
+          </header>
         </div>
-      </body>
+
+        <body>
+          <div class="body-content">
+            <div id="user-topic-container">
+              <router-link to="/user/historic">
+                <q-btn
+                  color="primary"
+                  label="Histórico de Doações"
+                  id="button"
+                />
+              </router-link>
+            </div>
+
+            <div id="user-topic-container">
+              <router-link to="/user/total">
+                <q-btn color="primary" label="Valor Total Doado" id="button" />
+              </router-link>
+            </div>
+
+            <div id="user-topic-container">
+              <router-link to="/user/recurrent">
+                <q-btn
+                  color="primary"
+                  label="Doações Recorrentes"
+                  id="button"
+                />
+              </router-link>
+            </div>
+
+            <div id="user-topic-container">
+              <router-link to="/user/topdonate">
+                <q-btn color="primary" label="Maior Doação" id="button" />
+              </router-link>
+            </div>
+
+            <div id="user-topic-container">
+              <router-link to="/user/topdonate">
+                <q-btn
+                  color="primary"
+                  label="Alterar Dados Pessoais"
+                  id="button"
+                />
+              </router-link>
+            </div>
+          </div>
+        </body>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState } from "vuex";
+import Toolbar from "../../components/Toolbar.vue";
 
 export default {
   name: "User",
 
-  /* data() {
+  components: {
+    Toolbar,
+  },
+  
+  data() {
     return {
-      user: {
-        name: "Dannilo Pires",
-      },
+      keyRerender: 0,
     };
-  }, */
+  },
+
+  methods: {
+    forceRerender() {
+      this.keyRerender += 1;
+    }
+  },
+
+  created() {
+    this.forceRerender()
+  },
 
   computed: {
-    ...mapState('auth', ['user'])
+    ...mapState("auth", ["user"]),
   },
 };
 </script>

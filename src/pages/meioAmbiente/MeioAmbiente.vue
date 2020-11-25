@@ -1,17 +1,32 @@
 <template>
-  <div class="container" id="ongs">
-    <div class="title">
-      <h1>Instituições:</h1>
-      <div class="filter"></div>
-    </div>
-    <div class="cause-container">
-      <header class="header-container">
-        <h1>Meio Ambiente</h1>
-        <p>Descrição</p>
-      </header>
-      <div class="cards">
-        <div id="cards" v-for="(ong, index) in ongs" :key="index">
-          <div><CardOng :cardOng="ong" /></div>
+  <div id="ongs">
+    <Toolbar :key="keyRerender"/>
+    <div class="container">
+      <div class="title">
+        <h1>Instituições:</h1>
+        <div class="filter"></div>
+      </div>
+      <div class="cause-container">
+        <header class="header-container">
+          <h1>Meio Ambiente</h1>
+          <p>Descrição</p>
+
+          <q-input
+            class="filter"
+            v-model="busca"
+            filled
+            type="search"
+            hint="Buscar uma instituição por Nome"
+          >
+            <template v-slot:append>
+              <q-icon name="search" />
+            </template>
+          </q-input>
+        </header>
+        <div class="cards">
+          <div id="cards" v-for="(ong, index) in ongs" :key="index">
+            <div><CardOng :cardOng="ong" /></div>
+          </div>
         </div>
       </div>
     </div>
@@ -21,18 +36,31 @@
 <script>
 import CardOng from "../../components/CardOng";
 import axios from "axios";
+import Toolbar from '../../components/Toolbar'
 
 export default {
   name: "Ongs",
 
   components: {
     CardOng,
+    Toolbar
   },
 
   data() {
     return {
       ongs: [],
+      keyRerender: 0,
     };
+  },
+
+  methods: {
+    forceRerender() {
+      this.keyRerender += 1;
+    }
+  },
+
+  created() {
+    this.forceRerender()
   },
 
   beforeMount() {
@@ -80,6 +108,11 @@ export default {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     grid-gap: 2.5rem;
+  }
+
+  .filter {
+    max-width: 350px;
+    margin: 0 auto;
   }
 }
 </style>

@@ -5,7 +5,7 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Quicksand:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <Toolbar />
+    <!-- <Toolbar /> -->
     </q-page-container>
 
     <q-page-container>
@@ -15,14 +15,8 @@
 </template>
 
 <script>
-import Toolbar from "./components/Toolbar";
-
 export default {
   name: "LayoutDefault",
-
-  components: {
-    Toolbar,
-  },
 
   data() {
     return {

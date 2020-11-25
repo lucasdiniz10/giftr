@@ -1,7 +1,7 @@
 export default [
     {
     name: 'userTotal',
-    path: '/userTotal',
+    path: '/user/total',
     component: () => import('./UserTotal')
   }
 ]

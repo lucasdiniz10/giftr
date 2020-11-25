@@ -1,37 +1,41 @@
 <template>
-  <div class="container" id="user-historic">
-    <div class="content-container">
-      <div class="header-container">
-        <header>
-          <h1 id="title">Suas Doações!</h1>
-          <p>Histórico:</p>
-        </header>
-      </div>
-      <div class="body-container">
-        <body>
-          <CardExpansive />
-        </body>
+  <div id="user-historic">
+    <Toolbar />
+    <div class="container">
+      <div class="content-container">
+        <div class="header-container">
+          <header>
+            <h1 id="title">Suas Doações!</h1>
+            <p>Histórico:</p>
+          </header>
+        </div>
+        <div class="body-container">
+          <body>
+            <CardExpansive />
+          </body>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import CardExpansive from "../../components/CardExpansive"
+import CardExpansive from "../../components/CardExpansive";
+import Toolbar from "../../components/Toolbar.vue";
+
 
 export default {
   name: "UserHistoric",
 
   components: {
     CardExpansive,
+    Toolbar,
   },
 
   data() {
-    return {
-      
-    }
+    return {};
   },
-}
+};
 </script>
 
 <style lang="stylus" scoped>
@@ -47,20 +51,20 @@ header #title {
 }
 
 p {
-  margin-bottom 6.4rem
+  margin-bottom: 6.4rem;
 }
 
 @media (min-width: 1024px) {
   .content-container {
-    margin-top 120px
-/*     display: grid;
+    margin-top: 120px;
+    /* display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap  3.2rem */
   }
 
   header {
     text-align: left;
-    margin 0;
+    margin: 0;
   }
 
   header h1 {

@@ -1,35 +1,40 @@
 <template>
-  <div class="container" id="user-total">
-    <div class="content-container">
-      <div class="header-container">
-        <header>
-          <h1 id="title">Valor total das suas doações!</h1>
-          <p>Juntando cada uma delas, você ajudou ao próximo com: </p>
-        </header>
-      </div>
-      <div class="body-container">
-        <body>
-          <h1 id="valor">R$ {{ valor }}</h1>
-        </body>
+  <div id="user-total">
+    <Toolbar />
+    <div class="container">
+      <div class="content-container">
+        <div class="header-container">
+          <header>
+            <h1 id="title">Valor total das suas doações!</h1>
+            <p>Juntando cada uma delas, você ajudou ao próximo com:</p>
+          </header>
+        </div>
+        <div class="body-container">
+          <body>
+            <h1 id="valor">R$ {{ valor }}</h1>
+          </body>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import Toolbar from '../../components/Toolbar.vue';
 export default {
+  components: { Toolbar },
   name: "UserTotal",
-  
+
   data() {
     return {
-      valor: "122,90"
-    }
-  }
+      valor: "122,90",
+    };
+  },
 };
 </script>
   
 <style lang="stylus" scoped>
-  header {
+header {
   text-align: center;
   margin-bottom: 5rem;
   display: block;
@@ -41,22 +46,22 @@ header #title {
 }
 
 p {
-  margin-bottom 6.4rem
+  margin-bottom: 6.4rem;
 }
 
 #valor {
   font: 800 6.4rem Montserrat;
-  text-align center
+  text-align: center;
 }
 
 @media (min-width: 1024px) {
   .content-container {
-    margin-top 120px
+    margin-top: 120px;
   }
 
   header {
     text-align: left;
-    margin 0;
+    margin: 0;
   }
 
   header h1 {
@@ -68,7 +73,7 @@ p {
   }
 
   #valor {
-    text-align left 
+    text-align: left;
   }
 }
 </style>

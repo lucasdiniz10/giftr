@@ -1,34 +1,37 @@
 <template>
-  <div class="container" id="ongs">
-    <div class="title">
-      <h1>Instituições:</h1>
-      <div class="filter"></div>
-    </div>
-    <div class="cause-container">
-      <header class="header-container">
-        <h1>Saúde</h1>
-        <p>
-          Milhões de pessoas no Brasil e no mundo vivem sem condições mínimas de
-          saneamento básico e nutrição, vítimas da miséria ou de tragédias como
-          a de Mariana. Ajude agora as instituições que trabalham pela dignidade
-          e saúde dessas pessoas.
-        </p>
+  <div id="ongs">
+    <Toolbar :key="keyRerender"/>
+    <div class="container">
+      <div class="title">
+        <h1>Instituições:</h1>
+        <div class="filter"></div>
+      </div>
+      <div class="cause-container">
+        <header class="header-container">
+          <h1>Saúde</h1>
+          <p>
+            Milhões de pessoas no Brasil e no mundo vivem sem condições mínimas
+            de saneamento básico e nutrição, vítimas da miséria ou de tragédias
+            como a de Mariana. Ajude agora as instituições que trabalham pela
+            dignidade e saúde dessas pessoas.
+          </p>
 
-        <q-input
-          class="filter"
-          v-model="busca"
-          filled
-          type="search"
-          hint="Buscar uma instituição por Nome"
-        >
-          <template v-slot:append>
-            <q-icon name="search" />
-          </template>
-        </q-input>
-      </header>
-      <div class="cards">
-        <div id="cards" v-for="(ong, index) in ongs" :key="index">
-          <div><CardOng :cardOng="ong" /></div>
+          <q-input
+            class="filter"
+            v-model="busca"
+            filled
+            type="search"
+            hint="Buscar uma instituição por Nome"
+          >
+            <template v-slot:append>
+              <q-icon name="search" />
+            </template>
+          </q-input>
+        </header>
+        <div class="cards">
+          <div id="cards" v-for="(ong, index) in ongs" :key="index">
+            <div><CardOng :cardOng="ong" /></div>
+          </div>
         </div>
       </div>
     </div>
@@ -38,19 +41,32 @@
 <script>
 import CardOng from "../../components/CardOng";
 import axios from "axios";
+import Toolbar from '../../components/Toolbar';
 
 export default {
   name: "Ongs",
 
   components: {
     CardOng,
+    Toolbar,
   },
 
   data() {
     return {
       ongs: [],
       busca: "",
+      keyRerender: 0,
     };
+  },
+
+  methods: {
+    forceRerender() {
+      this.keyRerender += 1;
+    }
+  },
+
+  created() {
+    this.forceRerender()
   },
 
   beforeMount() {

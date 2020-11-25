@@ -1,7 +1,7 @@
 export default [
     {
     name: 'userHistoric',
-    path: '/userHistoric',
+    path: '/user/historic',
     component: () => import('./UserHistoric')
   }
 ]
