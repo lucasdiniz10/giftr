@@ -11,7 +11,7 @@ export const ActionCheckToken = ({ dispatch, state }) => {
     const token = storage.getLocalToken()
 
     if (!token) {
-        return console.log(new Error('token invalido'))
+        return Promise.reject(new Error('token invalido'))
     }
 
     dispatch('ActionSetToken', token)
