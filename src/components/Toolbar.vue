@@ -1,6 +1,5 @@
 <template>
   <div class="q-pa-md q-gutter-y-sm" id="container">
-    
     <!-- tollbar para não logados -->
     <q-toolbar v-if="teste === false" class="text-primary" id="toolbar">
       <!-- menu mobile -->
@@ -145,9 +144,29 @@
           <q-btn class="button-desktop" label="Minha Conta" />
         </router-link>
 
-        <router-link to="/">
-          <q-btn class="button-desktop" label="Sair" />
-        </router-link>
+        <!-- botão sair -->
+        <q-btn class="button-desktop" label="Sair" @click="logout = true" />
+
+        <q-dialog v-model="logout">
+          <q-card>
+            <q-card-section class="row items-center">
+              <q-avatar
+                icon="signal_wifi_off"
+                color="primary"
+                text-color="white"
+              />
+              <span class="q-ml-sm"
+                >Você deseja sair da sua conta?</span
+              >
+            </q-card-section>
+
+            <q-card-actions align="right">
+              <q-btn flat label="Cancelar" color="primary" v-close-popup />
+              <q-btn flat label="Sair" color="primary" v-close-popup />
+            </q-card-actions>
+          </q-card>
+        </q-dialog>
+
       </div>
     </q-toolbar>
   </div>
@@ -162,6 +181,7 @@ export default {
   data() {
     return {
       teste: Boolean,
+      logout: false,
       /* keyRerender: 0, */
     };
   },
@@ -180,12 +200,12 @@ export default {
         console.log(store.getters["auth/hasToken"]);
 
         if (store.getters["auth/hasToken"]) {
-          return this.teste = true
+          return (this.teste = true);
         } else {
-          return this.teste = false
+          return (this.teste = false);
         }
       } catch (err) {
-        console.log(err)
+        console.log(err);
       }
     }
   },
