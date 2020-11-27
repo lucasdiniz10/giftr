@@ -223,9 +223,9 @@ export default {
 
   methods: {
     onClick() {
-      store.dispatch("auth/ActionSingOut");
-      this.$router.push("/");
-    },
+      store.dispatch('auth/ActionSingOut')
+      this.$router.push('/login');
+    }
   },
 
   created() {
