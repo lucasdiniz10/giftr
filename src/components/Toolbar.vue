@@ -208,8 +208,9 @@ export default {
 
   methods: {
     onClick() {
-      store.dispatch("auth/ActionSingOut");
-    },
+      store.dispatch('auth/ActionSingOut')
+      this.$router.push('/');
+    }
   },
 
   created() {
