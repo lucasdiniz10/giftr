@@ -6,6 +6,7 @@
       <div class="menu">
         <q-btn-dropdown flat round dense icon="menu" id="menu-button">
           <q-list class="menu-items">
+            <!-- botão doar -->
             <q-item clickable v-close-popup>
               <q-item-section>
                 <router-link to="/">
@@ -14,6 +15,7 @@
               </q-item-section>
             </q-item>
 
+            <!-- botão quem somos? -->
             <q-item clickable v-close-popup>
               <q-item-section>
                 <router-link to="/AboutUs"
@@ -24,6 +26,7 @@
               </q-item-section>
             </q-item>
 
+            <!-- botão login -->
             <q-item clickable v-close-popup>
               <q-item-section>
                 <router-link to="/login"
@@ -34,6 +37,7 @@
               </q-item-section>
             </q-item>
 
+            <!-- botão cadastro -->
             <q-item clickable v-close-popup>
               <q-item-section>
                 <router-link to="/register"
@@ -98,6 +102,7 @@
       <div class="menu">
         <q-btn-dropdown flat round dense icon="menu" id="menu-button">
           <q-list class="menu-items">
+            <!-- botão doar -->
             <q-item clickable v-close-popup>
               <q-item-section>
                 <router-link to="/">
@@ -106,6 +111,7 @@
               </q-item-section>
             </q-item>
 
+            <!-- botão Quem Somos? -->
             <q-item clickable v-close-popup>
               <q-item-section>
                 <router-link to="/AboutUs"
@@ -116,6 +122,7 @@
               </q-item-section>
             </q-item>
 
+            <!-- botão minha conta -->
             <q-item clickable v-close-popup>
               <q-item-section>
                 <router-link to="/user"
@@ -126,10 +133,11 @@
               </q-item-section>
             </q-item>
 
+            <!-- botão sair -->
             <q-item clickable v-close-popup>
               <q-item-section>
-                <router-link to="/"
-                  ><q-item-label class="label">Sair</q-item-label></router-link
+                <q-item-label class="label" @click="logout = true"
+                  >Sair</q-item-label
                 >
               </q-item-section>
             </q-item>
@@ -179,31 +187,32 @@
           label="Sair"
           @click="logout = true"
         />
-
-        <q-dialog v-model="logout">
-          <q-card>
-            <q-card-section class="row items-center">
-              <q-avatar
-                icon="sentiment_very_dissatisfied"
-                color="primary"
-                text-color="white"
-              />
-              <span class="q-ml-sm">Você deseja sair da sua conta?</span>
-            </q-card-section>
-
-            <q-card-actions align="right">
-              <q-btn flat label="Cancelar" color="primary" v-close-popup />
-              <q-btn
-                @click="onClick()"
-                flat
-                label="Sair"
-                color="primary"
-                v-close-popup
-              />
-            </q-card-actions>
-          </q-card>
-        </q-dialog>
       </div>
+
+      <!-- dialog box logout -->
+      <q-dialog v-model="logout">
+        <q-card>
+          <q-card-section class="row items-center">
+            <q-avatar
+              icon="sentiment_very_dissatisfied"
+              color="primary"
+              text-color="white"
+            />
+            <span class="q-ml-sm">Você deseja sair da sua conta?</span>
+          </q-card-section>
+
+          <q-card-actions align="right">
+            <q-btn flat label="Cancelar" color="primary" v-close-popup />
+            <q-btn
+              @click="onClick()"
+              flat
+              label="Sair"
+              color="primary"
+              v-close-popup
+            />
+          </q-card-actions>
+        </q-card>
+      </q-dialog>
     </q-toolbar>
   </div>
 </template>
@@ -223,9 +232,9 @@ export default {
 
   methods: {
     onClick() {
-      store.dispatch('auth/ActionSingOut')
-      this.$router.push('/login');
-    }
+      store.dispatch("auth/ActionSingOut");
+      this.$router.push("/login");
+    },
   },
 
   created() {
