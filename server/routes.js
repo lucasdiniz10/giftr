@@ -14,6 +14,7 @@ routes.get('/users/:id', UserController.getId);
 routes.post('/users/post', UserController.post);
 routes.post('/users/session', SessionController.Session);
 routes.get('/loadSession', authMiddleware, SessionController.LoadSession);
+routes.post('/userCheck', SessionController.userCheck);
 
 ////////////////////////////////////////////////////////
 // cause routes

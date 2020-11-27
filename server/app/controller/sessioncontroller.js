@@ -3,6 +3,7 @@ import jwt from 'jsonwebtoken';
 import authConfig from '../../config/auth'
 import bcrypt from 'bcryptjs';
 import { promisify } from 'util'
+import { decode } from 'querystring';
 
 class SessionController {
     async Session(req, res) {
@@ -14,9 +15,9 @@ class SessionController {
             return res.status(401).json({ error: 'User not foud!' });
         }
 
-        const testPassword = await bcrypt.compare(password, user.password)
+        const passwordTest = await bcrypt.compare(password, user.password)
 
-        if (!testPassword) {
+        if (!passwordTest) {
             return res.status(401).json({ error: 'Password not match!' });
         }
 
@@ -36,7 +37,7 @@ class SessionController {
 
     async LoadSession(req, res) {
         const authHeader = req.headers.authorization;
-        
+
         const [, token] = authHeader.split(' ');
 
         try {
@@ -51,6 +52,19 @@ class SessionController {
         }
 
 
+    }
+
+    async userCheck(req, res) {
+
+        const { email, password } = req.body;
+
+        const user = await User.findOne({ email: email })
+
+        if (!user) {
+            return res.status(401).json({ error: 'User not foud!' });
+        }
+
+        return res.status(200).json({ message: 'User exists!' })
     }
 }
 
