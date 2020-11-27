@@ -132,41 +132,62 @@
 
       <!-- menu desktop -->
       <div class="menu-desktop">
-        <router-link to="/">
-          <q-btn class="button-desktop" label="Doar"
-        /></router-link>
 
-        <router-link to="/AboutUs">
-          <q-btn class="button-desktop" label="Quem Somos?" />
-        </router-link>
+        <!-- botão doar -->
+        <q-btn
+          flat
+          class="button-desktop"
+          label="Doar"
+          @click="$router.push('/')"
+        />
+        
+        <!-- botão quem somos? -->
+        <q-btn
+          flat
+          class="button-desktop"
+          label="Quem Somos?"
+          @click="$router.push('/AboutUs')"
+        />
 
-        <router-link to="/user">
-          <q-btn class="button-desktop" label="Minha Conta" />
-        </router-link>
+        <!-- botão minha conta -->
+        <q-btn
+          flat
+          class="button-desktop"
+          label="Minha Conta"
+          @click="$router.push('/user')"
+        />
 
         <!-- botão sair -->
-        <q-btn class="button-desktop" label="Sair" @click="logout = true" />
+        <q-btn
+          flat
+          class="button-desktop"
+          label="Sair"
+          @click="logout = true"
+        />
 
         <q-dialog v-model="logout">
           <q-card>
             <q-card-section class="row items-center">
               <q-avatar
-                icon="signal_wifi_off"
+                icon="sentiment_very_dissatisfied"
                 color="primary"
                 text-color="white"
               />
-              <span class="q-ml-sm"
-                >Você deseja sair da sua conta?</span
-              >
+              <span class="q-ml-sm">Você deseja sair da sua conta?</span>
             </q-card-section>
 
             <q-card-actions align="right">
               <q-btn flat label="Cancelar" color="primary" v-close-popup />
-              <q-btn @click="onClick()" flat label="Sair" color="primary" v-close-popup />
+              <q-btn
+                @click="onClick()"
+                flat
+                label="Sair"
+                color="primary"
+                v-close-popup
+              />
             </q-card-actions>
           </q-card>
         </q-dialog>
-
       </div>
     </q-toolbar>
   </div>
@@ -187,8 +208,8 @@ export default {
 
   methods: {
     onClick() {
-      store.dispatch('auth/ActionSingOut')
-    }
+      store.dispatch("auth/ActionSingOut");
+    },
   },
 
   created() {
