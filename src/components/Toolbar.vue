@@ -58,21 +58,37 @@
 
       <!-- menu desktop -->
       <div class="menu-desktop">
-        <router-link to="/">
-          <q-btn class="button-desktop" label="Doar"
-        /></router-link>
+        <!-- botão doar -->
+        <q-btn
+          flat
+          class="button-desktop"
+          label="Doar"
+          @click="$router.push('/')"
+        />
 
-        <router-link to="/AboutUs">
-          <q-btn class="button-desktop" label="Quem Somos?" />
-        </router-link>
+        <!-- botão quem somos? -->
+        <q-btn
+          flat
+          class="button-desktop"
+          label="Quem Somos?"
+          @click="$router.push('/AboutUs')"
+        />
 
-        <router-link to="/login">
-          <q-btn class="button-desktop" label="Entrar" />
-        </router-link>
+        <!-- botão login -->
+        <q-btn
+          flat
+          class="button-desktop"
+          label="Entrar"
+          @click="$router.push('/login')"
+        />
 
-        <router-link to="/register">
-          <q-btn class="button-desktop" label="Cadastre-se" />
-        </router-link>
+        <!-- botão cadastro -->
+        <q-btn
+          flat
+          class="button-desktop"
+          label="Cadastre-se"
+          @click="$router.push('/register')"
+        />
       </div>
     </q-toolbar>
 
@@ -132,7 +148,6 @@
 
       <!-- menu desktop -->
       <div class="menu-desktop">
-
         <!-- botão doar -->
         <q-btn
           flat
@@ -140,7 +155,7 @@
           label="Doar"
           @click="$router.push('/')"
         />
-        
+
         <!-- botão quem somos? -->
         <q-btn
           flat
@@ -208,9 +223,9 @@ export default {
 
   methods: {
     onClick() {
-      store.dispatch('auth/ActionSingOut')
-      this.$router.push('/');
-    }
+      store.dispatch("auth/ActionSingOut");
+      this.$router.push("/");
+    },
   },
 
   created() {
