@@ -66,7 +66,7 @@
           :disabled="user.submitStatus === 'PENDING'"
         />
         <!-- botao recuperar senha -->
-        <a id="password-recovery-button" @click="$router.push('/')">Esqueceu a Senha?</a>
+        <a id="password-recovery-button" @click="$router.push('password-recovery/email-validation')">Esqueceu a Senha?</a>
       </div>
       <p class="typo__p" id="ok" v-if="user.submitStatus === 'OK'">
         Cadastro completo com sucesso!!

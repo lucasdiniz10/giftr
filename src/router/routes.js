@@ -15,9 +15,9 @@ import { routes as user } from '../pages/user'
 import { routes as userHistoric } from '../pages/userHistoric'
 import { routes as userTotal } from '../pages/userTotal'
 import { routes as login } from '../modules/auth'
-import { routes as  emailValidation } from '../pages/passwordRecovery/emailValidation'
-import { routes as  newpassword } from '../pages/passwordRecovery/newPassword'
-import { routes as  verificationCode } from '../pages/passwordRecovery/verificationCode'
+import { routes as emailValidation } from '../pages/passwordRecovery/emailValidation'
+import { routes as newpassword } from '../pages/passwordRecovery/newPassword'
+import { routes as verificationCode } from '../pages/passwordRecovery/verificationCode'
 
 export default [
     ...home,
