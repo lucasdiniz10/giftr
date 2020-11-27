@@ -30,33 +30,6 @@
         {{ $v.user.email.$params.maxLength.max }} letras.
       </div>
 
-      <!-- campo senha -->
-      <div
-        class="form-group"
-        :class="{ 'form-group--error': $v.user.password.$error }"
-      >
-        <q-input
-          ref="password"
-          filled
-          type="password"
-          v-model.trim="$v.user.password.$model"
-          hint="Senha"
-        />
-      </div>
-
-      <!-- validação senha -->
-      <div class="error" v-if="!$v.user.password.required">
-        Senha é obrigatória.
-      </div>
-      <div class="error" v-if="!$v.user.password.minLength">
-        Senha deve ter no mínimo
-        {{ $v.user.password.$params.minLength.min }} letras.
-      </div>
-      <div class="error" v-if="!$v.user.password.maxLength">
-        Senha deve ter no máximo
-        {{ $v.user.password.$params.maxLength.max }} letras.
-      </div>
-
       <!-- botão -->
       <div class="button">
         <q-btn id="submit-button"
@@ -65,18 +38,16 @@
           color="primary"
           :disabled="user.submitStatus === 'PENDING'"
         />
-        <!-- botao recuperar senha -->
-        <a id="password-recovery-button" @click="$router.push('/password-recovery/email-validation')">Esqueceu a Senha?</a>
       </div>
       <p class="typo__p" id="ok" v-if="user.submitStatus === 'OK'">
-        Cadastro completo com sucesso!!
+        Email enviado com sucesso!!
       </p>
       <p class="typo__p" v-if="user.submitStatus === 'ERROR'">
         Por favor, preencha os campos corretamente.
       </p>
-      <p class="typo__p" v-if="user.submitStatus === 'ERRORPASSWORD'">
+      <!-- <p class="typo__p" v-if="user.submitStatus === 'ERRORPASSWORD'">
         Senha Incorreta.
-      </p>
+      </p> -->
       <p class="typo__p" v-if="user.submitStatus === 'ERRORUSER'">
         Usuário incorreto ou não existe.
       </p>
@@ -91,13 +62,12 @@ import { required, minLength, maxLength } from "vuelidate/lib/validators";
 import { mapActions } from "vuex";
 
 export default {
-  name: "FormLogin",
+  name: "FormEmailValidation",
 
   data() {
     return {
       user: {
         email: "",
-        password: "",
         submitStatus: null,
       },
     };
@@ -109,11 +79,6 @@ export default {
         required,
         minLength: minLength(4),
         maxLength: maxLength(50),
-      },
-      password: {
-        required,
-        minLength: minLength(6),
-        maxLength: maxLength(15),
       },
     },
   },
@@ -136,17 +101,17 @@ export default {
             console.log(res);
             this.ActionSetUser(res.data.user);
             this.ActionSetToken(res.data.token);
-            this.$router.push("/user");
+            this.$router.push("/password-recovery/verification-code");
           })
           .catch((err) => {
             console.log(err.response.data);
             const getError = err.response.data.error;
 
-            if (getError == "Password not match!") {
+            /* if (getError == "Password not match!") {
               this.user.submitStatus = "ERRORPASSWORD";
               this.$refs.password.$el.focus();
               console.log(getError);
-            } else if (getError == "User not foud!") {
+            } else */ if (getError == "User not foud!") {
               this.user.submitStatus = "ERRORUSER";
               this.$refs.email.$el.focus();
               /* this.user.email = ""; */

@@ -7,54 +7,26 @@
         :class="{ 'form-group--error': $v.user.email.$error }"
       >
         <q-input
-          ref="email"
+          ref="code"
           filled
-          type="email"
+          type="text"
           v-model.trim="$v.user.email.$model"
-          label="Email"
-          hint="Digite seu email"
+          hint="Digite o código!"
           lazy-rules
         />
       </div>
 
       <!-- validação email -->
       <div class="error" v-if="!$v.user.email.required">
-        Email é obrigatório.
+        Código é obrigatório.
       </div>
       <div class="error" v-if="!$v.user.email.minLength">
-        Email deve ter no mínimo
+        Código deve ter no mínimo
         {{ $v.user.email.$params.minLength.min }} letras.
       </div>
       <div class="error" v-if="!$v.user.email.maxLength">
-        Email deve ter no máximo
+        Código deve ter no máximo
         {{ $v.user.email.$params.maxLength.max }} letras.
-      </div>
-
-      <!-- campo senha -->
-      <div
-        class="form-group"
-        :class="{ 'form-group--error': $v.user.password.$error }"
-      >
-        <q-input
-          ref="password"
-          filled
-          type="password"
-          v-model.trim="$v.user.password.$model"
-          hint="Senha"
-        />
-      </div>
-
-      <!-- validação senha -->
-      <div class="error" v-if="!$v.user.password.required">
-        Senha é obrigatória.
-      </div>
-      <div class="error" v-if="!$v.user.password.minLength">
-        Senha deve ter no mínimo
-        {{ $v.user.password.$params.minLength.min }} letras.
-      </div>
-      <div class="error" v-if="!$v.user.password.maxLength">
-        Senha deve ter no máximo
-        {{ $v.user.password.$params.maxLength.max }} letras.
       </div>
 
       <!-- botão -->
@@ -65,18 +37,19 @@
           color="primary"
           :disabled="user.submitStatus === 'PENDING'"
         />
-        <!-- botao recuperar senha -->
-        <a id="password-recovery-button" @click="$router.push('/password-recovery/email-validation')">Esqueceu a Senha?</a>
+        <!-- botao reenviar código senha -->
+        <a id="resend-code" @click="$router.push('/password-recovery/email-validation')">Enviar código novamente</a>
+
       </div>
       <p class="typo__p" id="ok" v-if="user.submitStatus === 'OK'">
-        Cadastro completo com sucesso!!
+        Código enviado com sucesso!!
       </p>
       <p class="typo__p" v-if="user.submitStatus === 'ERROR'">
         Por favor, preencha os campos corretamente.
       </p>
-      <p class="typo__p" v-if="user.submitStatus === 'ERRORPASSWORD'">
+      <!-- <p class="typo__p" v-if="user.submitStatus === 'ERRORPASSWORD'">
         Senha Incorreta.
-      </p>
+      </p> -->
       <p class="typo__p" v-if="user.submitStatus === 'ERRORUSER'">
         Usuário incorreto ou não existe.
       </p>
@@ -91,13 +64,12 @@ import { required, minLength, maxLength } from "vuelidate/lib/validators";
 import { mapActions } from "vuex";
 
 export default {
-  name: "FormLogin",
+  name: "FormVerificationCode",
 
   data() {
     return {
       user: {
         email: "",
-        password: "",
         submitStatus: null,
       },
     };
@@ -109,11 +81,6 @@ export default {
         required,
         minLength: minLength(4),
         maxLength: maxLength(50),
-      },
-      password: {
-        required,
-        minLength: minLength(6),
-        maxLength: maxLength(15),
       },
     },
   },
@@ -136,17 +103,17 @@ export default {
             console.log(res);
             this.ActionSetUser(res.data.user);
             this.ActionSetToken(res.data.token);
-            this.$router.push("/user");
+            this.$router.push("/password-recovery/verification-code");
           })
           .catch((err) => {
             console.log(err.response.data);
             const getError = err.response.data.error;
 
-            if (getError == "Password not match!") {
+            /* if (getError == "Password not match!") {
               this.user.submitStatus = "ERRORPASSWORD";
               this.$refs.password.$el.focus();
               console.log(getError);
-            } else if (getError == "User not foud!") {
+            } else */ if (getError == "User not foud!") {
               this.user.submitStatus = "ERRORUSER";
               this.$refs.email.$el.focus();
               /* this.user.email = ""; */
@@ -191,14 +158,14 @@ export default {
   align-items center
 }
 
-#password-recovery-button {
+#resend-code {
   text-decoration underline
   font: 400 1.3rem Montserrat;
   color: var(--color-primary);
   margin-left 12px
 }
 
-#password-recovery-button:hover {
+#resend-code:hover {
   color: var(--color-secondary);
 }
 </style>

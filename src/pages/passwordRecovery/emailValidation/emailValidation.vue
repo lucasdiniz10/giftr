@@ -1,17 +1,17 @@
 <template>
-  <div id="login">
+  <div id="email-validation">
     <Toolbar :key="keyRerender"/>
     <div class="container">
       <div class="content-container">
         <div class="header-container">
           <header>
-            <h1 id="title">Olá, Qual o seu email?</h1>
+            <h1 id="title">Qual o seu email?</h1>
             <p>Te enviaremos um email para recuperação de senha.</p>
           </header>
         </div>
         <div class="main-container">
           <main>
-            <FormLogin />
+            <FormEmailValidation />
           </main>
         </div>
       </div>
@@ -20,14 +20,14 @@
 </template>
 
 <script>
-import FormLogin from "../../../components/FormLogin";
-import Toolbar from "../../../components/Toolbar.vue";
+import FormEmailValidation from "../../../components/FormEmailValidation";
+import Toolbar from "../../../components/Toolbar";
 
 export default {
   name: "EmailValidation",
 
   components: {
-    FormLogin,
+    FormEmailValidation,
     Toolbar,
   },
 
