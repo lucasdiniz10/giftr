@@ -59,12 +59,14 @@
 
       <!-- botão -->
       <div class="button">
-        <q-btn
+        <q-btn id="submit-button"
           label="Enviar"
           type="submit"
           color="primary"
           :disabled="user.submitStatus === 'PENDING'"
         />
+        <!-- botao recuperar senha -->
+        <a id="password-recovery-button" @click="$router.push('/')">Esqueceu a Senha?</a>
       </div>
       <p class="typo__p" id="ok" v-if="user.submitStatus === 'OK'">
         Cadastro completo com sucesso!!
@@ -86,7 +88,7 @@
 <script>
 import axios from "axios";
 import { required, minLength, maxLength } from "vuelidate/lib/validators";
-import { mapActions } from 'vuex'
+import { mapActions } from "vuex";
 
 export default {
   name: "FormLogin",
@@ -117,8 +119,8 @@ export default {
   },
 
   methods: {
-    ...mapActions('auth', ['ActionSetUser']),
-    ...mapActions('auth', ['ActionSetToken']),
+    ...mapActions("auth", ["ActionSetUser"]),
+    ...mapActions("auth", ["ActionSetToken"]),
     onSubmit() {
       this.$v.$touch();
       if (this.$v.$invalid) {
@@ -177,5 +179,26 @@ export default {
 
 .typo__p #ok {
   color: var(--color-primary);
+}
+
+.password-recovery-container {
+  margin-top: 3.2rem;
+}
+
+.button {
+  display: flex;
+  justify-content space-between
+  align-items center
+}
+
+#password-recovery-button {
+  text-decoration underline
+  font: 400 1.3rem Montserrat;
+  color: var(--color-primary);
+  margin-left 12px
+}
+
+#password-recovery-button:hover {
+  color: var(--color-secondary);
 }
 </style>

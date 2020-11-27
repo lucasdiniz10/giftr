@@ -77,9 +77,5 @@ header #title {
   header h1 {
     text-align: left;
   }
-
-  .body-content {
-    margin-top: 200px;
-  }
 }
 </style>
