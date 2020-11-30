@@ -41,12 +41,14 @@ class Ongscontroller {
         const { description } = req.body;
         const { image } = req.body;
         const { cause } = req.body;
+        const { link } = req.body;
         
         await Ongs.create({
             name: name,
             description: description,
             image: image,
-            cause: cause
+            cause: cause,
+            link: link
         })
         return res.json();
     }

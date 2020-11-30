@@ -6,7 +6,8 @@ const Ongsmodel = new Schema({
     name: String,
     description: String,
     image: String,
-    cause: String
+    cause: String,
+    link: String
 });
 
 export default mongoose.model('Ongs', Ongsmodel);

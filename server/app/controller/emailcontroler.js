@@ -13,7 +13,7 @@ class Emailcontroller {
 
         transporter.sendMail({
             from: user,
-            to: "lucasalvarengadiniz@gmail.com",
+            to: user,
             replyTo: user,
             subject: "VIADAO",
             text: "EMAIL DE TESTE VIADAO"
