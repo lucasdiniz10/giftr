@@ -3,7 +3,6 @@ import jwt from 'jsonwebtoken';
 import authConfig from '../../config/auth'
 import bcrypt from 'bcryptjs';
 import { promisify } from 'util'
-import { decode } from 'querystring';
 
 class SessionController {
     async Session(req, res) {

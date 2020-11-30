@@ -2,8 +2,10 @@ import { Router } from 'express';
 
 import ongsconroller from './app/controller/ongsconroller';
 import UserController from './app/controller/usercontroller';
+import EmailController from './app/controller/emailcontroler';
 import causecontroller from './app/controller/causecontroller';
 import SessionController from './app/controller/sessioncontroller';
+
 
 import authMiddleware from './app/middlewares/auth';
 
@@ -30,5 +32,10 @@ routes.get('/ongs', ongsconroller.get);
 routes.get('/ongs/:id', ongsconroller.getId);
 routes.post('/ongs/post', ongsconroller.post);
 routes.get('/ongs/causeName/:causeName', ongsconroller.getCause);
+
+/////////////////////////////////////////////////////////////////////
+// Email Routes
+
+routes.get('/send', EmailController.get)
 
 export default routes;

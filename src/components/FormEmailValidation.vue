@@ -32,7 +32,8 @@
 
       <!-- botão -->
       <div class="button">
-        <q-btn id="submit-button"
+        <q-btn
+          id="submit-button"
           label="Enviar"
           type="submit"
           color="primary"
@@ -59,7 +60,6 @@
 <script>
 import axios from "axios";
 import { required, minLength, maxLength } from "vuelidate/lib/validators";
-import { mapActions } from "vuex";
 
 export default {
   name: "FormEmailValidation",
@@ -84,37 +84,28 @@ export default {
   },
 
   methods: {
-    ...mapActions("auth", ["ActionSetUser"]),
-    ...mapActions("auth", ["ActionSetToken"]),
     onSubmit() {
       this.$v.$touch();
       if (this.$v.$invalid) {
         this.user.submitStatus = "ERROR";
-        console.log("errou");
       } else {
         // do your submit logic here
         axios
-          .post("http://localhost:3333/users/session", this.user, {
+          .post("http://localhost:3333/userCheck", this.user, {
             headers: {},
           })
           .then((res) => {
             console.log(res);
-            this.ActionSetUser(res.data.user);
-            this.ActionSetToken(res.data.token);
+            //COLOCAR O EMAIL NO STATE qweasdzxc.
             this.$router.push("/password-recovery/verification-code");
           })
           .catch((err) => {
             console.log(err.response.data);
             const getError = err.response.data.error;
 
-            /* if (getError == "Password not match!") {
-              this.user.submitStatus = "ERRORPASSWORD";
-              this.$refs.password.$el.focus();
-              console.log(getError);
-            } else */ if (getError == "User not foud!") {
+            if (getError == "User not foud!") {
               this.user.submitStatus = "ERRORUSER";
               this.$refs.email.$el.focus();
-              /* this.user.email = ""; */
               console.log(getError);
             } else {
               this.user.submitStatus = "PENDING";
@@ -152,15 +143,15 @@ export default {
 
 .button {
   display: flex;
-  justify-content space-between
-  align-items center
+  justify-content: space-between;
+  align-items: center;
 }
 
 #password-recovery-button {
-  text-decoration underline
+  text-decoration: underline;
   font: 400 1.3rem Montserrat;
   color: var(--color-primary);
-  margin-left 12px
+  margin-left: 12px;
 }
 
 #password-recovery-button:hover {
