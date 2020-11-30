@@ -18,7 +18,7 @@
 <!--     <q-btn label="Card" color="primary" @click="card = true" /> -->
     <q-dialog v-model="card">
       <q-card class="my-card" id="modal">
-        <q-img src="https://cdn.quasar.dev/img/chicken-salad.jpg" />
+        <q-img id="modal-image" :alt="cardOng.name" :src="cardOng.image" />
 
         <q-card-section>
           <q-btn
@@ -120,7 +120,14 @@ export default {
   font: 700 1.8rem Montserrat;
 }
 
+#modal-image {
+  justify-content: center;
+  height: 240px;
+  max-width: 100%;
+}
+
 .text-subtitle1 {
+  font-size 1.3rem;
   line-height 2.4rem
 }
 
@@ -141,7 +148,6 @@ export default {
 
   .avatar-container #avatar {
     width: 50px;
-
   }
 
   #cause-button {
