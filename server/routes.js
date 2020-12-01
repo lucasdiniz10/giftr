@@ -31,6 +31,7 @@ routes.post('/causes/post', causecontroller.post);
 routes.get('/ongs', ongsconroller.get);
 routes.get('/ongs/:id', ongsconroller.getId);
 routes.post('/ongs/post', ongsconroller.post);
+routes.put('/ongs/att/:id', ongsconroller.put);
 routes.get('/ongs/causeName/:causeName', ongsconroller.getCause);
 
 /////////////////////////////////////////////////////////////////////

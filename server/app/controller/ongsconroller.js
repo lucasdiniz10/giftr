@@ -52,6 +52,30 @@ class Ongscontroller {
         })
         return res.json();
     }
+
+    async put(req, res){
+        const { id } = req.params;
+
+        const { name, description, image, cause, link } = req.body;
+
+        const doc = await Ongs.findById({ _id: id })
+
+        if (name){
+            doc.name = name;
+        } else if (description) {
+            doc.description = description;
+        } else if (image) {
+            doc.image = image;
+        } else if (cause) {
+            doc.cause = cause;
+        } else if (link) {
+            doc.link = link;
+        }       
+
+        await doc.save();
+   
+        return res.json(doc);
+    }
 }
 
 export default new Ongscontroller();
