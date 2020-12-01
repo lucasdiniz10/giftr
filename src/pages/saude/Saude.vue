@@ -31,8 +31,12 @@
             </q-input>
 
             <!-- botão busca -->
-            <q-btn id="search-button" color="primary" label="BUSCAR" @click="search"/>
-
+            <q-btn
+              id="search-button"
+              color="primary"
+              label="BUSCAR"
+              @click="search"
+            />
           </div>
         </header>
         <div class="cards">
@@ -73,14 +77,12 @@ export default {
     },
     search() {
       this.filteredOngs = this.ongs;
-      if (this.busca == '' || this.busca == ' ') {
+      if (this.busca == "" || this.busca == " ") {
         this.filteredOngs = this.ongs;
-        console.log("busca campo vazio")
-        console.log(this.filteredOngs)
       } else {
-        this.filteredOngs = this.ongs.filter(ong => ong.name == this.busca);
-        console.log("busca filtrada")
-        console.log(this.filteredOngs)
+        this.filteredOngs = this.ongs.filter(
+          (ong) => ong.name == this.busca.toUpperCase()
+        );
       }
     },
   },
@@ -130,7 +132,7 @@ export default {
 
 #search-button {
   margin-top: 2rem;
-  width 100%
+  width: 100%;
 }
 
 @media (min-width: 1024px) {
@@ -141,8 +143,8 @@ export default {
   }
 
   .search-container {
-    display flex
-    justify-content center
+    display: flex;
+    justify-content: center;
   }
 
   .filter {
@@ -150,10 +152,10 @@ export default {
   }
 
   #search-button {
-  margin-left : 2.4rem;
-  margin-top 0
-  width 100px;
-  height 56px
-}
+    margin-left: 2.4rem;
+    margin-top: 0;
+    width: 100px;
+    height: 56px;
+  }
 }
 </style>

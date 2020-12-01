@@ -11,17 +11,25 @@
           <h1>Meio Ambiente</h1>
           <p>Descrição</p>
 
-          <q-input
-            class="filter"
-            v-model="busca"
-            filled
-            type="search"
-            hint="Buscar uma instituição por Nome"
-          >
-            <template v-slot:append>
-              <q-icon name="search" />
-            </template>
-          </q-input>
+          <div class="search-container">
+            <!-- campo busca -->
+            <q-input
+              class="filter"
+              v-model="busca"
+              filled
+              type="search"
+              hint="Buscar uma instituição por Nome"
+              placeholder="Todas"
+            >
+              <template v-slot:append>
+                <q-icon name="search" />
+              </template>
+            </q-input>
+
+            <!-- botão busca -->
+            <q-btn id="search-button" color="primary" label="BUSCAR" @click="search"/>
+
+          </div>
         </header>
         <div class="cards">
           <div id="cards" v-for="(ong, index) in ongs" :key="index">
@@ -49,6 +57,8 @@ export default {
   data() {
     return {
       ongs: [],
+      filteredOngs: [],
+      busca: "",
       keyRerender: 0,
     };
   },
@@ -56,7 +66,17 @@ export default {
   methods: {
     forceRerender() {
       this.keyRerender += 1;
-    }
+    },
+    search() {
+      this.filteredOngs = this.ongs;
+      if (this.busca == "" || this.busca == " ") {
+        this.filteredOngs = this.ongs;
+      } else {
+        this.filteredOngs = this.ongs.filter(
+          (ong) => ong.name == this.busca.toUpperCase()
+        );
+      }
+    },
   },
 
   created() {
@@ -69,6 +89,7 @@ export default {
       .then((res) => {
         console.log(res.data.Ongs);
         this.$data.ongs = res.data.Ongs;
+        this.$data.filteredOngs = res.data.Ongs;
       })
       .catch((error) => {
         console.log(error);
@@ -103,6 +124,11 @@ export default {
   line-height: 2.4rem;
 }
 
+#search-button {
+  margin-top: 2rem;
+  width 100%
+}
+
 @media (min-width: 1024px) {
   .cards {
     display: grid;
@@ -110,9 +136,20 @@ export default {
     grid-gap: 2.5rem;
   }
 
+ .search-container {
+    display: flex;
+    justify-content: center;
+  }
+
   .filter {
     max-width: 350px;
-    margin: 0 auto;
+  }
+
+  #search-button {
+    margin-left: 2.4rem;
+    margin-top: 0;
+    width: 100px;
+    height: 56px;
   }
 }
 </style>
