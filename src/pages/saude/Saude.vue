@@ -1,6 +1,6 @@
 <template>
   <div id="ongs">
-    <Toolbar :key="keyRerender"/>
+    <Toolbar :key="keyRerender" />
     <div class="container">
       <div class="title">
         <h1>Instituições:</h1>
@@ -15,21 +15,28 @@
             como a de Mariana. Ajude agora as instituições que trabalham pela
             dignidade e saúde dessas pessoas.
           </p>
+          <div class="search-container">
+            <!-- campo busca -->
+            <q-input
+              class="filter"
+              v-model="busca"
+              filled
+              type="search"
+              hint="Buscar uma instituição por Nome"
+              placeholder="Todas"
+            >
+              <template v-slot:append>
+                <q-icon name="search" />
+              </template>
+            </q-input>
 
-          <q-input
-            class="filter"
-            v-model="busca"
-            filled
-            type="search"
-            hint="Buscar uma instituição por Nome"
-          >
-            <template v-slot:append>
-              <q-icon name="search" />
-            </template>
-          </q-input>
+            <!-- botão busca -->
+            <q-btn id="search-button" color="primary" label="BUSCAR" @click="search"/>
+
+          </div>
         </header>
         <div class="cards">
-          <div id="cards" v-for="(ong, index) in ongs" :key="index">
+          <div id="cards" v-for="(ong, index) in filteredOngs" :key="index">
             <div><CardOng :cardOng="ong" /></div>
           </div>
         </div>
@@ -41,7 +48,7 @@
 <script>
 import CardOng from "../../components/CardOng";
 import axios from "axios";
-import Toolbar from '../../components/Toolbar';
+import Toolbar from "../../components/Toolbar";
 
 export default {
   name: "Ongs",
@@ -54,6 +61,7 @@ export default {
   data() {
     return {
       ongs: [],
+      filteredOngs: [],
       busca: "",
       keyRerender: 0,
     };
@@ -62,11 +70,23 @@ export default {
   methods: {
     forceRerender() {
       this.keyRerender += 1;
-    }
+    },
+    search() {
+      this.filteredOngs = this.ongs;
+      if (this.busca == '' || this.busca == ' ') {
+        this.filteredOngs = this.ongs;
+        console.log("busca campo vazio")
+        console.log(this.filteredOngs)
+      } else {
+        this.filteredOngs = this.ongs.filter(ong => ong.name == this.busca);
+        console.log("busca filtrada")
+        console.log(this.filteredOngs)
+      }
+    },
   },
 
   created() {
-    this.forceRerender()
+    this.forceRerender();
   },
 
   beforeMount() {
@@ -75,6 +95,7 @@ export default {
       .then((res) => {
         console.log(res.data.Ongs);
         this.$data.ongs = res.data.Ongs;
+        this.$data.filteredOngs = res.data.Ongs;
       })
       .catch((error) => {
         console.log(error);
@@ -107,6 +128,11 @@ export default {
   margin-bottom: 3.2rem;
 }
 
+#search-button {
+  margin-top: 2rem;
+  width 100%
+}
+
 @media (min-width: 1024px) {
   .cards {
     display: grid;
@@ -114,9 +140,20 @@ export default {
     grid-gap: 2.5rem;
   }
 
+  .search-container {
+    display flex
+    justify-content center
+  }
+
   .filter {
     max-width: 350px;
-    margin: 0 auto;
   }
+
+  #search-button {
+  margin-left : 2.4rem;
+  margin-top 0
+  width 100px;
+  height 56px
+}
 }
 </style>
