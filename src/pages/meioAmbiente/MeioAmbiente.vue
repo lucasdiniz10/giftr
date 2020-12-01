@@ -1,6 +1,6 @@
 <template>
   <div id="ongs">
-    <Toolbar :key="keyRerender"/>
+    <Toolbar :key="keyRerender" />
     <div class="container">
       <div class="title">
         <h1>Instituições:</h1>
@@ -27,8 +27,12 @@
             </q-input>
 
             <!-- botão busca -->
-            <q-btn id="search-button" color="primary" label="BUSCAR" @click="search"/>
-
+            <q-btn
+              id="search-button"
+              color="primary"
+              label="BUSCAR"
+              @click="search"
+            />
           </div>
         </header>
         <div class="cards">
@@ -44,14 +48,14 @@
 <script>
 import CardOng from "../../components/CardOng";
 import axios from "axios";
-import Toolbar from '../../components/Toolbar'
+import Toolbar from "../../components/Toolbar";
 
 export default {
   name: "Ongs",
 
   components: {
     CardOng,
-    Toolbar
+    Toolbar,
   },
 
   data() {
@@ -73,14 +77,14 @@ export default {
         this.filteredOngs = this.ongs;
       } else {
         this.filteredOngs = this.ongs.filter(
-          (ong) => ong.name == this.busca.toUpperCase()
+          (ong) => ong.name.toUpperCase() == this.busca.toUpperCase()
         );
       }
     },
   },
 
   created() {
-    this.forceRerender()
+    this.forceRerender();
   },
 
   beforeMount() {
@@ -126,7 +130,7 @@ export default {
 
 #search-button {
   margin-top: 2rem;
-  width 100%
+  width: 100%;
 }
 
 @media (min-width: 1024px) {
@@ -136,7 +140,7 @@ export default {
     grid-gap: 2.5rem;
   }
 
- .search-container {
+  .search-container {
     display: flex;
     justify-content: center;
   }

@@ -81,7 +81,7 @@ export default {
         this.filteredOngs = this.ongs;
       } else {
         this.filteredOngs = this.ongs.filter(
-          (ong) => ong.name == this.busca.toUpperCase()
+          (ong) => ong.name.toUpperCase() == this.busca.toUpperCase()
         );
       }
     },

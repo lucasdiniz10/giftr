@@ -50,7 +50,7 @@
         <q-separator />
 
         <q-card-actions align="right">
-          <q-btn v-close-popup color="primary" label="Doar" id="donate-button"/>
+          <q-btn v-close-popup color="primary" label="DOAR" id="donate-button" @click="goLink"/>
         </q-card-actions>
       </q-card>
     </q-dialog>
@@ -74,6 +74,11 @@ export default {
   props: {
     cardOng: Object,
   },
+  methods: {
+    goLink () {
+      window.location.href = this.cardOng.link;
+    }
+  }
 };
 </script>
 
@@ -129,6 +134,10 @@ export default {
 .text-subtitle1 {
   font-size 1.3rem;
   line-height 2.4rem
+}
+
+#donate-button {
+  width 30%
 }
 
 @media (min-width: 1024px) {
