@@ -76,7 +76,7 @@ export default {
   },
   methods: {
     goLink () {
-      window.location.href = this.cardOng.link;
+      window.open(this.cardOng.link);
     }
   }
 };
