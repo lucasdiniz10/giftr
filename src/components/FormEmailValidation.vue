@@ -96,7 +96,10 @@ export default {
           })
           .then((res) => {
             console.log(res);
-            //COLOCAR O EMAIL NO STATE.
+            //COLOCAR O EMAIL LOGIC HERE
+
+            
+
             this.$router.push("/password-recovery/verification-code");
           })
           .catch((err) => {
@@ -156,6 +159,5 @@ export default {
 
 #password-recovery-button:hover {
   color: var(--color-secondary);
-  cursor: pointer;
 }
 </style>

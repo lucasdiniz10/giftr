@@ -1,25 +1,28 @@
 import nodemailer from 'nodemailer'
 
-const user = "boasvindas@giftr.com.br";
-/* const pass = ""; */
+const user = "gabrielsena@giftr.com.br";
+
+const pass = "";
 
 class Emailcontroller {
-    get(req, res) {
+    async emailDeConfirmacao(req, res) {
+        const { email } = req.params;
+
         const transporter = nodemailer.createTransport({
             host: "smtp.umbler.com",
-            port: 587, 
-            auth: { user, }
+            port: 587,
+            auth: { user, pass }
         })
 
         transporter.sendMail({
             from: user,
-            to: user,
+            to: email,
             replyTo: user,
-            subject: "VIADAO",
+            subject: "Recuoeração de senha",
             text: "EMAIL DE TESTE VIADAO"
-        }).then(info=>{
+        }).then(info => {
             res.send(info)
-        }).catch(error=> {
+        }).catch(error => {
             res.send(error)
         })
 
