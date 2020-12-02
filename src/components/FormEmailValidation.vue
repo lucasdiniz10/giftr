@@ -60,6 +60,7 @@
 <script>
 import axios from "axios";
 import { required, minLength, maxLength } from "vuelidate/lib/validators";
+import { mapActions } from "vuex";
 
 export default {
   name: "FormEmailValidation",
@@ -84,6 +85,8 @@ export default {
   },
 
   methods: {
+    ...mapActions("auth", ["ActionSetUser"]),
+    ...mapActions("auth", ["ActionSetToken"]),
     onSubmit() {
       this.$v.$touch();
       if (this.$v.$invalid) {
@@ -96,9 +99,14 @@ export default {
           })
           .then((res) => {
             console.log(res);
+
             //COLOCAR O EMAIL LOGIC HERE
 
-            
+            this.ActionSetUser(this.user);
+
+            const email = "http://localhost:3333/send/" + this.user.email
+
+            axios.get(email)
 
             this.$router.push("/password-recovery/verification-code");
           })

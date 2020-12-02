@@ -2,7 +2,7 @@ import nodemailer from 'nodemailer'
 
 const user = "gabrielsena@giftr.com.br";
 
-const pass = "";
+const pass = "qweasdzxc.";
 
 class Emailcontroller {
     async emailDeConfirmacao(req, res) {
@@ -19,7 +19,8 @@ class Emailcontroller {
             to: email,
             replyTo: user,
             subject: "Recuoeração de senha",
-            text: "EMAIL DE TESTE VIADAO"
+            text: "EMAIL DE TESTE",
+            html: '<p>Click <a href="http://localhost:8080/#/password-recovery/new-password">here</a> to reset your password</p>'
         }).then(info => {
             res.send(info)
         }).catch(error => {
