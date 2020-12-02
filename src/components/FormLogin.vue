@@ -38,10 +38,18 @@
         <q-input
           ref="password"
           filled
-          type="password"
+          :type="isPwd? 'password' : 'text'"
           v-model.trim="$v.user.password.$model"
           hint="Senha"
-        />
+        >
+          <template v-slot:append>
+            <q-icon
+              :name="isPwd? 'visibility_off' : 'visibility'"
+              class="cursor-pointer"
+              @click="isPwd = !isPwd"
+            />
+          </template>
+        </q-input>
       </div>
 
       <!-- validação senha -->
@@ -100,6 +108,7 @@ export default {
         password: "",
         submitStatus: null,
       },
+      isPwd: true,
     };
   },
 
@@ -200,5 +209,6 @@ export default {
 
 #password-recovery-button:hover {
   color: var(--color-secondary);
+  cursor: pointer;
 }
 </style>

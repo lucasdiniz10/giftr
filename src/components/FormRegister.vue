@@ -64,10 +64,18 @@
         <q-input
           ref="password"
           filled
-          type="password"
+          :type="isPwd? 'password' : 'text'"
           v-model.trim="$v.user.password.$model"
           hint="Senha"
-        />
+        >
+          <template v-slot:append>
+            <q-icon
+              :name="isPwd? 'visibility_off' : 'visibility'"
+              class="cursor-pointer"
+              @click="isPwd = !isPwd"
+            />
+          </template>
+        </q-input>
       </div>
 
       <!-- validação senha -->
@@ -88,12 +96,21 @@
         class="form-group"
         :class="{ 'form-group--error': $v.user.passwordRepeat.$error }"
       >
+
         <q-input
           filled
-          type="password"
+          :type="isPwdRepeat? 'password' : 'text'"
           v-model.trim="$v.user.passwordRepeat.$model"
           hint="Repita sua Senha"
-        />
+        >
+          <template v-slot:append>
+            <q-icon
+              :name="isPwdRepeat? 'visibility_off' : 'visibility'"
+              class="cursor-pointer"
+              @click="isPwdRepeat = !isPwdRepeat"
+            />
+          </template>
+        </q-input>
       </div>
 
       <!-- validação repete senha -->
@@ -153,6 +170,8 @@ export default {
         passwordRepeat: "",
         submitStatus: null,
       },
+      isPwd: true,
+      isPwdRepeat: true,
     };
   },
 

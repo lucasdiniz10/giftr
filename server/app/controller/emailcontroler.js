@@ -1,14 +1,14 @@
 import nodemailer from 'nodemailer'
 
 const user = "boasvindas@giftr.com.br";
-const pass = "qweasdzxc.";
+/* const pass = ""; */
 
 class Emailcontroller {
     get(req, res) {
         const transporter = nodemailer.createTransport({
             host: "smtp.umbler.com",
             port: 587, 
-            auth: { user, pass }
+            auth: { user, }
         })
 
         transporter.sendMail({
