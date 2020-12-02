@@ -1,55 +1,61 @@
 <template>
   <div id="form">
     <q-form @submit.prevent="onSubmit" class="q-gutter-md">
-      <!-- campo email -->
+      <!-- campo senha -->
       <div
         class="form-group"
-        :class="{ 'form-group--error': $v.user.email.$error }"
+        :class="{ 'form-group--error': $v.user.password.$error }"
       >
         <q-input
-          ref="code"
+          ref="password"
           filled
-          type="text"
-          v-model.trim="$v.user.email.$model"
-          hint="Digite o código!"
-          lazy-rules
-        />
+          :type="isPwd? 'password' : 'text'"
+          v-model.trim="$v.user.password.$model"
+          hint="Nova Senha"
+        >
+          <template v-slot:append>
+            <q-icon
+              :name="isPwd? 'visibility_off' : 'visibility'"
+              class="cursor-pointer"
+              @click="isPwd = !isPwd"
+            />
+          </template>
+        </q-input>
       </div>
 
-      <!-- validação email -->
-      <div class="error" v-if="!$v.user.email.required">
-        Código é obrigatório.
+      <!-- validação senha -->
+      <div class="error" v-if="!$v.user.password.required">
+        Senha é obrigatória.
       </div>
-      <div class="error" v-if="!$v.user.email.minLength">
-        Código deve ter no mínimo
-        {{ $v.user.email.$params.minLength.min }} letras.
+      <div class="error" v-if="!$v.user.password.minLength">
+        Senha deve ter no mínimo
+        {{ $v.user.password.$params.minLength.min }} letras.
       </div>
-      <div class="error" v-if="!$v.user.email.maxLength">
-        Código deve ter no máximo
-        {{ $v.user.email.$params.maxLength.max }} letras.
+      <div class="error" v-if="!$v.user.password.maxLength">
+        Senha deve ter no máximo
+        {{ $v.user.password.$params.maxLength.max }} letras.
       </div>
 
       <!-- botão -->
       <div class="button">
-        <q-btn id="submit-button"
+        <q-btn
+          id="submit-button"
           label="Enviar"
           type="submit"
           color="primary"
           :disabled="user.submitStatus === 'PENDING'"
         />
-        <!-- botao reenviar código senha -->
-        <a id="resend-code" @click="$router.push('/password-recovery/email-validation')">Enviar código novamente</a>
-
       </div>
+
       <p class="typo__p" id="ok" v-if="user.submitStatus === 'OK'">
-        Código enviado com sucesso!!
+        Cadastro completo com sucesso!!
       </p>
       <p class="typo__p" v-if="user.submitStatus === 'ERROR'">
         Por favor, preencha os campos corretamente.
       </p>
-      <!-- <p class="typo__p" v-if="user.submitStatus === 'ERRORPASSWORD'">
+      <p class="typo__p" v-if="user.submitStatus === 'ERRORPASSWORD'">
         Senha Incorreta.
-      </p> -->
+      </p>
       <p class="typo__p" v-if="user.submitStatus === 'ERRORUSER'">
         Usuário incorreto ou não existe.
       </p>
@@ -64,23 +70,24 @@ import { required, minLength, maxLength } from "vuelidate/lib/validators";
 import { mapActions } from "vuex";
 
 export default {
-  name: "FormVerificationCode",
+  name: "FormNewPassword",
 
   data() {
     return {
       user: {
-        email: "",
+        password: "",
         submitStatus: null,
       },
+      isPwd: true,
     };
   },
 
   validations: {
     user: {
-      email: {
+      password: {
         required,
-        minLength: minLength(4),
-        maxLength: maxLength(50),
+        minLength: minLength(6),
+        maxLength: maxLength(15),
       },
     },
   },
@@ -103,20 +110,19 @@ export default {
             console.log(res);
             this.ActionSetUser(res.data.user);
             this.ActionSetToken(res.data.token);
-            this.$router.push("/password-recovery/new-password");
+            this.$router.push("/user");
           })
           .catch((err) => {
             console.log(err.response.data);
             const getError = err.response.data.error;
 
-            /* if (getError == "Password not match!") {
+            if (getError == "Password not match!") {
               this.user.submitStatus = "ERRORPASSWORD";
               this.$refs.password.$el.focus();
               console.log(getError);
-            } else */ if (getError == "User not foud!") {
+            } else if (getError == "User not foud!") {
               this.user.submitStatus = "ERRORUSER";
               this.$refs.email.$el.focus();
-              /* this.user.email = ""; */
               console.log(getError);
             } else {
               this.user.submitStatus = "PENDING";
@@ -154,18 +160,18 @@ export default {
 
 .button {
   display: flex;
-  justify-content space-between
-  align-items center
+  justify-content: space-between;
+  align-items: center;
 }
 
-#resend-code {
-  text-decoration underline
+#password-recovery-button {
+  text-decoration: underline;
   font: 400 1.3rem Montserrat;
   color: var(--color-primary);
-  margin-left 12px
+  margin-left: 12px;
 }
 
-#resend-code:hover {
+#password-recovery-button:hover {
   color: var(--color-secondary);
   cursor: pointer;
 }
