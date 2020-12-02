@@ -18,6 +18,8 @@ import { routes as login } from '../modules/auth'
 import { routes as emailValidation } from '../pages/passwordRecovery/emailValidation'
 import { routes as newpassword } from '../pages/passwordRecovery/newPassword'
 import { routes as verificationCode } from '../pages/passwordRecovery/verificationCode'
+import { routes as userPersonUpdate } from '../pages/userPersonUpdate'
+
 
 export default [
     ...home,
@@ -36,6 +38,7 @@ export default [
     ...user,
     ...userHistoric,
     ...userTotal,
+    ...userPersonUpdate,
     ...login,
     ...emailValidation,
     ...newpassword,
