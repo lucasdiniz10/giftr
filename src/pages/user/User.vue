@@ -50,7 +50,7 @@
             </div>
 
             <div id="user-topic-container">
-              <router-link to="/user/topdonate">
+              <router-link to="/user/person-update">
                 <q-btn
                   color="primary"
                   label="Alterar Dados Pessoais"
