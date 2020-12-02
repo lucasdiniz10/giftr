@@ -37,6 +37,6 @@ routes.get('/ongs/causeName/:causeName', ongsconroller.getCause);
 /////////////////////////////////////////////////////////////////////
 // Email Routes
 
-routes.get('/send', EmailController.get)
+routes.get('/send/:email', EmailController.emailDeConfirmacao)
 
 export default routes;

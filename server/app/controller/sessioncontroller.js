@@ -55,7 +55,7 @@ class SessionController {
 
     async userCheck(req, res) {
 
-        const { email, password } = req.body;
+        const { email } = req.body;
 
         const user = await User.findOne({ email: email })
 
