@@ -2,11 +2,12 @@ import nodemailer from 'nodemailer'
 
 const user = "gabrielsena@giftr.com.br";
 
-const pass = "qweasdzxc.";
+const pass = "";
 
 class Emailcontroller {
     async emailDeConfirmacao(req, res) {
         const { email } = req.params;
+        const { codigo } = req.params;
 
         const transporter = nodemailer.createTransport({
             host: "smtp.umbler.com",
@@ -18,9 +19,9 @@ class Emailcontroller {
             from: user,
             to: email,
             replyTo: user,
-            subject: "Recuoeração de senha",
-            text: "EMAIL DE TESTE",
-            html: '<p>Click <a href="http://localhost:8080/#/password-recovery/new-password">here</a> to reset your password</p>'
+            subject: "Recuperação de senha",
+            text:"Teste",
+            html: '<p>Este é seu codigo para mudar sua senha '+ codigo +'</p>'
         }).then(info => {
             res.send(info)
         }).catch(error => {

@@ -22,6 +22,7 @@
 <script>
 import FormNewPassword from "../../../components/FormNewPassword";
 import Toolbar from "../../../components/Toolbar.vue";
+import axios from 'axios'
 
 export default {
   name: "NewPassword",
@@ -45,6 +46,35 @@ export default {
 
   created() {
     this.forceRerender()
+    axios
+          /* .post("http://localhost:3333/users/session", this.user, {
+            headers: {},
+          })
+          .then((res) => {
+            console.log(res);
+            this.ActionSetUser(res.data.user);
+            this.ActionSetToken(res.data.token);
+            this.$router.push("/user");
+          })
+          .catch((err) => {
+            console.log(err.response.data);
+            const getError = err.response.data.error;
+      
+            if (getError == "Password not match!") {
+              this.user.submitStatus = "ERRORPASSWORD";
+              this.$refs.password.$el.focus();
+              console.log(getError);
+            } else if (getError == "User not foud!") {
+              this.user.submitStatus = "ERRORUSER";
+              this.$refs.email.$el.focus();
+              console.log(getError);
+            } else {
+              this.user.submitStatus = "PENDING";
+              setTimeout(() => {
+                this.user.submitStatus = "OK";
+              }, 500);
+            }
+          }); */
   },
 };
 </script>
