@@ -69,6 +69,7 @@ export default {
     return {
       user: {
         email: "",
+        codigo: "",
         submitStatus: null,
       },
     };
@@ -86,7 +87,6 @@ export default {
 
   methods: {
     ...mapActions("auth", ["ActionSetUser"]),
-    ...mapActions("auth", ["ActionSetToken"]),
     onSubmit() {
       this.$v.$touch();
       if (this.$v.$invalid) {
@@ -102,11 +102,16 @@ export default {
 
             //COLOCAR O EMAIL LOGIC HERE
 
+            const codigo = Math.floor(Math.random() * 65536);
+
+            const email =
+              "http://localhost:3333/send/" + this.user.email + "/" + codigo;
+
+            this.user.codigo = codigo;
+
             this.ActionSetUser(this.user);
 
-            const email = "http://localhost:3333/send/" + this.user.email
-
-            axios.get(email)
+            axios.get(email);
 
             this.$router.push("/password-recovery/verification-code");
           })

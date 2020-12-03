@@ -4,29 +4,25 @@
       <!-- campo email -->
       <div
         class="form-group"
-        :class="{ 'form-group--error': $v.user.email.$error }"
+        :class="{ 'form-group--error': $v.codigo.email.$error }"
       >
         <q-input
           ref="code"
           filled
           type="text"
-          v-model.trim="$v.user.email.$model"
+          v-model.trim="$v.codigo.email.$model"
           hint="Digite o código!"
           lazy-rules
         />
       </div>
 
       <!-- validação email -->
-      <div class="error" v-if="!$v.user.email.required">
+      <div class="error" v-if="!$v.codigo.email.required">
         Código é obrigatório.
       </div>
-      <div class="error" v-if="!$v.user.email.minLength">
-        Código deve ter no mínimo
-        {{ $v.user.email.$params.minLength.min }} letras.
-      </div>
-      <div class="error" v-if="!$v.user.email.maxLength">
+      <div class="error" v-if="!$v.codigo.email.maxLength">
         Código deve ter no máximo
-        {{ $v.user.email.$params.maxLength.max }} letras.
+        {{ $v.codigo.email.$params.maxLength.max }} letras.
       </div>
 
       <!-- botão -->
@@ -59,16 +55,15 @@
 </template>
 
 <script>
-import axios from "axios";
-import { required, minLength, maxLength } from "vuelidate/lib/validators";
-import { mapActions } from "vuex";
+import { required, maxLength } from "vuelidate/lib/validators";
+import { mapState } from "vuex";
 
 export default {
   name: "FormVerificationCode",
 
   data() {
     return {
-      user: {
+      codigo: {
         email: "",
         submitStatus: null,
       },
@@ -76,55 +71,29 @@ export default {
   },
 
   validations: {
-    user: {
+    codigo: {
       email: {
         required,
-        minLength: minLength(4),
         maxLength: maxLength(50),
       },
     },
   },
 
+  computed: {
+    ...mapState("auth", ["user"]),
+  },
+
   methods: {
-    ...mapActions("auth", ["ActionSetUser"]),
-    ...mapActions("auth", ["ActionSetToken"]),
     onSubmit() {
       this.$v.$touch();
       if (this.$v.$invalid) {
-        this.user.submitStatus = "ERROR";
+        this.codigo.submitStatus = "ERROR";
         console.log("errou");
       } else {
         // do your submit logic here
-        axios
-          .post("http://localhost:3333/users/session", this.user, {
-            headers: {},
-          })
-          .then((res) => {
-            console.log(res);
-            this.ActionSetUser(res.data.user);
-            this.ActionSetToken(res.data.token);
-            this.$router.push("/password-recovery/new-password");
-          })
-          .catch((err) => {
-            console.log(err.response.data);
-            const getError = err.response.data.error;
-
-            /* if (getError == "Password not match!") {
-              this.user.submitStatus = "ERRORPASSWORD";
-              this.$refs.password.$el.focus();
-              console.log(getError);
-            } else */ if (getError == "User not foud!") {
-              this.user.submitStatus = "ERRORUSER";
-              this.$refs.email.$el.focus();
-              /* this.user.email = ""; */
-              console.log(getError);
-            } else {
-              this.user.submitStatus = "PENDING";
-              setTimeout(() => {
-                this.user.submitStatus = "OK";
-              }, 500);
-            }
-          });
+        if (this.codigo.email == this.user.codigo) {
+          this.$router.push("/password-recovery/new-password");
+        }
       }
     },
   },
