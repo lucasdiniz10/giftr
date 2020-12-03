@@ -62,13 +62,13 @@ class Ongscontroller {
 
         if (name){
             doc.name = name;
-        } else if (description) {
+        } if (description) {
             doc.description = description;
-        } else if (image) {
+        } if (image) {
             doc.image = image;
-        } else if (cause) {
+        } if (cause) {
             doc.cause = cause;
-        } else if (link) {
+        } if (link) {
             doc.link = link;
         }       
 

@@ -4,13 +4,13 @@
       <!-- campo senha -->
       <div
         class="form-group"
-        :class="{ 'form-group--error': $v.user.password.$error }"
+        :class="{ 'form-group--error': $v.userPass.password.$error }"
       >
         <q-input
           ref="password"
           filled
           :type="isPwd? 'password' : 'text'"
-          v-model.trim="$v.user.password.$model"
+          v-model.trim="$v.userPass.password.$model"
           hint="Nova Senha"
         >
           <template v-slot:append>
@@ -24,16 +24,16 @@
       </div>
 
       <!-- validação senha -->
-      <div class="error" v-if="!$v.user.password.required">
+      <div class="error" v-if="!$v.userPass.password.required">
         Senha é obrigatória.
       </div>
-      <div class="error" v-if="!$v.user.password.minLength">
+      <div class="error" v-if="!$v.userPass.password.minLength">
         Senha deve ter no mínimo
-        {{ $v.user.password.$params.minLength.min }} letras.
+        {{ $v.userPass.password.$params.minLength.min }} letras.
       </div>
-      <div class="error" v-if="!$v.user.password.maxLength">
+      <div class="error" v-if="!$v.userPass.password.maxLength">
         Senha deve ter no máximo
-        {{ $v.user.password.$params.maxLength.max }} letras.
+        {{ $v.userPass.password.$params.maxLength.max }} letras.
       </div>
 
       <!-- botão -->
@@ -43,23 +43,23 @@
           label="Enviar"
           type="submit"
           color="primary"
-          :disabled="user.submitStatus === 'PENDING'"
+          :disabled="userPass.submitStatus === 'PENDING'"
         />
       </div>
 
-      <p class="typo__p" id="ok" v-if="user.submitStatus === 'OK'">
+      <p class="typo__p" id="ok" v-if="userPass.submitStatus === 'OK'">
         Cadastro completo com sucesso!!
       </p>
-      <p class="typo__p" v-if="user.submitStatus === 'ERROR'">
+      <p class="typo__p" v-if="userPass.submitStatus === 'ERROR'">
         Por favor, preencha os campos corretamente.
       </p>
-      <p class="typo__p" v-if="user.submitStatus === 'ERRORPASSWORD'">
+      <p class="typo__p" v-if="userPass.submitStatus === 'ERRORPASSWORD'">
         Senha Incorreta.
       </p>
-      <p class="typo__p" v-if="user.submitStatus === 'ERRORUSER'">
+      <p class="typo__p" v-if="userPass.submitStatus === 'ERRORUSER'">
         Usuário incorreto ou não existe.
       </p>
-      <p class="typo__p" v-if="user.submitStatus === 'PENDING'">Enviando...</p>
+      <p class="typo__p" v-if="userPass.submitStatus === 'PENDING'">Enviando...</p>
     </q-form>
   </div>
 </template>
@@ -67,14 +67,14 @@
 <script>
 import axios from "axios";
 import { required, minLength, maxLength } from "vuelidate/lib/validators";
-import { mapActions } from "vuex";
+import { mapState } from "vuex";
 
 export default {
   name: "FormNewPassword",
 
   data() {
     return {
-      user: {
+      userPass: {
         password: "",
         submitStatus: null,
       },
@@ -82,8 +82,12 @@ export default {
     };
   },
 
+   computed: {
+    ...mapState("auth", ["user"]),
+  },
+
   validations: {
-    user: {
+    userPass: {
       password: {
         required,
         minLength: minLength(6),
@@ -93,24 +97,22 @@ export default {
   },
 
   methods: {
-    ...mapActions("auth", ["ActionSetUser"]),
-    ...mapActions("auth", ["ActionSetToken"]),
     onSubmit() {
       this.$v.$touch();
       if (this.$v.$invalid) {
-        this.user.submitStatus = "ERROR";
+        this.userPass.submitStatus = "ERROR";
         console.log("errou");
       } else {
         // do your submit logic here
+        const url = "http://localhost:3333/users/update/" + this.user.email
+
         axios
-          .post("http://localhost:3333/users/session", this.user, {
+          .put(url, this.userPass, {
             headers: {},
           })
           .then((res) => {
             console.log(res);
-            this.ActionSetUser(res.data.user);
-            this.ActionSetToken(res.data.token);
-            this.$router.push("/user");
+            this.$router.push("/login");
           })
           .catch((err) => {
             console.log(err.response.data);

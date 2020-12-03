@@ -1,4 +1,5 @@
 import User from '../models/usermodel';
+import bcrypt from 'bcryptjs';
 
 class UserController {
 
@@ -39,9 +40,33 @@ class UserController {
             })
             return res.json();
         }
-        
+
         return res.status(401).json({ error: 'User already exists' });
 
+    }
+
+    async put(req, res) {
+        const { email } = req.params;
+
+        const { name, password } = req.body;
+
+        const doc = await User.findOne({ email: email })
+
+        if (name) {
+            doc.name = name;
+        } if (email) {
+            doc.email = email;
+            console.log('asdasdasd')
+        } if (password) {
+            console.log(doc.password)
+            doc.password = password
+
+        }
+
+        await doc.save()
+
+
+        return res.json(doc);
     }
 
 }
