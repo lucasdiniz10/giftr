@@ -13,6 +13,7 @@
           v-model.trim="$v.user.name.$model"
           label="Nome"
           hint="Nome Completo"
+          :disable ="disable"
           lazy-rules
         />
       </div>
@@ -39,6 +40,7 @@
           v-model.trim="$v.user.email.$model"
           label="Email"
           hint="Seu Melhor Email"
+          :disable ="disable"
           lazy-rules
         />
       </div>
@@ -66,7 +68,8 @@
           filled
           :type="isPwd ? 'password' : 'text'"
           v-model.trim="$v.user.password.$model"
-          hint="Senha"
+          hint="Nova Senha"
+          :disable ="disable"
         >
           <template v-slot:append>
             <q-icon
@@ -79,9 +82,9 @@
       </div>
 
       <!-- validação senha -->
-      <div class="error" v-if="!$v.user.password.required">
+      <!-- <div class="error" v-if="!$v.user.password.required">
         Senha é obrigatória.
-      </div>
+      </div> -->
       <div class="error" v-if="!$v.user.password.minLength">
         Senha deve ter no mínimo
         {{ $v.user.password.$params.minLength.min }} letras.
@@ -100,7 +103,8 @@
           filled
           :type="isPwdRepeat ? 'password' : 'text'"
           v-model.trim="$v.user.passwordRepeat.$model"
-          hint="Repita sua Senha"
+          hint="Repita Nova Senha"
+          :disable ="disable"
         >
           <template v-slot:append>
             <q-icon
@@ -125,12 +129,38 @@
         {{ $v.user.passwordRepeat.$params.maxLength.max }} letras.
       </div>
 
+      <div class="togle-button">
+        <q-toggle id="edit-mode-button" v-model="disable" :label="disable ? 'Modo Leitura' : 'Modo Edição'"/>
+      </div>
+
       <!-- botão -->
       <div class="button">
         <q-btn
-          label="Enviar"
+          label="Salvar Dados"
           type="submit"
           color="primary"
+          :disabled="user.submitStatus === 'PENDING'"
+        />
+      </div>
+      <p class="typo__p" id="ok" v-if="user.submitStatus === 'OK'">
+        Cadastro completo com sucesso!!
+      </p>
+      <p class="typo__p" v-if="user.submitStatus === 'ERROR'">
+        Por favor, preencha os campos corretamente.
+      </p>
+      <p class="typo__p" v-if="user.submitStatus === 'ERRORUSER'">
+        Email já cadastrado ou inválido.
+      </p>
+      <p class="typo__p" v-if="user.submitStatus === 'PENDING'">Enviando...</p>
+
+
+      <!-- botão deletar conta -->
+      <div class="button" id="delete-button">
+        <hr>
+        <q-btn
+          label="Deletar Minha Conta"
+          type="submit"
+          color="secondary"
           :disabled="user.submitStatus === 'PENDING'"
         />
       </div>
@@ -173,6 +203,7 @@ export default {
       }, */
       isPwd: true,
       isPwdRepeat: true,
+      disable: true,
     };
   },
 
@@ -189,12 +220,10 @@ export default {
         maxLength: maxLength(50),
       },
       password: {
-        required,
         minLength: minLength(6),
         maxLength: maxLength(15),
       },
       passwordRepeat: {
-        required,
         minLength: minLength(6),
         maxLength: maxLength(15),
         sameAsPassword: sameAs("password"),
@@ -283,5 +312,15 @@ export default {
 
 .typo__p #ok {
   color: var(--color-primary);
+}
+
+#delete-button {
+  margin-top 2.8rem
+}
+
+@media (max-width: 1024px) {
+  button {
+    width 100%
+  }
 }
 </style>
