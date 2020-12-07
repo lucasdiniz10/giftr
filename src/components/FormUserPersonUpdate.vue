@@ -231,9 +231,13 @@ export default {
     },
   },
 
+  computed: {
+    ...mapState("auth", ["user"]),
+  },
+
   created() {
     axios
-      .get("http://localhost:3333/users/get", this.user, {
+      .get("http://localhost:3333/users/" + this.user._id, this.user, {
         headers: {},
       })
       .then((res) => {
@@ -289,10 +293,6 @@ export default {
           });
       }
     },
-  },
-
-  computed: {
-    ...mapState("auth", ["user"]),
   },
 };
 </script>
