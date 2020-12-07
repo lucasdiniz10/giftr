@@ -18,6 +18,7 @@ routes.post('/users/session', SessionController.Session);
 routes.get('/loadSession', authMiddleware, SessionController.LoadSession);
 routes.post('/userCheck', SessionController.userCheck);
 routes.put('/users/update/:email', UserController.put)
+routes.delete('/users/delete/:id', UserController.delete)
 
 ////////////////////////////////////////////////////////
 // cause routes
