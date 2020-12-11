@@ -24,9 +24,10 @@
           <q-btn
             fab
             color="primary"
-            icon="favorite"
+            :icon="isFavorite? 'favorite': 'favorite_border'"
             class="absolute"
             style="top: 0; right: 12px; transform: translateY(-50%);"
+            @click="isFavorite = !isFavorite"
           />
 
           <div class="row no-wrap items-center" id="modal-title-container">
@@ -66,6 +67,7 @@ export default {
   data() {
     return {
       card: false,
+      isFavorite: false,
 
       lorem: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Natus, ratione eum minus fuga, quasi dicta facilis corporis magnam, suscipit at quo nostrum!',
     }
