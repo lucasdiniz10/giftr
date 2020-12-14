@@ -185,6 +185,7 @@
 import { mapActions } from "vuex";
 import { mapState } from "vuex";
 import axios from "axios";
+import store from '../store'
 import {
   required,
   minLength,
@@ -265,7 +266,7 @@ export default {
             console.log(res);
             this.ActionSetUser(res.data.user);
             this.ActionSetToken(res.data.token);
-            this.$router.push("/user");
+            
           })
           .catch((err) => {
             console.log(err.response.data);
@@ -273,6 +274,10 @@ export default {
       }
     },
     teste() {
+      
+      axios.delete("http://localhost:3333/users/delete/" + this.user._id)
+      store.dispatch('auth/ActionSingOut')
+      this.$router.push("/login");
       console.log("deletou");
     },
   },
