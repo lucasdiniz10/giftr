@@ -1,5 +1,6 @@
 import User from '../models/usermodel';
-import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
+import authConfig from '../../config/auth';
 
 class UserController {
 
@@ -45,28 +46,62 @@ class UserController {
 
     }
 
-    async put(req, res) {
+    async putRecovery(req, res) {
         const { email } = req.params;
 
-        const { name, password } = req.body;
+        const { password } = req.body;
 
         const doc = await User.findOne({ email: email })
 
-        if (name) {
-            doc.name = name;
-        } if (email) {
-            doc.email = email;
-            console.log('asdasdasd')
-        } if (password) {
+        if (password) {
             console.log(doc.password)
             doc.password = password
-
         }
 
         await doc.save()
 
 
         return res.json(doc);
+    }
+
+    async put(req, res) {
+        const { _id } = req.params;
+    
+    
+        const doc = await User.findById({ _id: _id })
+        
+        
+        const { nameNew, emailNew, passwordNew } = req.body;
+
+
+        if (nameNew) {
+            doc.name = nameNew;
+        } 
+        
+        if (emailNew) {
+            doc.email = emailNew;
+        }
+        
+        if (passwordNew) {
+            doc.password = passwordNew;
+        }
+
+
+        await doc.save()
+
+        const name = doc.name;
+        const email = doc.email;
+
+        return res.json({
+            user: {
+                _id,
+                name,
+                email
+            },
+            token: jwt.sign({ _id, name, email }, authConfig.secret, {
+                expiresIn: authConfig.expiresIn,
+            })
+        })
     }
 
     async delete(req, res) {
