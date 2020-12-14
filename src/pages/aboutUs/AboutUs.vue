@@ -10,15 +10,14 @@
               <div class="topic">
                 <h3 class="subtitle">Nossa História</h3>
                 <p id="about-us-history-description">
-                  Bem-vindo a sua área de usuário, aqui você pode consultar e
-                  gerenciar todos os seus dados de doações e pessoais.
+                  Somos um projeto focado na ajuda ao próximo. Servimos como uma ponte entre doadores e instituições de áreas diversas que precisam da sua ajuda. <br> Doe, sua ajuda é uma semente que ajudará a florescer um futuro melhor pra quem precisa.
                 </p>
               </div>
             </div>
           </header>
         </div>
 
-        <body>
+        <!-- <body>
           <div class="team">
             <h3 class="subtitle">Nosso Time</h3>
           </div>
@@ -65,7 +64,7 @@
               </router-link>
             </div>
           </div>
-        </body>
+        </body> -->
       </div>
     </div>
   </div>

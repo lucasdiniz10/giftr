@@ -61,13 +61,13 @@
       <!-- campo senha -->
       <div
         class="form-group"
-        :class="{ 'form-group--error': $v.user.password.$error }"
+        :class="{ 'form-group--error': $v.userData.password.$error }"
       >
         <q-input
           ref="password"
           filled
           :type="isPwd ? 'password' : 'text'"
-          v-model.trim="$v.user.password.$model"
+          v-model.trim="$v.userData.password.$model"
           hint="Nova Senha"
           :disable ="disable"
         >
@@ -85,24 +85,24 @@
       <!-- <div class="error" v-if="!$v.user.password.required">
         Senha é obrigatória.
       </div> -->
-      <div class="error" v-if="!$v.user.password.minLength">
+      <div class="error" v-if="!$v.userData.password.minLength">
         Senha deve ter no mínimo
-        {{ $v.user.password.$params.minLength.min }} letras.
+        {{ $v.userData.password.$params.minLength.min }} letras.
       </div>
-      <div class="error" v-if="!$v.user.password.maxLength">
+      <div class="error" v-if="!$v.userData.password.maxLength">
         Senha deve ter no máximo
-        {{ $v.user.password.$params.maxLength.max }} letras.
+        {{ $v.userData.password.$params.maxLength.max }} letras.
       </div>
 
       <!-- campo repete senha -->
       <div
         class="form-group"
-        :class="{ 'form-group--error': $v.user.passwordRepeat.$error }"
+        :class="{ 'form-group--error': $v.userData.passwordRepeat.$error }"
       >
         <q-input
           filled
           :type="isPwdRepeat ? 'password' : 'text'"
-          v-model.trim="$v.user.passwordRepeat.$model"
+          v-model.trim="$v.userData.passwordRepeat.$model"
           hint="Repita Nova Senha"
           :disable ="disable"
         >
@@ -117,16 +117,16 @@
       </div>
 
       <!-- validação repete senha -->
-      <div class="error" v-if="!$v.user.passwordRepeat.sameAsPassword">
+      <div class="error" v-if="!$v.userData.passwordRepeat.sameAsPassword">
         Senha deve ser Igual.
       </div>
-      <div class="error" v-if="!$v.user.passwordRepeat.minLength">
+      <div class="error" v-if="!$v.userData.passwordRepeat.minLength">
         Senha deve ter no mínimo
-        {{ $v.user.passwordRepeat.$params.minLength.min }} letras.
+        {{ $v.userData.passwordRepeat.$params.minLength.min }} letras.
       </div>
-      <div class="error" v-if="!$v.user.passwordRepeat.maxLength">
+      <div class="error" v-if="!$v.userData.passwordRepeat.maxLength">
         Senha deve ter no máximo
-        {{ $v.user.passwordRepeat.$params.maxLength.max }} letras.
+        {{ $v.userData.passwordRepeat.$params.maxLength.max }} letras.
       </div>
 
       <div class="togle-button">
@@ -194,13 +194,11 @@ export default {
 
   data() {
     return {
-      /* user: {
-        name: "",
-        email: "",
+      userData: {
         password: "",
         passwordRepeat: "",
         submitStatus: null,
-      }, */
+      },
       isPwd: true,
       isPwdRepeat: true,
       disable: true,
@@ -219,6 +217,8 @@ export default {
         minLength: minLength(4),
         maxLength: maxLength(50),
       },
+    },
+    userData: {
       password: {
         minLength: minLength(6),
         maxLength: maxLength(15),

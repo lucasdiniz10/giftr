@@ -6,7 +6,7 @@
         <div class="header-container">
           <header>
             <div id="header-text">
-              <h1 class="title" id="user-welcome">Olá, {{ user.name }}</h1>
+              <h1 class="title" id="user-welcome" >Olá, {{ user.name }}</h1>
               <p id="user-description">
                 Bem-vindo a sua área de usuário, aqui você pode consultar e
                 gerenciar todos os seus dados de doações e pessoais.

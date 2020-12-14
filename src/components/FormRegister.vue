@@ -64,13 +64,13 @@
         <q-input
           ref="password"
           filled
-          :type="isPwd? 'password' : 'text'"
+          :type="isPwd ? 'password' : 'text'"
           v-model.trim="$v.user.password.$model"
           hint="Senha"
         >
           <template v-slot:append>
             <q-icon
-              :name="isPwd? 'visibility_off' : 'visibility'"
+              :name="isPwd ? 'visibility_off' : 'visibility'"
               class="cursor-pointer"
               @click="isPwd = !isPwd"
             />
@@ -99,13 +99,13 @@
 
         <q-input
           filled
-          :type="isPwdRepeat? 'password' : 'text'"
+          :type="isPwdRepeat ? 'password' : 'text'"
           v-model.trim="$v.user.passwordRepeat.$model"
           hint="Repita sua Senha"
         >
           <template v-slot:append>
             <q-icon
-              :name="isPwdRepeat? 'visibility_off' : 'visibility'"
+              :name="isPwdRepeat ? 'visibility_off' : 'visibility'"
               class="cursor-pointer"
               @click="isPwdRepeat = !isPwdRepeat"
             />
