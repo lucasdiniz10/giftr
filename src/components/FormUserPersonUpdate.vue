@@ -162,7 +162,7 @@
         <hr />
         <q-btn
           label="Deletar Minha Conta"
-          @click="teste"
+          @click="deleteUser = true"
           color="secondary"
           :disabled="user.submitStatus === 'PENDING'"
         />
@@ -178,6 +178,31 @@
       </p>
       <p class="typo__p" v-if="user.submitStatus === 'PENDING'">Enviando...</p>
     </q-form>
+
+    <!-- dialog box logout -->
+    <q-dialog v-model="deleteUser">
+      <q-card>
+        <q-card-section class="row items-center">
+          <q-avatar
+            icon="sentiment_very_dissatisfied"
+            color="primary"
+            text-color="white"
+          />
+          <span class="q-ml-sm">Você deseja excluir sua conta PERMANENTEMENTE?</span>
+        </q-card-section>
+
+        <q-card-actions align="right">
+          <q-btn label="Cancelar" color="primary" v-close-popup />
+          <q-btn
+            @click="deleterUsuario()"
+            flat
+            label="Sim"
+            color="primary"
+            v-close-popup
+          />
+        </q-card-actions>
+      </q-card>
+    </q-dialog>
   </div>
 </template>
 
@@ -185,7 +210,7 @@
 import { mapActions } from "vuex";
 import { mapState } from "vuex";
 import axios from "axios";
-import store from '../store'
+import store from "../store";
 import {
   required,
   minLength,
@@ -206,6 +231,7 @@ export default {
       isPwd: true,
       isPwdRepeat: true,
       disable: true,
+      deleteUser: false,
     };
   },
 
@@ -256,9 +282,12 @@ export default {
         if (!this.user.password) {
           userUpdated = { nameNew: this.user.name, emailNew: this.user.email };
         } else {
-          userUpdated = { nameNew: this.user.name, emailNew: this.user.emai, passwordNew: this.user.password };
-        } 
-        
+          userUpdated = {
+            nameNew: this.user.name,
+            emailNew: this.user.emai,
+            passwordNew: this.user.password,
+          };
+        }
 
         axios
           .put("http://localhost:3333/users/" + this.user._id, userUpdated)
@@ -266,18 +295,16 @@ export default {
             console.log(res);
             this.ActionSetUser(res.data.user);
             this.ActionSetToken(res.data.token);
-            
           })
           .catch((err) => {
             console.log(err.response.data);
           });
       }
     },
-    teste() {
-      
-      axios.delete("http://localhost:3333/users/delete/" + this.user._id)
-      store.dispatch('auth/ActionSingOut')
-      this.$router.push("/login");
+    deleterUsuario() {
+      axios.delete("http://localhost:3333/users/delete/" + this.user._id);
+      store.dispatch("auth/ActionSingOut");
+      this.$router.push("/");
       console.log("deletou");
     },
   },
