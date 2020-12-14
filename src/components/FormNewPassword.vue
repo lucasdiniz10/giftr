@@ -104,7 +104,7 @@ export default {
         console.log("errou");
       } else {
         // do your submit logic here
-        const url = "http://localhost:3333/users/update/" + this.user.email
+        const url = "http://localhost:3333/users/recovery/" + this.user.email
 
         axios
           .put(url, this.userPass, {

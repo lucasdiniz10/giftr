@@ -13,7 +13,7 @@
           v-model.trim="$v.user.name.$model"
           label="Nome"
           hint="Nome Completo"
-          :disable ="disable"
+          :disable="disable"
           lazy-rules
         />
       </div>
@@ -40,7 +40,7 @@
           v-model.trim="$v.user.email.$model"
           label="Email"
           hint="Seu Melhor Email"
-          :disable ="disable"
+          :disable="disable"
           lazy-rules
         />
       </div>
@@ -61,15 +61,15 @@
       <!-- campo senha -->
       <div
         class="form-group"
-        :class="{ 'form-group--error': $v.user.password.$error }"
+        :class="{ 'form-group--error': $v.userData.password.$error }"
       >
         <q-input
           ref="password"
           filled
           :type="isPwd ? 'password' : 'text'"
-          v-model.trim="$v.user.password.$model"
+          v-model.trim="$v.userData.password.$model"
           hint="Nova Senha"
-          :disable ="disable"
+          :disable="disable"
         >
           <template v-slot:append>
             <q-icon
@@ -82,29 +82,29 @@
       </div>
 
       <!-- validação senha -->
-      <!-- <div class="error" v-if="!$v.user.password.required">
+      <!-- <div class="error" v-if="!$v.userData.password.required">
         Senha é obrigatória.
       </div> -->
-      <div class="error" v-if="!$v.user.password.minLength">
+      <div class="error" v-if="!$v.userData.password.minLength">
         Senha deve ter no mínimo
-        {{ $v.user.password.$params.minLength.min }} letras.
+        {{ $v.userData.password.$params.minLength.min }} letras.
       </div>
-      <div class="error" v-if="!$v.user.password.maxLength">
+      <div class="error" v-if="!$v.userData.password.maxLength">
         Senha deve ter no máximo
-        {{ $v.user.password.$params.maxLength.max }} letras.
+        {{ $v.userData.password.$params.maxLength.max }} letras.
       </div>
 
       <!-- campo repete senha -->
       <div
         class="form-group"
-        :class="{ 'form-group--error': $v.user.passwordRepeat.$error }"
+        :class="{ 'form-group--error': $v.userData.passwordRepeat.$error }"
       >
         <q-input
           filled
           :type="isPwdRepeat ? 'password' : 'text'"
-          v-model.trim="$v.user.passwordRepeat.$model"
+          v-model.trim="$v.userData.passwordRepeat.$model"
           hint="Repita Nova Senha"
-          :disable ="disable"
+          :disable="disable"
         >
           <template v-slot:append>
             <q-icon
@@ -117,20 +117,24 @@
       </div>
 
       <!-- validação repete senha -->
-      <div class="error" v-if="!$v.user.passwordRepeat.sameAsPassword">
+      <div class="error" v-if="!$v.userData.passwordRepeat.sameAsPassword">
         Senha deve ser Igual.
       </div>
-      <div class="error" v-if="!$v.user.passwordRepeat.minLength">
+      <div class="error" v-if="!$v.userData.passwordRepeat.minLength">
         Senha deve ter no mínimo
-        {{ $v.user.passwordRepeat.$params.minLength.min }} letras.
+        {{ $v.userData.passwordRepeat.$params.minLength.min }} letras.
       </div>
-      <div class="error" v-if="!$v.user.passwordRepeat.maxLength">
+      <div class="error" v-if="!$v.userData.passwordRepeat.maxLength">
         Senha deve ter no máximo
-        {{ $v.user.passwordRepeat.$params.maxLength.max }} letras.
+        {{ $v.userData.passwordRepeat.$params.maxLength.max }} letras.
       </div>
 
       <div class="togle-button">
-        <q-toggle id="edit-mode-button" v-model="disable" :label="disable ? 'Modo Leitura' : 'Modo Edição'"/>
+        <q-toggle
+          id="edit-mode-button"
+          v-model="disable"
+          :label="disable ? 'Modo Leitura' : 'Modo Edição'"
+        />
       </div>
 
       <!-- botão -->
@@ -153,13 +157,12 @@
       </p>
       <p class="typo__p" v-if="user.submitStatus === 'PENDING'">Enviando...</p>
 
-
       <!-- botão deletar conta -->
       <div class="button" id="delete-button">
-        <hr>
+        <hr />
         <q-btn
           label="Deletar Minha Conta"
-          type="submit"
+          @click="teste"
           color="secondary"
           :disabled="user.submitStatus === 'PENDING'"
         />
@@ -179,8 +182,8 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
 import { mapState } from "vuex";
-
 import axios from "axios";
 import {
   required,
@@ -194,13 +197,11 @@ export default {
 
   data() {
     return {
-      /* user: {
-        name: "",
-        email: "",
+      userData: {
         password: "",
         passwordRepeat: "",
         submitStatus: null,
-      }, */
+      },
       isPwd: true,
       isPwdRepeat: true,
       disable: true,
@@ -219,6 +220,8 @@ export default {
         minLength: minLength(4),
         maxLength: maxLength(50),
       },
+    },
+    userData: {
       password: {
         minLength: minLength(6),
         maxLength: maxLength(15),
@@ -235,63 +238,42 @@ export default {
     ...mapState("auth", ["user"]),
   },
 
-  created() {
-    axios
-      .get("http://localhost:3333/users/" + this.user._id, this.user, {
-        headers: {},
-      })
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err.response);
-        const getError = err.response.data.error;
-
-        if (getError == "User already exists") {
-          this.user.submitStatus = "ERRORUSER";
-          this.$refs.email.$el.focus();
-          console.log(getError);
-        } else {
-          this.user.submitStatus = "PENDING";
-          setTimeout(() => {
-            this.user.submitStatus = "OK";
-          }, 500);
-        }
-      });
-  },
-
   methods: {
+    ...mapActions("auth", ["ActionSetUser"]),
+    ...mapActions("auth", ["ActionSetToken"]),
     onSubmit() {
       this.$v.$touch();
       if (this.$v.$invalid) {
-        this.user.submitStatus = "ERROR";
         console.log("errou");
       } else {
         // do your submit logic here
+
+        this.user.password = this.userData.password;
+
+        var userUpdated;
+
+        if (!this.user.password) {
+          userUpdated = { nameNew: this.user.name, emailNew: this.user.email };
+        } else {
+          userUpdated = { nameNew: this.user.name, emailNew: this.user.emai, passwordNew: this.user.password };
+        } 
+        
+
         axios
-          .post("http://localhost:3333/users/post", this.user, {
-            headers: {},
-          })
+          .put("http://localhost:3333/users/" + this.user._id, userUpdated)
           .then((res) => {
             console.log(res);
+            this.ActionSetUser(res.data.user);
+            this.ActionSetToken(res.data.token);
             this.$router.push("/user");
           })
           .catch((err) => {
-            console.log(err.response);
-            const getError = err.response.data.error;
-
-            if (getError == "User already exists") {
-              this.user.submitStatus = "ERRORUSER";
-              this.$refs.email.$el.focus();
-              console.log(getError);
-            } else {
-              this.user.submitStatus = "PENDING";
-              setTimeout(() => {
-                this.user.submitStatus = "OK";
-              }, 500);
-            }
+            console.log(err.response.data);
           });
       }
+    },
+    teste() {
+      console.log("deletou");
     },
   },
 };
@@ -315,12 +297,12 @@ export default {
 }
 
 #delete-button {
-  margin-top 2.8rem
+  margin-top: 2.8rem;
 }
 
 @media (max-width: 1024px) {
   button {
-    width 100%
+    width: 100%;
   }
 }
 </style>

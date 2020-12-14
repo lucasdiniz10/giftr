@@ -17,7 +17,8 @@ routes.post('/users/post', UserController.post);
 routes.post('/users/session', SessionController.Session);
 routes.get('/loadSession', authMiddleware, SessionController.LoadSession);
 routes.post('/userCheck', SessionController.userCheck);
-routes.put('/users/update/:email', UserController.put)
+routes.put('/users/recovery/:email', UserController.putRecovery)
+routes.put('/users/:_id', UserController.put)
 routes.delete('/users/delete/:id', UserController.delete)
 
 ////////////////////////////////////////////////////////
