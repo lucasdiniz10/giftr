@@ -191,7 +191,7 @@
       <div class="menu-desktop">
         <!-- botão doar -->
         <q-btn-dropdown flat class="button-desktop" label="Doar">
-          <q-list>
+          <q-list class="button-dropdown-desktop">
             <q-item>
               <q-item-section>
                 <q-item-label>Categorias:</q-item-label>
@@ -372,6 +372,11 @@ export default {
     margin-left: 2rem;
     width: auto;
     height: 0%;
+  }
+
+  .button-dropdown-desktop{
+    font: 700 1.2rem Montserrat;
+    color: var(--color-primary);
   }
 
   #toolbar {
