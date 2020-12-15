@@ -7,13 +7,20 @@
         <q-btn-dropdown flat round dense icon="menu" id="menu-button">
           <q-list class="menu-items">
             <!-- botão doar -->
-            <q-item clickable v-close-popup>
-              <q-item-section>
-                <router-link to="/">
-                  <q-item-label class="label">Doar</q-item-label>
-                </router-link>
-              </q-item-section>
-            </q-item>
+            <q-expansion-item
+              class="label"
+              expand-separator
+              label="Doar"
+            >
+              <q-card>
+                <q-card-section clickable v-close-popup @click="$router.push('/saude')">
+                 Saúde
+                </q-card-section>
+                <q-card-section clickable v-close-popup @click="$router.push('/meio-ambiente')">
+                 Meio Ambiente
+                </q-card-section>
+              </q-card>
+            </q-expansion-item>
 
             <!-- botão quem somos? -->
             <q-item clickable v-close-popup>
@@ -63,12 +70,31 @@
       <!-- menu desktop -->
       <div class="menu-desktop">
         <!-- botão doar -->
-        <q-btn
-          flat
-          class="button-desktop"
-          label="Doar"
-          @click="$router.push('/')"
-        />
+        <q-btn-dropdown flat class="button-desktop" label="Doar">
+          <q-list>
+            <q-item>
+              <q-item-section>
+                <q-item-label>Categorias:</q-item-label>
+              </q-item-section>
+            </q-item>
+            <hr />
+            <q-item clickable v-close-popup @click="$router.push('/saude')">
+              <q-item-section>
+                <q-item-label>Saúde</q-item-label>
+              </q-item-section>
+            </q-item>
+
+            <q-item
+              clickable
+              v-close-popup
+              @click="$router.push('/meio-ambiente')"
+            >
+              <q-item-section>
+                <q-item-label>Meio Ambiente</q-item-label>
+              </q-item-section>
+            </q-item>
+          </q-list>
+        </q-btn-dropdown>
 
         <!-- botão quem somos? -->
         <q-btn
@@ -103,13 +129,20 @@
         <q-btn-dropdown flat round dense icon="menu" id="menu-button">
           <q-list class="menu-items">
             <!-- botão doar -->
-            <q-item clickable v-close-popup>
-              <q-item-section>
-                <router-link to="/">
-                  <q-item-label class="label">Doar</q-item-label>
-                </router-link>
-              </q-item-section>
-            </q-item>
+            <q-expansion-item
+              class="label"
+              expand-separator
+              label="Doar"
+            >
+              <q-card>
+                <q-card-section clickable v-close-popup @click="$router.push('/saude')">
+                 Saúde
+                </q-card-section>
+                <q-card-section clickable v-close-popup @click="$router.push('/meio-ambiente')">
+                 Meio Ambiente
+                </q-card-section>
+              </q-card>
+            </q-expansion-item>
 
             <!-- botão Quem Somos? -->
             <q-item clickable v-close-popup>
@@ -157,12 +190,31 @@
       <!-- menu desktop -->
       <div class="menu-desktop">
         <!-- botão doar -->
-        <q-btn
-          flat
-          class="button-desktop"
-          label="Doar"
-          @click="$router.push('/')"
-        />
+        <q-btn-dropdown flat class="button-desktop" label="Doar">
+          <q-list>
+            <q-item>
+              <q-item-section>
+                <q-item-label>Categorias:</q-item-label>
+              </q-item-section>
+            </q-item>
+            <hr />
+            <q-item clickable v-close-popup @click="$router.push('/saude')">
+              <q-item-section>
+                <q-item-label>Saúde</q-item-label>
+              </q-item-section>
+            </q-item>
+
+            <q-item
+              clickable
+              v-close-popup
+              @click="$router.push('/meio-ambiente')"
+            >
+              <q-item-section>
+                <q-item-label>Meio Ambiente</q-item-label>
+              </q-item-section>
+            </q-item>
+          </q-list>
+        </q-btn-dropdown>
 
         <!-- botão quem somos? -->
         <q-btn
