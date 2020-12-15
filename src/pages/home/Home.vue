@@ -25,7 +25,7 @@
               id="button-donate"
               v-scroll-to="'#cause-title'"
             />
-            <q-btn label="Saiba Mais" class="buttons" id="button-more" />
+            <q-btn label="Saiba Mais" class="buttons" id="button-more" @click="$router.push('/AboutUs')"/>
           </div>
         </div>
       </header>
