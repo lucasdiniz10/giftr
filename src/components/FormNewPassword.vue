@@ -9,13 +9,13 @@
         <q-input
           ref="password"
           filled
-          :type="isPwd? 'password' : 'text'"
+          :type="isPwd ? 'password' : 'text'"
           v-model.trim="$v.userPass.password.$model"
           hint="Nova Senha"
         >
           <template v-slot:append>
             <q-icon
-              :name="isPwd? 'visibility_off' : 'visibility'"
+              :name="isPwd ? 'visibility_off' : 'visibility'"
               class="cursor-pointer"
               @click="isPwd = !isPwd"
             />
@@ -59,7 +59,9 @@
       <p class="typo__p" v-if="userPass.submitStatus === 'ERRORUSER'">
         Usuário incorreto ou não existe.
       </p>
-      <p class="typo__p" v-if="userPass.submitStatus === 'PENDING'">Enviando...</p>
+      <p class="typo__p" v-if="userPass.submitStatus === 'PENDING'">
+        Enviando...
+      </p>
     </q-form>
   </div>
 </template>
@@ -82,7 +84,7 @@ export default {
     };
   },
 
-   computed: {
+  computed: {
     ...mapState("auth", ["user"]),
   },
 
@@ -104,7 +106,8 @@ export default {
         console.log("errou");
       } else {
         // do your submit logic here
-        const url = "http://localhost:3333/users/recovery/" + this.user.email
+        const url =
+          "https://giftrback.herokuapp.com/users/recovery/" + this.user.email;
 
         axios
           .put(url, this.userPass, {

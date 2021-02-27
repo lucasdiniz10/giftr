@@ -89,7 +89,7 @@ export default {
 
   beforeMount() {
     axios
-      .get("http://localhost:3333/Ongs/causeName/MeioAmbiente")
+      .get("https://giftrback.herokuapp.com/Ongs/causeName/MeioAmbiente")
       .then((res) => {
         console.log(res.data.Ongs);
         this.$data.ongs = res.data.Ongs;

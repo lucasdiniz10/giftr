@@ -26,9 +26,9 @@ export const ActionLoadSession = ({ dispatch }, payload) => {
         try {
             const token = payload
             const bearer = 'Bearer' + ' ' + token
-            
+
             axios
-                .get("http://localhost:3333/loadSession", {
+                .get("https://giftrback.herokuapp.com/loadSession", {
                     headers: { authorization: bearer }
                 })
                 .then((res) => {

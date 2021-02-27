@@ -38,13 +38,13 @@
         <q-input
           ref="password"
           filled
-          :type="isPwd? 'password' : 'text'"
+          :type="isPwd ? 'password' : 'text'"
           v-model.trim="$v.user.password.$model"
           hint="Senha"
         >
           <template v-slot:append>
             <q-icon
-              :name="isPwd? 'visibility_off' : 'visibility'"
+              :name="isPwd ? 'visibility_off' : 'visibility'"
               class="cursor-pointer"
               @click="isPwd = !isPwd"
             />
@@ -67,14 +67,19 @@
 
       <!-- botão -->
       <div class="button">
-        <q-btn id="submit-button"
+        <q-btn
+          id="submit-button"
           label="Enviar"
           type="submit"
           color="primary"
           :disabled="user.submitStatus === 'PENDING'"
         />
         <!-- botao recuperar senha -->
-        <a id="password-recovery-button" @click="$router.push('/password-recovery/email-validation')">Esqueceu a Senha?</a>
+        <a
+          id="password-recovery-button"
+          @click="$router.push('/password-recovery/email-validation')"
+          >Esqueceu a Senha?</a
+        >
       </div>
       <p class="typo__p" id="ok" v-if="user.submitStatus === 'OK'">
         Cadastro completo com sucesso!!
@@ -138,7 +143,7 @@ export default {
       } else {
         // do your submit logic here
         axios
-          .post("http://localhost:3333/users/session", this.user, {
+          .post("https://giftrback.herokuapp.com/users/session", this.user, {
             headers: {},
           })
           .then((res) => {
@@ -196,15 +201,15 @@ export default {
 
 .button {
   display: flex;
-  justify-content space-between
-  align-items center
+  justify-content: space-between;
+  align-items: center;
 }
 
 #password-recovery-button {
-  text-decoration underline
+  text-decoration: underline;
   font: 400 1.3rem Montserrat;
   color: var(--color-primary);
-  margin-left 12px
+  margin-left: 12px;
 }
 
 #password-recovery-button:hover {

@@ -94,7 +94,7 @@ export default {
       } else {
         // do your submit logic here
         axios
-          .post("http://localhost:3333/userCheck", this.user, {
+          .post("https://giftrback.herokuapp.com/userCheck", this.user, {
             headers: {},
           })
           .then((res) => {
@@ -105,7 +105,10 @@ export default {
             const codigo = Math.floor(Math.random() * 65536);
 
             const email =
-              "http://localhost:3333/send/" + this.user.email + "/" + codigo;
+              "https://giftrback.herokuapp.com/send/" +
+              this.user.email +
+              "/" +
+              codigo;
 
             this.user.codigo = codigo;
 

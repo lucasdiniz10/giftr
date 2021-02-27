@@ -96,7 +96,6 @@
         class="form-group"
         :class="{ 'form-group--error': $v.user.passwordRepeat.$error }"
       >
-
         <q-input
           filled
           :type="isPwdRepeat ? 'password' : 'text'"
@@ -210,7 +209,7 @@ export default {
       } else {
         // do your submit logic here
         axios
-          .post("http://localhost:3333/users/post", this.user, {
+          .post("https://giftrback.herokuapp.com/users/post", this.user, {
             headers: {},
           })
           .then((res) => {
