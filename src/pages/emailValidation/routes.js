@@ -1,7 +1,7 @@
 export default [
     {
     name: 'emailValidation',
-    path: '/password-recovery/email-validation',
+    path: '/email-validation',
     component: () => import('./EmailValidation')
   }
 ]

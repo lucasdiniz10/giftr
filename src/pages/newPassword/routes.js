@@ -1,7 +1,7 @@
 export default [
     {
     name: 'newPassword',
-    path: '/password-recovery/new-password',
+    path: '/new-password',
     component: () => import('./NewPassword')
   }
 ]
