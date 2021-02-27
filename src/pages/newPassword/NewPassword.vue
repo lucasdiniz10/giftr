@@ -1,17 +1,17 @@
 <template>
-  <div id="email-validation">
+  <div id="new-password">
     <Toolbar :key="keyRerender"/>
     <div class="container">
       <div class="content-container">
         <div class="header-container">
           <header>
-            <h1 id="title">Qual o seu código?</h1>
-            <p>Digite abaixo o código de recuperação, que lhe enviamos no seu email. Caso não tenha recebido, clique no botão "Enviar código novamente".</p>
+            <h1 id="title">Nova Senha</h1>
+            <p>Digite a senha desejada.</p>
           </header>
         </div>
         <div class="main-container">
           <main>
-            <FormVerificationCode />
+            <FormNewPassword />
           </main>
         </div>
       </div>
@@ -20,14 +20,14 @@
 </template>
 
 <script>
-import FormVerificationCode from "../../../components/FormVerificationCode";
-import Toolbar from "../../../components/Toolbar";
+import FormNewPassword from "../../components/FormNewPassword";
+import Toolbar from "../../components/Toolbar.vue";
 
 export default {
-  name: "VerificationCode",
+  name: "NewPassword",
 
   components: {
-    FormVerificationCode,
+    FormNewPassword,
     Toolbar,
   },
 
@@ -45,6 +45,7 @@ export default {
 
   created() {
     this.forceRerender()
+    
   },
 };
 </script>
