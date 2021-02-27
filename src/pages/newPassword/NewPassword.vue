@@ -20,8 +20,8 @@
 </template>
 
 <script>
-import FormNewPassword from "../../../components/FormNewPassword";
-import Toolbar from "../../../components/Toolbar.vue";
+import FormNewPassword from "../../components/FormNewPassword";
+import Toolbar from "../../components/Toolbar.vue";
 
 export default {
   name: "NewPassword",

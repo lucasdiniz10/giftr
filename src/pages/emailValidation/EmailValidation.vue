@@ -20,8 +20,8 @@
 </template>
 
 <script>
-import FormEmailValidation from "../../../components/FormEmailValidation";
-import Toolbar from "../../../components/Toolbar";
+import FormEmailValidation from "../../components/FormEmailValidation";
+import Toolbar from "../../components/Toolbar";
 
 export default {
   name: "EmailValidation",

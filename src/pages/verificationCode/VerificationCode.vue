@@ -20,8 +20,8 @@
 </template>
 
 <script>
-import FormVerificationCode from "../../../components/FormVerificationCode";
-import Toolbar from "../../../components/Toolbar";
+import FormVerificationCode from "../../components/FormVerificationCode";
+import Toolbar from "../../components/Toolbar";
 
 export default {
   name: "VerificationCode",

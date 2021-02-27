@@ -1,7 +1,7 @@
 export default [
     {
     name: 'verificationCode',
-    path: '/verification-code',
+    path: '/password-recovery/verification-code',
     component: () => import('./VerificationCode')
   }
 ]
