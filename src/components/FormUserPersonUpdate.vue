@@ -188,7 +188,9 @@
             color="primary"
             text-color="white"
           />
-          <span class="q-ml-sm">Você deseja excluir sua conta PERMANENTEMENTE?</span>
+          <span class="q-ml-sm"
+            >Você deseja excluir sua conta PERMANENTEMENTE?</span
+          >
         </q-card-section>
 
         <q-card-actions align="right">
@@ -290,7 +292,10 @@ export default {
         }
 
         axios
-          .put("http://localhost:3333/users/" + this.user._id, userUpdated)
+          .put(
+            "https://giftrback.herokuapp.com/users/" + this.user._id,
+            userUpdated
+          )
           .then((res) => {
             console.log(res);
             this.ActionSetUser(res.data.user);
@@ -302,7 +307,9 @@ export default {
       }
     },
     deleterUsuario() {
-      axios.delete("http://localhost:3333/users/delete/" + this.user._id);
+      axios.delete(
+        "https://giftrback.herokuapp.com/users/delete/" + this.user._id
+      );
       store.dispatch("auth/ActionSingOut");
       this.$router.push("/");
       console.log("deletou");

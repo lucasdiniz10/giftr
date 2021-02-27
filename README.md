@@ -1,4 +1,6 @@
 # giftr
+### Front-end project for study purposes.
+<br />
 
 ## Project setup
 ```

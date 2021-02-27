@@ -2,9 +2,7 @@
   <div class="container" id="ongs">
     <div class="title">
       <h1>Instituições:</h1>
-      <div class="filter">
-        
-      </div>
+      <div class="filter"></div>
     </div>
     <div class="cause-container">
       <header class="header-container">
@@ -22,7 +20,7 @@
 
 <script>
 import CardOng from "../../components/CardOng";
-import axios from 'axios';
+import axios from "axios";
 
 export default {
   name: "Ongs",
@@ -33,14 +31,14 @@ export default {
 
   data() {
     return {
-
       ongs: [],
 
       cardOngs: [
         {
           id: 1,
           name: "AACD",
-          description: "Promover a prevenção, habilitação e reabilitação de pessoas com deficiência física, especialmente de crianças, adolescentes e jovens, favorecendo a integração social.",
+          description:
+            "Promover a prevenção, habilitação e reabilitação de pessoas com deficiência física, especialmente de crianças, adolescentes e jovens, favorecendo a integração social.",
           image:
             "https://www.paypal-brasil.com.br/doe/assets/20160120_083447467_accd.jpg",
         },
@@ -53,16 +51,16 @@ export default {
         },
       ],
 
-      cause: []
+      cause: [],
     };
   },
 
-  beforeMount(){
+  beforeMount() {
     axios
-      .get("http://localhost:3333/Ongs")
+      .get("https://giftrback.herokuapp.com/Ongs")
       .then((res) => {
         console.log(res.data.Ongs);
-        this.$data.ongs = res.data.Ongs
+        this.$data.ongs = res.data.Ongs;
       })
       .catch((error) => {
         console.log(error);
@@ -72,22 +70,20 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-
 .title {
-
 }
 
 .title h1 {
   font: 800 3.2rem Montserrat;
   color: var(-color-dark);
   text-align: center;
-  margin-bottom 6.4rem
+  margin-bottom: 6.4rem;
 }
 
 .header-container {
   color: var(-color-dark);
   text-align: center;
-  margin-bottom 3.2rem
+  margin-bottom: 3.2rem;
 }
 
 .header-container h1 {
@@ -96,7 +92,6 @@ export default {
 
 .header-container p {
   font: 400 1.6rem Quicksand;
-  line-height 2.4rem
+  line-height: 2.4rem;
 }
-
 </style>
