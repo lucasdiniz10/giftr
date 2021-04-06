@@ -1,4 +1,11 @@
-lign="center">
+<h1 align="center">Giftr</h1>
+
+<p align="center">
+Um aplicativo web responsivo que reúne várias ONGs em um só lugar, facilitando a vida dos usuários que desejam ajudar algum tipo de Organização Não Governamental. Nele, as ONGs são divididas em categorias e são exibidas as mais confiáveis em cada escopo de atuação.</p>
+
+<p align="center">Em construção :construction:</p>
+
+<p align="center">
   <a href="#tecnologias">Tecnologias</a> • 
   <a href="#license">License</a> <!-- • -->
   <!-- <a href="#art-about-me">About Me</a> -->
