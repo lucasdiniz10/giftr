@@ -1,11 +1,10 @@
 <template>
   <q-layout view="lHh Lpr lFf">
     <q-page-container>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Quicksand:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <!-- <Toolbar /> -->
+      <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Quicksand:wght@400;700&display=swap"
+        rel="stylesheet"
+      />
     </q-page-container>
 
     <q-page-container>
@@ -48,7 +47,8 @@ body {
 .container {
   padding: 0 3.2rem;
   margin: 0 auto;
-  margin-bottom: 6.4rem;  max-width: 720px;
+  margin-bottom: 6.4rem;
+  max-width: 720px;
   justify-content: center;
   font: 400 1.6rem Montserrat;
 }
