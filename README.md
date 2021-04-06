@@ -65,6 +65,7 @@ yarn serve
   <tr>
     <td align="center"><a href="https://github.com/gsenaa"><img src="https://avatars.githubusercontent.com/u/47890401?v=4?s=100" width="100px;" alt=""/><br /><sub><b>gsenaa</b></sub></a><br /><a href="https://github.com/lucasdiniz10/giftr/commits?author=gsenaa" title="Code">💻</a></td>
     <td align="center"><a href="http://linkedin.com/in/lucas-alvarenga-diniz/"><img src="https://avatars.githubusercontent.com/u/47890460?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Lucas Diniz</b></sub></a><br /><a href="#design-lucasdiniz10" title="Design">🎨</a></td>
+    <td align="center"><a href="https://github.com/dannilopires"><img src="https://avatars.githubusercontent.com/u/48629057?v=4?s=100" width="100px;" alt=""/><br /><sub><b>dannilopires</b></sub></a><br /><a href="https://github.com/lucasdiniz10/giftr/commits?author=dannilopires" title="Code">💻</a></td>
   </tr>
 </table>
 
