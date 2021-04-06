@@ -1,10 +1,45 @@
-# giftr
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
-### Front-end project for study purposes.
-<br />
+lign="center">
+  <a href="#tecnologias">Tecnologias</a> • 
+  <a href="#license">License</a> <!-- • -->
+  <!-- <a href="#art-about-me">About Me</a> -->
+</p>
+<br>
 
+<p align="center">
+
+  <kbd>
+    <img width="720" style="border-radius: 5px" src="https://i.imgur.com/jg8PMo3.png" alt="pagina-home-desktop">
+  </kbd>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+
+  <kbd>
+    <img width="720" style="border-radius: 5px" src="https://i.imgur.com/zYCq020.png" alt="pagina-cadastro-desktop">
+  </kbd>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  
+  <kbd>
+    <img width="250" style="border-radius: 5px" src="https://i.imgur.com/dKSOPrG.png" alt="pagina-home-mobile">
+  </kbd>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  
+  <kbd>
+    <img width="250" style="border-radius: 5px" src="https://i.imgur.com/H9Z9pJN.png" alt="pagina-causas-mobile">
+  </kbd>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+
+</p>
+
+# Tecnologias
+
+* [VueJS](https://vuejs.org/)
+* [Quasar](https://quasar.dev/)
+* [Vuex](https://vuex.vuejs.org/)
+* [NodeJS](https://nodejs.org/en/)
+
+<!-- # Contribuidores
+ -->
+
+<!-- 
 ## Project setup
 ```
 yarn install
@@ -13,24 +48,9 @@ yarn install
 ### Compiles and hot-reloads for development
 ```
 yarn serve
-```
+``` -->
 
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
-
-## Contributors ✨
-
-Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+# Contribuidores
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
@@ -47,3 +67,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+
+# License
+
+Projeto feito sobre a [MIT License](license).
+
+[licence]: https://github.com/lucasdiniz10/giftr/blob/master/LICENSE
