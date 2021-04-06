@@ -7,17 +7,17 @@ Um aplicativo web responsivo que reúne várias ONGs em um só lugar, facilitand
 
 <p align="center">
   <a href="#tecnologias">Tecnologias</a> • 
-  <a href="#license">License</a> <!-- • -->
-  <!-- <a href="#art-about-me">About Me</a> -->
+  <a href="#contribuidores">Contribuidores</a> •
+  <a href="#license">License</a>
 </p>
 <br>
 
 <p align="center">
-
   <kbd>
     <img width="720" style="border-radius: 5px; margin: 7px auto" src="https://i.imgur.com/jg8PMo3.png" alt="pagina-home-desktop">
   </kbd>
   &nbsp;&nbsp;&nbsp;&nbsp;
+  
   <kbd>
     <img width="720" style="border-radius: 5px; margin: 7px auto" src="https://i.imgur.com/zYCq020.png" alt="pagina-cadastro-desktop">
   </kbd>
@@ -32,7 +32,6 @@ Um aplicativo web responsivo que reúne várias ONGs em um só lugar, facilitand
     <img width="250" style="border-radius: 5px" src="https://i.imgur.com/H9Z9pJN.png" alt="pagina-causas-mobile">
   </kbd>
   &nbsp;&nbsp;&nbsp;&nbsp;
-
 </p>
 
 # Tecnologias
