@@ -13,6 +13,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "lucasdiniz10",
+      "name": "Lucas Diniz",
+      "avatar_url": "https://avatars.githubusercontent.com/u/47890460?v=4",
+      "profile": "http://linkedin.com/in/lucas-alvarenga-diniz/",
+      "contributions": [
+        "design"
+      ]
     }
   ],
   "contributorsPerLine": 7,
