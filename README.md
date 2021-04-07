@@ -14,12 +14,12 @@ Um aplicativo web responsivo que reúne várias ONGs em um só lugar, facilitand
 
 <p align="center">
   <kbd>
-    <img width="720" style="border-radius: 5px; margin: 3px auto" src="https://i.imgur.com/jg8PMo3.png" alt="pagina-home-desktop">
+    <img width="720" style="border-radius: 5px; margin: 3px auto" src="https://i.imgur.com/WRXxMX9.png" alt="pagina-home-desktop">
   </kbd>
   &nbsp;&nbsp;&nbsp;&nbsp;
   
   <kbd>
-    <img width="720" style="border-radius: 5px; margin: 3px auto" src="https://i.imgur.com/zYCq020.png" alt="pagina-cadastro-desktop">
+    <img width="720" style="border-radius: 5px; margin: 3px auto" src="https://i.imgur.com/scg2FUL.png" alt="pagina-cadastro-desktop">
   </kbd>
   &nbsp;&nbsp;&nbsp;&nbsp;
   
