@@ -1,9 +1,7 @@
 <h1 align="center">Giftr</h1>
 
 <p align="center">
-Um aplicativo web responsivo que reúne várias ONGs em um só lugar, facilitando a vida dos usuários que desejam ajudar algum tipo de Organização Não Governamental. Nele, as ONGs são divididas em categorias e são exibidas as mais confiáveis em cada escopo de atuação. Assista aqui o vídeo de apresentação do projeto.</p>
-
-[![Vídeo Giftr](https://img.youtube.com/vi/bGML-jx1WEA/default.jpg)](https://youtu.be/bGML-jx1WEA)
+Um aplicativo web responsivo que reúne várias ONGs em um só lugar, facilitando a vida dos usuários que desejam ajudar algum tipo de Organização Não Governamental. Nele, as ONGs são divididas em categorias e são exibidas as mais confiáveis em cada escopo de atuação. <a href="https://youtu.be/bGML-jx1WEA" target="_blank">Assista aqui o vídeo de apresentação do projeto.</a></p>
 
 <p align="center">Em construção :construction:</p>
 
